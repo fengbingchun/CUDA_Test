@@ -1,628 +1,628 @@
-#include <mmintrin.h> //MMX  
-#include <xmmintrin.h> //SSE(include mmintrin.h)  
-#include <emmintrin.h> //SSE2(include xmmintrin.h)  
-#include <pmmintrin.h> //SSE3(include emmintrin.h)  
-#include <tmmintrin.h>//SSSE3(include pmmintrin.h)  
-#include <smmintrin.h>//SSE4.1(include tmmintrin.h)  
-#include <nmmintrin.h>//SSE4.2(include smmintrin.h)  
-#include <wmmintrin.h>//AES(include nmmintrin.h)  
-#include <immintrin.h>//AVX(include wmmintrin.h)  
-#include <intrin.h>//(include immintrin.h) 
+ï»¿#include <mmintrin.h> //MMX
+#include <xmmintrin.h> //SSE(include mmintrin.h)
+#include <emmintrin.h> //SSE2(include xmmintrin.h)
+#include <pmmintrin.h> //SSE3(include emmintrin.h)
+#include <tmmintrin.h>//SSSE3(include pmmintrin.h)
+#include <smmintrin.h>//SSE4.1(include tmmintrin.h)
+#include <nmmintrin.h>//SSE4.2(include smmintrin.h)
+#include <wmmintrin.h>//AES(include nmmintrin.h)
+#include <immintrin.h>//AVX(include wmmintrin.h)
+#include <intrin.h>//(include immintrin.h)
 
 void SSE2FUN()
 {
 	/*----Floating-Point Intrinsics Using Streaming SIMD Extension 2 Instructions----*/
-	//Arithmetic Operations(Floating Point):add¡¢sub¡¢mul¡¢div¡¢sqrt¡¢min¡¢max
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0+_B0, r1=_A1
+	//Arithmetic Operations(Floating Point):addã€subã€mulã€divã€sqrtã€minã€max
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0+_B0, r1=_A1
 	extern __m128d _mm_add_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0+_B0, r1=_A1+_B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0+_B0, r1=_A1+_B1
 	extern __m128d _mm_add_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0-_B0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0-_B0, r1=_A1
 	extern __m128d _mm_sub_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0-_B0, r1=_A1-_B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0-_B0, r1=_A1-_B1
 	extern __m128d _mm_sub_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0*_B0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0*_B0, r1=_A1
 	extern __m128d _mm_mul_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0*_B0, r1=_A1*_B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0*_B0, r1=_A1*_B1
 	extern __m128d _mm_mul_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=sqrt(_B0), r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=sqrt(_B0), r1=_A1
 	extern __m128d _mm_sqrt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=sqrt(_A0), r1=sqrt(_A1)
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=sqrt(_A0), r1=sqrt(_A1)
 	extern __m128d _mm_sqrt_pd(__m128d _A);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0/_B0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0/_B0, r1=_A1
 	extern __m128d _mm_div_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0/_B0, r1=_A1/_B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0/_B0, r1=_A1/_B1
 	extern __m128d _mm_div_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=min(_A0,_B0), r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=min(_A0,_B0), r1=_A1
 	extern __m128d _mm_min_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=min(_A0,_B0), r1=min(_A1,_B1)
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=min(_A0,_B0), r1=min(_A1,_B1)
 	extern __m128d _mm_min_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=max(_A0,_B0), r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=max(_A0,_B0), r1=_A1
 	extern __m128d _mm_max_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=max(_A0,_B0), r1=max(_A1,_B1)
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=max(_A0,_B0), r1=max(_A1,_B1)
 	extern __m128d _mm_max_pd(__m128d _A, __m128d _B);
 
-	//Logical Operations(Floating Point SSE2 Intrinsics):and¡¢or¡¢xor¡¢ andnot
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0 & _B0, r1=_A1 & _B1
+	//Logical Operations(Floating Point SSE2 Intrinsics):andã€orã€xorã€ andnot
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0 & _B0, r1=_A1 & _B1
 	extern __m128d _mm_and_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(~_A0) & _B0, r1=(~_A1) & _B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(~_A0) & _B0, r1=(~_A1) & _B1
 	extern __m128d _mm_andnot_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0 | _B0, r1=_A1 | _B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0 | _B0, r1=_A1 | _B1
 	extern __m128d _mm_or_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0 ^ _B0, r1=_A1 ^ _B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0 ^ _B0, r1=_A1 ^ _B1
 	extern __m128d _mm_xor_pd(__m128d _A, __m128d _B);
 
-	//Comparisions:==¡¢<¡¢<=¡¢>¡¢>=¡¢!=
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 == _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//Comparisions:==ã€<ã€<=ã€>ã€>=ã€!=
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 == _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpeq_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 == _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 == _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 == _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpeq_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 < _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 < _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmplt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 < _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 < _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 < _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmplt_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmple_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 <= _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmple_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 > _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 > _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpgt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 > _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 > _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 > _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpgt_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 >= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 >= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpge_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 >= _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 >= _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 >= _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpge_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 != _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 != _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpneq_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 != _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 != _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 != _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpneq_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 < _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 < _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpnlt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 < _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 < _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=!(_A1 < _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpnlt_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpnle_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 <= _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=!(_A1 <= _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpnle_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 > _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 > _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpngt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 > _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 > _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=!(_A1 > _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpngt_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 >= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 >= _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpnge_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=!(_A0 >= _B0) ? 0xffffffffffffffff : 0x0,
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=!(_A0 >= _B0) ? 0xffffffffffffffff : 0x0,
 	//r1=!(_A1 >= _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpnge_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 ord _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 ord _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 ord _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpord_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 ord _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 ord _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpord_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 unord _B0) ? 0xffffffffffffffff : 0x0, 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 unord _B0) ? 0xffffffffffffffff : 0x0, 
 	//r1=(_A1 unord _B1) ? 0xffffffffffffffff : 0x0
 	extern __m128d _mm_cmpunord_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(_A0 unord _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(_A0 unord _B0) ? 0xffffffffffffffff : 0x0, r1=_A1
 	extern __m128d _mm_cmpunord_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 != _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 != _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
 	extern int _mm_comieq_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 < _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 < _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
 	extern int _mm_comilt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 <= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 <= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
 	extern int _mm_comile_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 > _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 > _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
 	extern int _mm_comigt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 >= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 >= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
 	extern int _mm_comige_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 != _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 != _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
 	extern int _mm_comineq_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 == _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 == _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
 	extern int _mm_ucomieq_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 < _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 < _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
 	extern int _mm_ucomilt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 <= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 <= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 1 is returned
 	extern int _mm_ucomile_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 > _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 > _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
 	extern int _mm_ucomigt_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 >= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 >= _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
 	extern int _mm_ucomige_sd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬r=(_A0 != _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,r=(_A0 != _B0) ? 0x1 : 0x0, If _A and _B is a NaN, 0 is returned
 	extern int _mm_ucomineq_sd(__m128d _A, __m128d _B);
 
 	//Conversion Operations
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(dobule)_A0, r1=(double)_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(dobule)_A0, r1=(double)_A1
 	extern __m128d _mm_cvtepi32_pd(__m128i _A);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(int)_A0, r1=(int)_A1, r2=0x0, r3=0x0
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(int)_A0, r1=(int)_A1, r2=0x0, r3=0x0
 	extern __m128i _mm_cvtpd_epi32(__m128d _A);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(int)_A0, r1=(int)_A1, r2=0x0, r3=0x0,using truncate
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(int)_A0, r1=(int)_A1, r2=0x0, r3=0x0,using truncate
 	extern __m128i _mm_cvttpd_epi32(__m128d _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬r0=(flaot)_A0, r1=(float)_A1, r2=(float)_A2, r3=(float)_A3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,r0=(flaot)_A0, r1=(float)_A1, r2=(float)_A2, r3=(float)_A3
 	extern __m128 _mm_cvtepi32_ps(__m128i _A);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(int)_A0, r1=(int)_A1, r2=(int)_A2, r3=(int)_A3
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(int)_A0, r1=(int)_A1, r2=(int)_A2, r3=(int)_A3
 	extern __m128i _mm_cvtps_epi32(__m128 _A);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(int)_A0, r1=(int)_A1, r2=(int)_A2, r3=(int)_A3,using truncate
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(int)_A0, r1=(int)_A1, r2=(int)_A2, r3=(int)_A3,using truncate
 	extern __m128i _mm_cvttps_epi32(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬r0=(flaot)_A0, r1=(float)_A1, r2=0.0, r3=0.0
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,r0=(flaot)_A0, r1=(float)_A1, r2=0.0, r3=0.0
 	extern __m128 _mm_cvtpd_ps(__m128d _A);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(dobule)_A0, r1=(double)_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(dobule)_A0, r1=(double)_A1
 	extern __m128d _mm_cvtps_pd(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬r0=(float)_B0, r1=_B1, r2=_B2, r3=_B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,r0=(float)_B0, r1=_B1, r2=_B2, r3=_B3
 	extern __m128 _mm_cvtsd_ss(__m128 _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(double)_B0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(double)_B0, r1=_A1
 	extern __m128d _mm_cvtss_sd(__m128d _A, __m128 _B);
-	//·µ»ØÒ»¸ö32bitÕûÊı£¬r=(int)_A0
+	//è¿”å›ä¸€ä¸ª32bitæ•´æ•°,r=(int)_A0
 	extern int _mm_cvtsd_si32(__m128d _A);
-	//·µ»ØÒ»¸ö32bitÕûÊı£¬r=(int)_A0,using truncate
+	//è¿”å›ä¸€ä¸ª32bitæ•´æ•°,r=(int)_A0,using truncate
 	extern int _mm_cvttsd_si32(__m128d _A);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(double)_B, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(double)_B, r1=_A1
 	extern __m128d _mm_cvtsi32_sd(__m128d _A, int _B);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬r0=(int)_A0, r1=(int)_A1
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,r0=(int)_A0, r1=(int)_A1
 	extern __m64 _mm_cvtpd_pi32(__m128d _A);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬r0=(int)_A0, r1=(int)_A1,using truncate
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,r0=(int)_A0, r1=(int)_A1,using truncate
 	extern __m64 _mm_cvttpd_pi32(__m128d _A);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=(dobule)_A0, r1=(double)_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=(dobule)_A0, r1=(double)_A1
 	extern __m128d _mm_cvtpi32_pd(__m64 _A);
 
 	//Miscellaneous Operations(Floating-Point SSE2 Intrinsics)
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A1, r1=_B1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A1, r1=_B1
 	extern __m128d _mm_unpackhi_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0, r1=_B0
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0, r1=_B0
 	extern __m128d _mm_unpacklo_pd(__m128d _A, __m128d _B);
-	//·µ»ØÒ»¸ö2bitÕûÊı£¬r=sign(_A1) << 1 | sign(_A0)
+	//è¿”å›ä¸€ä¸ª2bitæ•´æ•°,r=sign(_A1) << 1 | sign(_A0)
 	extern int _mm_movemask_pd(__m128d _A);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬Selects two specific double-precision,
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,Selects two specific double-precision,
 	// floating-point values from _A and _B, based on the mask _I,
 	//The mask must be an immediate
 	extern __m128d _mm_shuffle_pd(__m128d _A, __m128d _B, int _I);
 
 	//Load Operations(Floating-Point SSE2 Intrinsics)
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_Dp[0], r1=_Dp[1], The address _Dp must be 16-byte aligned
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_Dp[0], r1=_Dp[1], The address _Dp must be 16-byte aligned
 	extern __m128d _mm_load_pd(double const*_Dp);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=*_Dp, r1=*_Dp, The address _Dp does not need
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=*_Dp, r1=*_Dp, The address _Dp does not need
 	//to be 16-byte aligned
 	extern __m128d _mm_load1_pd(double const*_Dp);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_Dp[1], r1=_Dp[0], The address _Dp must be 16-byte aligned
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_Dp[1], r1=_Dp[0], The address _Dp must be 16-byte aligned
 	extern __m128d _mm_loadr_pd(double const*_Dp);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_Dp[0], r1=_Dp[1], The address _Dp does not 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_Dp[0], r1=_Dp[1], The address _Dp does not 
 	//need to be 16-byte aligned
 	extern __m128d _mm_loadu_pd(double const*_Dp);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=*_Dp, r1=0.0, The address _Dp does not 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=*_Dp, r1=0.0, The address _Dp does not 
 	//need to be 16-byte aligned
 	extern __m128d _mm_load_sd(double const*_Dp);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A0, r1=*_Dp, The address _Dp does not 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A0, r1=*_Dp, The address _Dp does not 
 	//need to be 16-byte aligned
 	extern __m128d _mm_loadh_pd(__m128d _A, double const*_Dp);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=*_Dp, r1=_A1, The address _Dp does not
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=*_Dp, r1=_A1, The address _Dp does not
 	//need to be 16-byte aligned
 	extern __m128d _mm_loadl_pd(__m128d _A, double const*_Dp);
 
 	//Set Operations(Floating-Point SSE2 Intrinsics)
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_W, r1=0.0
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_W, r1=0.0
 	extern __m128d _mm_set_sd(double _W);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_A, r1=_A
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_A, r1=_A
 	extern __m128d _mm_set1_pd(double _A);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_Y, r1=_Z
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_Y, r1=_Z
 	extern __m128d _mm_set_pd(double _Z, double _Y);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_Y, r1=_Z
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_Y, r1=_Z
 	extern __m128d _mm_setr_pd(double _Y, double _Z);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=0.0, r1=0.0
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=0.0, r1=0.0
 	extern __m128d _mm_setzero_pd(void);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬r0=_B0, r1=_A1
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,r0=_B0, r1=_A1
 	extern __m128d _mm_move_sd(__m128d _A, __m128d _B);
 
 	//Store Operations(Floating-Point SSE2 Intrinsics)
-	//·µ»ØÎª¿Õ£¬*_Dp=_A0, The address _Dp does not need to be 16-byte aligned
+	//è¿”å›ä¸ºç©º,*_Dp=_A0, The address _Dp does not need to be 16-byte aligned
 	extern void _mm_store_sd(double *_Dp, __m128d _A);
-	//·µ»ØÎª¿Õ£¬_Dp[0]=_A0, _Dp[1]=_A0, The address _Dp must be 16-byte aligned
+	//è¿”å›ä¸ºç©º,_Dp[0]=_A0, _Dp[1]=_A0, The address _Dp must be 16-byte aligned
 	extern void _mm_store1_pd(double *_Dp, __m128d _A);
-	//·µ»ØÎª¿Õ£¬_Dp[0]=_A0, _Dp[1]=_A1, The address _Dp must be 16-byte aligned
+	//è¿”å›ä¸ºç©º,_Dp[0]=_A0, _Dp[1]=_A1, The address _Dp must be 16-byte aligned
 	extern void _mm_store_pd(double *_Dp, __m128d _A);
-	//·µ»ØÎª¿Õ£¬_Dp[0]=_A0, _Dp[1]=_A1, The address _Dp does not need to be 16-byte aligned
+	//è¿”å›ä¸ºç©º,_Dp[0]=_A0, _Dp[1]=_A1, The address _Dp does not need to be 16-byte aligned
 	extern void _mm_storeu_pd(double *_Dp, __m128d _A);
-	//·µ»ØÎª¿Õ£¬_Dp[0]=_A1, _Dp[1]=_A0, The address _Dp must be 16-byte aligned
+	//è¿”å›ä¸ºç©º,_Dp[0]=_A1, _Dp[1]=_A0, The address _Dp must be 16-byte aligned
 	extern void _mm_storer_pd(double *_Dp, __m128d _A);
-	//·µ»ØÎª¿Õ£¬*_Dp=_A1
+	//è¿”å›ä¸ºç©º,*_Dp=_A1
 	extern void _mm_storeh_pd(double *_Dp, __m128d _A);
-	//·µ»ØÎª¿Õ£¬*_Dp=_A0
+	//è¿”å›ä¸ºç©º,*_Dp=_A0
 	extern void _mm_storel_pd(double *_Dp, __m128d _A);
 
 	//new convert to float
-	//·µ»ØÒ»¸ö64bit doubleÀàĞÍ£¬r=_A0, Extracts the lower order floating point value
+	//è¿”å›ä¸€ä¸ª64bit doubleç±»å‹,r=_A0, Extracts the lower order floating point value
 	extern double _mm_cvtsd_f64(__m128d _A);
 
 	//Cache Support for Streaming SIMD Extensions 2 Floating-Point Operations
-	//·µ»ØÎª¿Õ£¬_Dp[0]=_A0, _Dp[1]=_A1, Stores the data in _A to the address _Dp without
+	//è¿”å›ä¸ºç©º,_Dp[0]=_A0, _Dp[1]=_A1, Stores the data in _A to the address _Dp without
 	//polluting caches. The address _Dp must be 16-byte aligned. If the cache line 
 	//containing address _Dp is already in the cache, the cache will be updated
 	extern void _mm_stream_pd(double *_Dp, __m128d _A);
 
 	/*------------Integer Intrinsics Using Streaming SIMD Extensions 2-------------*/
-	//Arithmetic Operations(Integer SSE2 Intrinsics):add¡¢sub¡¢mul¡¢avg¡¢min¡¢max
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0+_B0, r1=_A1+_B1, ... r15=_A15+_B15
+	//Arithmetic Operations(Integer SSE2 Intrinsics):addã€subã€mulã€avgã€minã€max
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0+_B0, r1=_A1+_B1, ... r15=_A15+_B15
 	extern __m128i _mm_add_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«_AºÍ_BÖĞ¶ÔÓ¦Î»ÖÃµÄ16bitÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊı·Ö±ğÏà¼Ó£¬
-	//¼´ri=_Ai+_Bi(r0=_A0+_B0, r1=_A1+_B1, ... r7=_A7+_B7)
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†_Aå’Œ_Bä¸­å¯¹åº”ä½ç½®çš„16bitæœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°åˆ†åˆ«ç›¸åŠ ,
+	//å³ri=_Ai+_Bi(r0=_A0+_B0, r1=_A1+_B1, ... r7=_A7+_B7)
 	extern __m128i _mm_add_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0+_B0, r1=_A1+_B1, r2=_A2+_B2, r3=_A3+_B3
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0+_B0, r1=_A1+_B1, r2=_A2+_B2, r3=_A3+_B3
 	extern __m128i _mm_add_epi32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬r=_A+_B
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,r=_A+_B
 	extern __m64 _mm_add_si64(__m64 _A, __m64 _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0+_B0, r1=_A1+_B1
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0+_B0, r1=_A1+_B1
 	extern __m128i _mm_add_epi64(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=SignedSaturate(_A0+_B0), r1=SignedSaturate(_A1+_B1), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=SignedSaturate(_A0+_B0), r1=SignedSaturate(_A1+_B1), ... 
 	//r15=SignedSaturate(_A15+_B15), saturates
 	extern __m128i _mm_adds_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«_AºÍ_BÖĞ¶ÔÓ¦Î»ÖÃµÄ16bitÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊı·Ö±ğÏà¼Ó£¬
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†_Aå’Œ_Bä¸­å¯¹åº”ä½ç½®çš„16bitæœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°åˆ†åˆ«ç›¸åŠ ,
 	//r0=SignedSaturate(_A0+_B0), r1=SignedSaturate(_A1+_B1), ... 
-	//r7=SignedSaturate(_A7+_B7), µ±¼ÆËã½á¹ûÒç³öÊ±½«ÆäÖÃÎª±ß½çÖµ(saturates)
+	//r7=SignedSaturate(_A7+_B7), å½“è®¡ç®—ç»“æœæº¢å‡ºæ—¶å°†å…¶ç½®ä¸ºè¾¹ç•Œå€¼(saturates)
 	extern __m128i _mm_adds_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=UnsignedSaturate(_A0+_B0), r1=UnsignedSaturate(_A1+_B1), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=UnsignedSaturate(_A0+_B0), r1=UnsignedSaturate(_A1+_B1), ... 
 	//r15=UnsignedSaturate(_A15+_B15), saturates
 	extern __m128i _mm_adds_epu8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=UnsignedSaturate(_A0+_B0), r1=UnsignedSaturate(_A1+_B1), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=UnsignedSaturate(_A0+_B0), r1=UnsignedSaturate(_A1+_B1), ... 
 	//r7=UnsignedSaturate(_A7+_B7), saturates
 	extern __m128i _mm_adds_epu16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0+_B0)/2, r1=(_A1+_B1)/2, ... r15=(_A15+_B15)/2, rounds
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0+_B0)/2, r1=(_A1+_B1)/2, ... r15=(_A15+_B15)/2, rounds
 	extern __m128i _mm_avg_epu8(__m128i _A, __m128i _B); 
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«_AºÍ_BÖĞ¶ÔÓ¦Î»ÖÃµÄ16bitÎŞ·ûºÅÕûÊıÈ¡Æ½¾ù£¬
-	//¼´ri=(_Ai+_Bi)/2(r0=(_A0+_B0)/2, r1=(_A1+_B1)/2, ... r7=(_A7+_B7)/2), rounds
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†_Aå’Œ_Bä¸­å¯¹åº”ä½ç½®çš„16bitæ— ç¬¦å·æ•´æ•°å–å¹³å‡,
+	//å³ri=(_Ai+_Bi)/2(r0=(_A0+_B0)/2, r1=(_A1+_B1)/2, ... r7=(_A7+_B7)/2), rounds
 	extern __m128i _mm_avg_epu16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëüº¬ÓĞ4¸öÓĞ·ûºÅ»òÎŞ·ûºÅ32bitµÄÕûÊı£¬
-	//·Ö±ğÂú×ã£ºr0=(_A0*_B0)+(_A1*_B1), r1=(_A2*_B2)+(_A3*_B3), 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå«æœ‰4ä¸ªæœ‰ç¬¦å·æˆ–æ— ç¬¦å·32bitçš„æ•´æ•°,
+	//åˆ†åˆ«æ»¡è¶³ï¼šr0=(_A0*_B0)+(_A1*_B1), r1=(_A2*_B2)+(_A3*_B3), 
 	//r2=(_A4*_B4)+(_A5*_B5), r3=(_A6*_B6)+(_A7*_B7)
 	extern __m128i _mm_madd_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬È¡_AºÍ_BÖĞ¶ÔÓ¦Î»ÖÃµÄ16bitÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊıµÄ×î´óÖµ£¬
-	//¼´ri=max(_Ai,_Bi) (r0=max(_A0,_B1), r1=max(_A1,_B1), ... r7=max(_A7,_B7))
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å–_Aå’Œ_Bä¸­å¯¹åº”ä½ç½®çš„16bitæœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°çš„æœ€å¤§å€¼,
+	//å³ri=max(_Ai,_Bi) (r0=max(_A0,_B1), r1=max(_A1,_B1), ... r7=max(_A7,_B7))
 	extern __m128i _mm_max_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=max(_A0,_B1), r1=max(_A1,_B1), ... r15=max(_A15,_B15)
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=max(_A0,_B1), r1=max(_A1,_B1), ... r15=max(_A15,_B15)
 	extern __m128i _mm_max_epu8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬È¡_AºÍ_BÖĞ¶ÔÓ¦Î»ÖÃµÄ16bitÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊıµÄ×îĞ¡Öµ£¬
-	//¼´ri=min(_Ai, _Bi)(r0=min(_A0,_B1), r1=min(_A1,_B1), ... r7=min(_A7,_B7))
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å–_Aå’Œ_Bä¸­å¯¹åº”ä½ç½®çš„16bitæœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°çš„æœ€å°å€¼,
+	//å³ri=min(_Ai, _Bi)(r0=min(_A0,_B1), r1=min(_A1,_B1), ... r7=min(_A7,_B7))
 	extern __m128i _mm_min_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=min(_A0,_B1), r1=min(_A1,_B1), ... r15=min(_A15,_B15)
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=min(_A0,_B1), r1=min(_A1,_B1), ... r15=min(_A15,_B15)
 	extern __m128i _mm_min_epu8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëüº¬8¸öÓĞ·ûºÅ»òÎŞ·ûºÅ16bitµÄÕûÊı£¬·Ö±ğÎª_AºÍ_B¶ÔÓ¦Î»ÖÃµÄ16bit
-	//ÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊıÏà³Ë½á¹ûµÄ¸ß16bitÊı¾İ£¬¼´ri=(_Ai*_Bi)[31:16](r0=(_A0*_B0)[31:16], 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå«8ä¸ªæœ‰ç¬¦å·æˆ–æ— ç¬¦å·16bitçš„æ•´æ•°,åˆ†åˆ«ä¸º_Aå’Œ_Bå¯¹åº”ä½ç½®çš„16bit
+	//æœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°ç›¸ä¹˜ç»“æœçš„é«˜16bitæ•°æ®,å³ri=(_Ai*_Bi)[31:16](r0=(_A0*_B0)[31:16], 
 	//r1=(_A1*_B1)[31:16] ... r7=(_A7*_B7)[31:16])
 	extern __m128i _mm_mulhi_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0*_B0)[31:16], r1=(_A1*_B1)[31:16] ... r7=(_A7*_B7)[31:16]
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0*_B0)[31:16], r1=(_A1*_B1)[31:16] ... r7=(_A7*_B7)[31:16]
 	extern __m128i _mm_mulhi_epu16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëüº¬8¸öÓĞ·ûºÅ»òÎŞ·ûºÅ16bitµÄÕûÊı£¬·Ö±ğÎª_AºÍ_B¶ÔÓ¦Î»ÖÃµÄ16bit
-	//ÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊıÏà³Ë½á¹ûµÄµÍ16bitÊı¾İ£¬¼´ri=(_Ai*_Bi)[15:0](r0=(_A0*_B0)[15:0], 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå«8ä¸ªæœ‰ç¬¦å·æˆ–æ— ç¬¦å·16bitçš„æ•´æ•°,åˆ†åˆ«ä¸º_Aå’Œ_Bå¯¹åº”ä½ç½®çš„16bit
+	//æœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°ç›¸ä¹˜ç»“æœçš„ä½16bitæ•°æ®,å³ri=(_Ai*_Bi)[15:0](r0=(_A0*_B0)[15:0], 
 	//r1=(_A1*_B1)[15:0] ... r7=(_A7*_B7)[15:0])
 	extern __m128i _mm_mullo_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬r=_A0*_B0
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,r=_A0*_B0
 	extern __m64 _mm_mul_su32(__m64 _A, __m64 _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0*_B0, r1=_A2*_B2
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0*_B0, r1=_A2*_B2
 	extern __m128i _mm_mul_epu32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=abs(_A0-_B0) + abs(_A1-_B1) + ... + abs(_A7-_B7), 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=abs(_A0-_B0) + abs(_A1-_B1) + ... + abs(_A7-_B7), 
 	//r1=0x0,r2=0x0, r3=0x0, r4=abs(_A8-_B8) + abs(_A9-_B9) + ... + abs(_A15-_B15), 
 	//r5=0x0, r6=0x0, r7=0x0
 	extern __m128i _mm_sad_epu8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0-_B0, r1=_A1-_B1, ... r15=_A15-_B15
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0-_B0, r1=_A1-_B1, ... r15=_A15-_B15
 	extern __m128i _mm_sub_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«_AºÍ_BÖĞ¶ÔÓ¦Î»ÖÃµÄ16bitÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊı·Ö±ğÏà¼õ£¬
-	//¼´ri=_Ai-_Bi(r0=_A0-_B0, r1=_A1-_B1, ... r7=_A7-_B7)
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†_Aå’Œ_Bä¸­å¯¹åº”ä½ç½®çš„16bitæœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°åˆ†åˆ«ç›¸å‡,
+	//å³ri=_Ai-_Bi(r0=_A0-_B0, r1=_A1-_B1, ... r7=_A7-_B7)
 	extern __m128i _mm_sub_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0-_B0, r1=_A1-_B1, r2=_A2-_B2, r3=_A3-_B3
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0-_B0, r1=_A1-_B1, r2=_A2-_B2, r3=_A3-_B3
 	extern __m128i _mm_sub_epi32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬r=_A-_B
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,r=_A-_B
 	extern __m64 _mm_sub_si64(__m64 _A, __m64 _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0-_B0, r1=_A1-_B1
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0-_B0, r1=_A1-_B1
 	extern __m128i _mm_sub_epi64(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=SignedSaturate(_A0-_B0), r1=SignedSaturate(_A1-_B1), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=SignedSaturate(_A0-_B0), r1=SignedSaturate(_A1-_B1), ... 
 	//r15=SignedSaturate(_A15-_B15), saturate
 	extern __m128i _mm_subs_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«_AºÍ_BÖĞ¶ÔÓ¦Î»ÖÃµÄ16bitÓĞ·ûºÅ»òÎŞ·ûºÅÕûÊı·Ö±ğÏà¼õ£¬
-	//µ±¼ÆËã½á¹ûÒç³öÊ±½«ÆäÖÃÎª±ß½çÖµ(saturate), r0=SignedSaturate(_A0-_B0), 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†_Aå’Œ_Bä¸­å¯¹åº”ä½ç½®çš„16bitæœ‰ç¬¦å·æˆ–æ— ç¬¦å·æ•´æ•°åˆ†åˆ«ç›¸å‡,
+	//å½“è®¡ç®—ç»“æœæº¢å‡ºæ—¶å°†å…¶ç½®ä¸ºè¾¹ç•Œå€¼(saturate), r0=SignedSaturate(_A0-_B0), 
 	//r1=SignedSaturate(_A1-_B1), ... r7=SignedSaturate(_A7-_B7)
 	extern __m128i _mm_subs_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=UnsignedSaturate(_A0-_B0), r1=UnsignedSaturate(_A1-_B1), ...
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=UnsignedSaturate(_A0-_B0), r1=UnsignedSaturate(_A1-_B1), ...
 	//r15=UnsignedSaturate(_A15-_B15), saturate
 	extern __m128i _mm_subs_epu8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=UnsignedSaturate(_A0-_B0), r1=UnsignedSaturate(_A1-_B1), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=UnsignedSaturate(_A0-_B0), r1=UnsignedSaturate(_A1-_B1), ... 
 	//r15=UnsignedSaturate(_A7-_B7), saturate
 	extern __m128i _mm_subs_epu16(__m128i _A, __m128i _B);
 
-	//Logical Operations(Integer SSE2 Intrinsics):and¡¢or¡¢xor¡¢andnot
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄ¶ÔÓ¦Î»½øĞĞ°´Î»ÓëÔËËã, r=_A & _B
+	//Logical Operations(Integer SSE2 Intrinsics):andã€orã€xorã€andnot
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„å¯¹åº”ä½è¿›è¡ŒæŒ‰ä½ä¸è¿ç®—, r=_A & _B
 	extern __m128i _mm_and_si128(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÃ¿Ò»Î»È¡·Ç£¬È»ºóºÍ¼Ä´æÆ÷_BµÄÃ¿Ò»Î»½øĞĞ°´Î»ÓëÔËËã,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aæ¯ä¸€ä½å–é,ç„¶åå’Œå¯„å­˜å™¨_Bçš„æ¯ä¸€ä½è¿›è¡ŒæŒ‰ä½ä¸è¿ç®—,
 	//r=(~_A) & _B
 	extern __m128i _mm_andnot_si128(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄ¶ÔÓ¦Î»½øĞĞ°´Î»»òÔËËã, r=_A | _B
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„å¯¹åº”ä½è¿›è¡ŒæŒ‰ä½æˆ–è¿ç®—, r=_A | _B
 	extern __m128i _mm_or_si128(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄ¶ÔÓ¦Î»½øĞĞ°´Î»Òì»òÔËËã, r=_A ^ _B
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„å¯¹åº”ä½è¿›è¡ŒæŒ‰ä½å¼‚æˆ–è¿ç®—, r=_A ^ _B
 	extern __m128i _mm_xor_si128(__m128i _A, __m128i _B);
 
 	//Shift Operations
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r=_A << (_Imm * 8),  _Imm must be an immediate,  
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r=_A << (_Imm * 8),  _Imm must be an immediate,  
 	//shifting in zeros
 	extern __m128i _mm_slli_si128(__m128i _A, int _Imm);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞµÄ8¸ö16bitÕûÊı°´ÕÕ_Count½øĞĞÏàÍ¬µÄÂß¼­×óÒÆ,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­çš„8ä¸ª16bitæ•´æ•°æŒ‰ç…§_Countè¿›è¡Œç›¸åŒçš„é€»è¾‘å·¦ç§»,
 	//r0=_A0 << _Count, r1=_A1 << _Count, ... r7=_A7 << count,  shifting in zeros
 	extern __m128i _mm_slli_epi16(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞµÄ8¸ö16bitÕûÊı°´ÕÕ_Count¼Ä´æÆ÷ÖĞ¶ÔÓ¦Î»ÖÃµÄÕûÊı
-	//½øĞĞÂß¼­×óÒÆ, r0=_A0 << _Count, r1=_A1 << _Count, ... r7=_A7 << count,  shifting in zeros
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­çš„8ä¸ª16bitæ•´æ•°æŒ‰ç…§_Countå¯„å­˜å™¨ä¸­å¯¹åº”ä½ç½®çš„æ•´æ•°
+	//è¿›è¡Œé€»è¾‘å·¦ç§», r0=_A0 << _Count, r1=_A1 << _Count, ... r7=_A7 << count,  shifting in zeros
 	extern __m128i _mm_sll_epi16(__m128i _A, __m128i _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0 << _Count, r1=_A1 << _Count, r2=_A2 << count, 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0 << _Count, r1=_A1 << _Count, r2=_A2 << count, 
 	//r3=_A3 << count,  shifting in zeros
 	extern __m128i _mm_slli_epi32(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0 << _Count, r1=_A1 << _Count, r2=_A2 << count, 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0 << _Count, r1=_A1 << _Count, r2=_A2 << count, 
 	//r3=_A3 << count,  shifting in zeros
 	extern __m128i _mm_sll_epi32(__m128i _A, __m128i _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0 << _Count, r1=_A1 << _Count,  shifting in zeros
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0 << _Count, r1=_A1 << _Count,  shifting in zeros
 	extern __m128i _mm_slli_epi64(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0 << _Count, r1=_A1 << _Count,  shifting in zeros
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0 << _Count, r1=_A1 << _Count,  shifting in zeros
 	extern __m128i _mm_sll_epi64(__m128i _A, __m128i _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞµÄ8¸ö16bitÕûÊı°´ÕÕ_Count½øĞĞÏàÍ¬µÄËãÊõÓÒÒÆ,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­çš„8ä¸ª16bitæ•´æ•°æŒ‰ç…§_Countè¿›è¡Œç›¸åŒçš„ç®—æœ¯å³ç§»,
 	//r0=_A0 >> _Count, r1=_A1 >> _Count, ... r7=_A7 >> count,  shifting in the sign bit
 	extern __m128i _mm_srai_epi16(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞµÄ8¸ö16bitÕûÊı°´ÕÕ_Count¼Ä´æÆ÷ÖĞ¶ÔÓ¦Î»ÖÃµÄÕûÊı½øĞĞ
-	//ËãÊõÓÒÒÆ,r0=_A0 >> _Count, r1=_A1 >> _Count, ... r7=_A7 >> count,  shifting in the sign bit
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­çš„8ä¸ª16bitæ•´æ•°æŒ‰ç…§_Countå¯„å­˜å™¨ä¸­å¯¹åº”ä½ç½®çš„æ•´æ•°è¿›è¡Œ
+	//ç®—æœ¯å³ç§»,r0=_A0 >> _Count, r1=_A1 >> _Count, ... r7=_A7 >> count,  shifting in the sign bit
 	extern __m128i _mm_sra_epi16(__m128i _A, __m128i _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0 >> _Count, r1=_A1 >> _Count, r3=_A3 >> count, 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0 >> _Count, r1=_A1 >> _Count, r3=_A3 >> count, 
 	//r4=_A4 >> count,  shifting in the sign bit
 	extern __m128i _mm_srai_epi32(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0 >> _Count, r1=_A1 >> _Count, r3=_A3 >> count,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0 >> _Count, r1=_A1 >> _Count, r3=_A3 >> count,
 	//r4=_A4 >> count,  shifting in the sign bit
 	extern __m128i _mm_sra_epi32(__m128i _A, __m128i _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r=srl(_A, _Imm * 8),   _Imm must be an immediate,  
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r=srl(_A, _Imm * 8),   _Imm must be an immediate,  
 	//shifting in zeros
 	extern __m128i _mm_srli_si128(__m128i _A, int _Imm);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞµÄ8¸ö16bitÕûÊı°´ÕÕ_Count½øĞĞÏàÍ¬µÄÂß¼­ÓÒÒÆ£¬
-	//ÒÆÎ»Ìî³äÖµÎª0,r0=srl(_A0, _Count), r1=srl(_A1, _Count), ... r7=srl(_A7, _Count), 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­çš„8ä¸ª16bitæ•´æ•°æŒ‰ç…§_Countè¿›è¡Œç›¸åŒçš„é€»è¾‘å³ç§»,
+	//ç§»ä½å¡«å……å€¼ä¸º0,r0=srl(_A0, _Count), r1=srl(_A1, _Count), ... r7=srl(_A7, _Count), 
 	//shifting in zeros
 	extern __m128i _mm_srli_epi16(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞµÄ8¸ö16bitÕûÊı°´ÕÕ_Count¼Ä´æÆ÷ÖĞ¶ÔÓ¦Î»ÖÃµÄÕûÊı
-	//½øĞĞÂß¼­ÓÒÒÆ£¬ÒÆÎ»Ìî³äÖµÎª0, r0=srl(_A0, _Count), r1=srl(_A1, _Count), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­çš„8ä¸ª16bitæ•´æ•°æŒ‰ç…§_Countå¯„å­˜å™¨ä¸­å¯¹åº”ä½ç½®çš„æ•´æ•°
+	//è¿›è¡Œé€»è¾‘å³ç§»,ç§»ä½å¡«å……å€¼ä¸º0, r0=srl(_A0, _Count), r1=srl(_A1, _Count), ... 
 	//r7=srl(_A7, _Count),  shifting in zeros
 	extern __m128i _mm_srl_epi16(__m128i _A, __m128i _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=srl(_A0, _Count), r1=srl(_A1, _Count), r2=srl(_A2, _Count),
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=srl(_A0, _Count), r1=srl(_A1, _Count), r2=srl(_A2, _Count),
 	//r3=srl(_A3, _Count),  shifting in zeros
 	extern __m128i _mm_srli_epi32(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=srl(_A0, _Count), r1=srl(_A1, _Count), r2=srl(_A2, _Count),
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=srl(_A0, _Count), r1=srl(_A1, _Count), r2=srl(_A2, _Count),
 	//r3=srl(_A3, _Count),  shifting in zeros
 	extern __m128i _mm_srl_epi32(__m128i _A, __m128i _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=srl(_A0, _Count), r1=srl(_A1, _Count), shifting in zeros
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=srl(_A0, _Count), r1=srl(_A1, _Count), shifting in zeros
 	extern __m128i _mm_srli_epi64(__m128i _A, int _Count);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=srl(_A0, _Count), r1=srl(_A1, _Count), shifting in zeros
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=srl(_A0, _Count), r1=srl(_A1, _Count), shifting in zeros
 	extern __m128i _mm_srl_epi64(__m128i _A, __m128i _Count);
 
-	//Comparison Intrinsics(SSE2):==¡¢>¡¢<
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0 == _B0) ? 0xff : 0x00, 
+	//Comparison Intrinsics(SSE2):==ã€>ã€<
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0 == _B0) ? 0xff : 0x00, 
 	//r1=(_A1 == _B1) ? 0xff : 0x0, ... r15=(_A15 == _B15) ? 0xff : 0x0
 	extern __m128i _mm_cmpeq_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬·Ö±ğ±È½Ï¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_B¶ÔÓ¦Î»ÖÃ16bitÕûÊıÊÇ·ñÏàµÈ£¬ÈôÏàµÈ£¬
-	//¸ÃÎ»ÖÃ·µ»Ø0xffff£¬·ñÔò·µ»Ø0x0£¬¼´ri=(_Ai==_Bi)?0xffff:0x0(r0=(_A0 == _B0) ? 0xffff : 0x00, 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,åˆ†åˆ«æ¯”è¾ƒå¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bå¯¹åº”ä½ç½®16bitæ•´æ•°æ˜¯å¦ç›¸ç­‰,è‹¥ç›¸ç­‰,
+	//è¯¥ä½ç½®è¿”å›0xffff,å¦åˆ™è¿”å›0x0,å³ri=(_Ai==_Bi)?0xffff:0x0(r0=(_A0 == _B0) ? 0xffff : 0x00, 
 	//r1=(_A1 == _B1) ? 0xffff : 0x0, ... r7=(_A7 == _B7) ? 0xffff : 0x0)
 	extern __m128i _mm_cmpeq_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0 == _B0) ? 0xffffffff : 0x00, 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0 == _B0) ? 0xffffffff : 0x00, 
 	//r1=(_A1 == _B1) ? 0xffffffff : 0x0,
 	//r2=(_A2 == _B2) ? 0xffffffff : 0x0, r3=(_A3 == _B3) ? 0xffffffff : 0x0
 	extern __m128i _mm_cmpeq_epi32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0 > _B0) ? 0xff : 0x00, r1=(_A1 > _B1) ? 0xff : 0x0, ...
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0 > _B0) ? 0xff : 0x00, r1=(_A1 > _B1) ? 0xff : 0x0, ...
 	//r15=(_A15 > _B15) ? 0xff : 0x0
 	extern __m128i _mm_cmpgt_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬·Ö±ğ±È½Ï¼Ä´æÆ÷_AµÄÃ¿¸ö16bitÕûÊıÊÇ·ñ´óÓÚ¼Ä´æÆ÷_B¶ÔÓ¦Î»ÖÃ16bitµÄÕûÊı£¬
-	//Èô´óÓÚ£¬¸ÃÎ»ÖÃ·µ»Ø0xffff£¬·ñÔò·µ»Ø0x0£¬
-	//¼´ri=(_Ai>_Bi)?0xffff:0x0(r0=(_A0 > _B0) ? 0xffff : 0x00, 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,åˆ†åˆ«æ¯”è¾ƒå¯„å­˜å™¨_Açš„æ¯ä¸ª16bitæ•´æ•°æ˜¯å¦å¤§äºå¯„å­˜å™¨_Bå¯¹åº”ä½ç½®16bitçš„æ•´æ•°,
+	//è‹¥å¤§äº,è¯¥ä½ç½®è¿”å›0xffff,å¦åˆ™è¿”å›0x0,
+	//å³ri=(_Ai>_Bi)?0xffff:0x0(r0=(_A0 > _B0) ? 0xffff : 0x00, 
 	//r1=(_A1 > _B1) ? 0xffff : 0x0, ... r7=(_A7 > _B7) ? 0xffff : 0x0)
 	extern __m128i _mm_cmpgt_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0 > _B0) ? 0xffffffff : 0x00,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0 > _B0) ? 0xffffffff : 0x00,
 	//r1=(_A1 > _B1) ? 0xffffffff : 0x0,
 	//r2=(_A2 > _B2) ? 0xffffffff : 0x0, r3=(_A3 > _B3) ? 0xffffffff : 0x0
 	extern __m128i _mm_cmpgt_epi32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0 < _B0) ? 0xff : 0x00, r1=(_A1 < _B1) ? 0xff : 0x0, ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0 < _B0) ? 0xff : 0x00, r1=(_A1 < _B1) ? 0xff : 0x0, ... 
 	//r15=(_A15 < _B15) ? 0xff : 0x0
 	extern __m128i _mm_cmplt_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬·Ö±ğ±È½Ï¼Ä´æÆ÷_AµÄÃ¿¸ö16bitÕûÊıÊÇ·ñĞ¡ÓÚ¼Ä´æÆ÷_B¶ÔÓ¦Î»ÖÃ16bitÕûÊı£¬
-	//ÈôĞ¡ÓÚ£¬¸ÃÎ»ÖÃ·µ»Ø0xffff£¬·ñÔò·µ»Ø0x0£¬
-	//¼´ri=(_Ai<_Bi)?0xffff:0x0(r0=(_A0 < _B0) ? 0xffff : 0x00, 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,åˆ†åˆ«æ¯”è¾ƒå¯„å­˜å™¨_Açš„æ¯ä¸ª16bitæ•´æ•°æ˜¯å¦å°äºå¯„å­˜å™¨_Bå¯¹åº”ä½ç½®16bitæ•´æ•°,
+	//è‹¥å°äº,è¯¥ä½ç½®è¿”å›0xffff,å¦åˆ™è¿”å›0x0,
+	//å³ri=(_Ai<_Bi)?0xffff:0x0(r0=(_A0 < _B0) ? 0xffff : 0x00, 
 	//r1=(_A1 < _B1) ? 0xffff : 0x0, ... r7=(_A7 < _B7) ? 0xffff : 0x0)
 	extern __m128i _mm_cmplt_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=(_A0 < _B0) ? 0xffffffff : 0x00,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=(_A0 < _B0) ? 0xffffffff : 0x00,
 	//r1=(_A1 < _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 < _B2) ? 0xffffffff : 0x0, r3=(_A3 < _B3) ? 0xffffffff : 0x0
 	extern __m128i _mm_cmplt_epi32(__m128i _A, __m128i _B);
 
 	//Conversion Intrinsics: int <-----> __m128i
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A, r1=0x0, r2=0x0, r3=0x0
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A, r1=0x0, r2=0x0, r3=0x0
 	extern __m128i _mm_cvtsi32_si128(int _A);
-	//·µ»ØÒ»¸ö32bitÕûÊı£¬r=_A0
+	//è¿”å›ä¸€ä¸ª32bitæ•´æ•°,r=_A0
 	extern int _mm_cvtsi128_si32(__m128i _A);
 
 	//Miscellaneous Operations(Integer SSE2 Intrinsics)
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=SignedSaturate(_A0), r1=SignedSaturate(_A1), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=SignedSaturate(_A0), r1=SignedSaturate(_A1), ... 
 	//r7=SignedSaturate(_A7), r8=SignedSaturate(_B0), r9=SignedSaturate(_B1), ... 
 	//r15=SignedSaturate(_B7),  saturate
 	extern __m128i _mm_packs_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=SignedSaturate(_A0), r1=SignedSaturate(_A1), 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=SignedSaturate(_A0), r1=SignedSaturate(_A1), 
 	//r2=SignedSaturate(_A2),r3=SignedSaturate(_A3), r4=SignedSaturate(_B0), 
 	//r5=SignedSaturate(_B1), r6=SignedSaturate(_B2), r7=SignedSaturate(_B3),  saturate
 	extern __m128i _mm_packs_epi32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=UnsignedSaturate(_A0), r1=UnsignedSaturate(_A1), ... 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=UnsignedSaturate(_A0), r1=UnsignedSaturate(_A1), ... 
 	//r7=UnsignedSaturate(_A7),r8=UnsignedSaturate(_B0), r9=UnsignedSaturate(_B1), ... 
 	//r15=UnsignedSaturate(_B7),  saturate
 	extern __m128i _mm_packus_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö16bitÕûÊı£¬¸ù¾İ_Imm´Ó_AÖĞ8¸ö16bitÊıÖĞÑ¡È¡¶ÔÓ¦±àºÅµÄÊı,
+	//è¿”å›ä¸€ä¸ª16bitæ•´æ•°,æ ¹æ®_Immä»_Aä¸­8ä¸ª16bitæ•°ä¸­é€‰å–å¯¹åº”ç¼–å·çš„æ•°,
 	//r=(_Imm == 0) ? _A0 : ((_Imm == 1) ? _A1 : ... (_Imm == 7) ? _A7), 
 	//_Imm must be an immediate, zero extends
 	extern int _mm_extract_epi16(__m128i _A, int _Imm);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬¸ù¾İ_Imm½«_AÖĞ8¸ö16bitÊıÖĞ¶ÔÓ¦±àºÅµÄÊıÌæ»»Îª_B,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,æ ¹æ®_Immå°†_Aä¸­8ä¸ª16bitæ•°ä¸­å¯¹åº”ç¼–å·çš„æ•°æ›¿æ¢ä¸º_B,
 	//r0=(_Imm == 0) ? _B : _A0; r1=(_Imm == 1) : _B : _A1, ... r7=(_Imm == 7) ? _B : _A7
 	extern __m128i _mm_insert_epi16(__m128i _A, int _B, int _Imm);
-	//·µ»ØÒ»¸ö16bitÕûÊı£¬r=(_A15[7] << 15) | (_A14[7] << 14) ... (_A1[7] << 1) | _A0[7], 
+	//è¿”å›ä¸€ä¸ª16bitæ•´æ•°,r=(_A15[7] << 15) | (_A14[7] << 14) ... (_A1[7] << 1) | _A0[7], 
 	//zero extends the upper bits
 	extern int _mm_movemask_epi8(__m128i _A);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬ËüÊÇ½«_AÖĞ128bitÊı¾İÒÔ32bitÎªµ¥Î»ÖØĞÂÅÅÁĞµÃµ½µÄ£¬_ImmÎªÓĞ
-	//Ò»¸öËÄÔª×é£¬±íÊ¾ÖØĞÂÅÅÁĞµÄË³Ğò¡£µ±_AÖĞÔ­±¾´æ´¢µÄÕûÊıÎª16bitÊ±£¬ÕâÌõÖ¸Áî½«ÆäÁ½Á½Ò»×é
-	//½øĞĞÅÅÁĞ¡£ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7), _Imm=(2,3,0,1),ÆäÖĞ_AiÎª16bitÕûÊı£¬
-	//_A0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A2,_A3,_A0,_A1,_A6,_A7,_A4,_A5),  _Imm must be an immediate
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒæ˜¯å°†_Aä¸­128bitæ•°æ®ä»¥32bitä¸ºå•ä½é‡æ–°æ’åˆ—å¾—åˆ°çš„,_Immä¸ºæœ‰
+	//ä¸€ä¸ªå››å…ƒç»„,è¡¨ç¤ºé‡æ–°æ’åˆ—çš„é¡ºåº.å½“_Aä¸­åŸæœ¬å­˜å‚¨çš„æ•´æ•°ä¸º16bitæ—¶,è¿™æ¡æŒ‡ä»¤å°†å…¶ä¸¤ä¸¤ä¸€ç»„
+	//è¿›è¡Œæ’åˆ—.ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7), _Imm=(2,3,0,1),å…¶ä¸­_Aiä¸º16bitæ•´æ•°,
+	//_A0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A2,_A3,_A0,_A1,_A6,_A7,_A4,_A5),  _Imm must be an immediate
 	extern __m128i _mm_shuffle_epi32(__m128i _A, int _Imm);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬ËüÊÇ½«_AÖĞ¸ß64bitÊı¾İÒÔ16bitÎªµ¥Î»ÖØĞÂÅÅÁĞµÃµ½µÄ£¬_ImmÎªÒ»¸öËÄÔª×é£¬
-	//±íÊ¾ÖØĞÂÅÅÁĞµÄË³Ğò¡£_AÖĞµÍ64bitÊı¾İË³Ğò²»±ä¡£ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7), 
-	//_Imm=(2,3,0,1),ÆäÖĞ_AiÎª16bitÕûÊı£¬_A0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A0,_A1,_A2,_A3,_A5,_A4,_A7,_A6), 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒæ˜¯å°†_Aä¸­é«˜64bitæ•°æ®ä»¥16bitä¸ºå•ä½é‡æ–°æ’åˆ—å¾—åˆ°çš„,_Immä¸ºä¸€ä¸ªå››å…ƒç»„,
+	//è¡¨ç¤ºé‡æ–°æ’åˆ—çš„é¡ºåº._Aä¸­ä½64bitæ•°æ®é¡ºåºä¸å˜.ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7), 
+	//_Imm=(2,3,0,1),å…¶ä¸­_Aiä¸º16bitæ•´æ•°,_A0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A0,_A1,_A2,_A3,_A5,_A4,_A7,_A6), 
 	//_Imm must be an immediate 
 	extern __m128i _mm_shufflehi_epi16(__m128i _A, int _Imm);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬ËüÊÇ½«_AÖĞµÍ64bitÊı¾İÒÔ16bitÎªµ¥Î»ÖØĞÂÅÅÁĞµÃµ½µÄ£¬_ImmÎªÒ»¸öËÄÔª×é£¬
-	//±íÊ¾ÖØĞÂÅÅÁĞµÄË³Ğò¡£_AÖĞ¸ß64bitÊı¾İË³Ğò²»±ä¡£ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),
-	//_Imm=(2,3,0,1),ÆäÖĞ_AiÎª16bitÕûÊı£¬_A0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A1,_A0,_A3,_A2,_A5,_A4,_A7,_A6),   
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒæ˜¯å°†_Aä¸­ä½64bitæ•°æ®ä»¥16bitä¸ºå•ä½é‡æ–°æ’åˆ—å¾—åˆ°çš„,_Immä¸ºä¸€ä¸ªå››å…ƒç»„,
+	//è¡¨ç¤ºé‡æ–°æ’åˆ—çš„é¡ºåº._Aä¸­é«˜64bitæ•°æ®é¡ºåºä¸å˜.ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),
+	//_Imm=(2,3,0,1),å…¶ä¸­_Aiä¸º16bitæ•´æ•°,_A0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A1,_A0,_A3,_A2,_A5,_A4,_A7,_A6),   
 	//_Imm must be an immediate
 	extern __m128i _mm_shufflelo_epi16(__m128i _A, int _Imm);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A8, r1=_B8, r2=_A9, r3=_B9, ... r14=_A15, r15=_B15
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A8, r1=_B8, r2=_A9, r3=_B9, ... r14=_A15, r15=_B15
 	extern __m128i _mm_unpackhi_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëü½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄ¸ß64bitÊıÒÔ16bitÎªµ¥Î»½»Ö¯ÔÚÒ»¿é¡£
-	//ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
-	//ÆäÖĞ_Ai,_BiÎª16bitÕûÊı£¬_A0,_B0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A4,_B4,_A5,_B5,_A6,_B6,_A7,_B7),
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„é«˜64bitæ•°ä»¥16bitä¸ºå•ä½äº¤ç»‡åœ¨ä¸€å—.
+	//ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
+	//å…¶ä¸­_Ai,_Biä¸º16bitæ•´æ•°,_A0,_B0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A4,_B4,_A5,_B5,_A6,_B6,_A7,_B7),
 	//r0=_A4, r1=_B4, r2=_A5, r3=_B5, r4=_A6, r5=_B6, r6=_A7, r7=_B7
 	extern __m128i _mm_unpackhi_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëü½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄ¸ß64bitÊıÒÔ32bitÎªµ¥Î»½»Ö¯ÔÚÒ»¿é¡£
-	//ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
-	//ÆäÖĞ_Ai,_BiÎª16bitÕûÊı£¬_A0,_B0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A4,_A5,_B4,_B5,_A6,_A7,_B6,_B7),
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„é«˜64bitæ•°ä»¥32bitä¸ºå•ä½äº¤ç»‡åœ¨ä¸€å—.
+	//ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
+	//å…¶ä¸­_Ai,_Biä¸º16bitæ•´æ•°,_A0,_B0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A4,_A5,_B4,_B5,_A6,_A7,_B6,_B7),
 	//r0=_A2, r1=_B2, r2=_A3, r3=_B3
 	extern __m128i _mm_unpackhi_epi32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëü½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄ¸ß64bitÊıÒÔ64bitÎªµ¥Î»½»Ö¯ÔÚÒ»¿é¡£
-	//ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
-	//ÆäÖĞ_Ai,_BiÎª16bitÕûÊı£¬_A0,_B0ÎªµÍÎ»£¬
-	//·µ»Ø½á¹ûÎª(_A4,_A5,_A6,_A7,_B4,_B5,_B6,_B7), r0=_A1, r1=_B1
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„é«˜64bitæ•°ä»¥64bitä¸ºå•ä½äº¤ç»‡åœ¨ä¸€å—.
+	//ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
+	//å…¶ä¸­_Ai,_Biä¸º16bitæ•´æ•°,_A0,_B0ä¸ºä½ä½,
+	//è¿”å›ç»“æœä¸º(_A4,_A5,_A6,_A7,_B4,_B5,_B6,_B7), r0=_A1, r1=_B1
 	extern __m128i _mm_unpackhi_epi64(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_A0, r1=_B0, r2=_A1, r3=_B1, ... r14=_A7, r15=_B7
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_A0, r1=_B0, r2=_A1, r3=_B1, ... r14=_A7, r15=_B7
 	extern __m128i _mm_unpacklo_epi8(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëü½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄµÍ64bitÊıÒÔ16bitÎªµ¥Î»½»Ö¯ÔÚÒ»¿é¡£
-	//ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
-	//ÆäÖĞ_Ai,_BiÎª16bitÕûÊı£¬_A0,_B0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A0,_B0,_A1,_B1,_A2,_B2,_A3,_B3),
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„ä½64bitæ•°ä»¥16bitä¸ºå•ä½äº¤ç»‡åœ¨ä¸€å—.
+	//ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
+	//å…¶ä¸­_Ai,_Biä¸º16bitæ•´æ•°,_A0,_B0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A0,_B0,_A1,_B1,_A2,_B2,_A3,_B3),
 	//r0=_A0, r1=_B0, r2=_A1, r3=_B1, r4=_A2, r5=_B2, r6=_A3, r7=_B3
 	extern __m128i _mm_unpacklo_epi16(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëü½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄµÍ64bitÊıÒÔ32bitÎªµ¥Î»½»Ö¯ÔÚÒ»¿é¡£
-	//ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
-	//ÆäÖĞ_Ai,_BiÎª16bitÕûÊı£¬_A0,_B0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A0,_A1,_B0,_B1,_A2,_A3,_B2,_B3),
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„ä½64bitæ•°ä»¥32bitä¸ºå•ä½äº¤ç»‡åœ¨ä¸€å—.
+	//ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
+	//å…¶ä¸­_Ai,_Biä¸º16bitæ•´æ•°,_A0,_B0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A0,_A1,_B0,_B1,_A2,_A3,_B2,_B3),
 	//r0=_A0, r1=_B0, r2=_A1, r3=_B1
 	extern __m128i _mm_unpacklo_epi32(__m128i _A, __m128i _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëü½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_BµÄµÍ64bitÊıÒÔ32bitÎªµ¥Î»½»Ö¯ÔÚÒ»¿é¡£
-	//ÀıÈç£¬_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
-	//ÆäÖĞ_Ai,_BiÎª16bitÕûÊı£¬_A0,_B0ÎªµÍÎ»£¬·µ»Ø½á¹ûÎª(_A0,_A1,_A2,_A3,_B0,_B1,_B2,_B3), 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bçš„ä½64bitæ•°ä»¥32bitä¸ºå•ä½äº¤ç»‡åœ¨ä¸€å—.
+	//ä¾‹å¦‚,_A=(_A0,_A1,_A2,_A3,_A4,_A5,_A6,_A7),_B=(_B0,_B1,_B2,_B3,_B4,_B5,_B6,_B7),
+	//å…¶ä¸­_Ai,_Biä¸º16bitæ•´æ•°,_A0,_B0ä¸ºä½ä½,è¿”å›ç»“æœä¸º(_A0,_A1,_A2,_A3,_B0,_B1,_B2,_B3), 
 	//ro=_A0, r1=_B0
 	extern __m128i _mm_unpacklo_epi64(__m128i _A, __m128i _B);
 
 	//Load Operations(Integer SSE2 Intrinsics)
-	//·µ»ØÎªÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ëü½«_PÖ¸ÏòµÄÊı¾İ¶Áµ½Ö¸¶¨¼Ä´æÆ÷ÖĞ£¬Êµ¼ÊÊ¹ÓÃÊ±£¬
-	//_PÒ»°ãÊÇÍ¨¹ıÀàĞÍ×ª»»µÃµ½µÄ, Address _P must be 16-byte aligned
+	//è¿”å›ä¸ºä¸€ä¸ª__m128içš„å¯„å­˜å™¨,å®ƒå°†_PæŒ‡å‘çš„æ•°æ®è¯»åˆ°æŒ‡å®šå¯„å­˜å™¨ä¸­,å®é™…ä½¿ç”¨æ—¶,
+	//_Pä¸€èˆ¬æ˜¯é€šè¿‡ç±»å‹è½¬æ¢å¾—åˆ°çš„, Address _P must be 16-byte aligned
 	extern __m128i _mm_load_si128(__m128i const*_P);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Loads 128-bit value, Address _P does not need be 16-byte aligned
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,Loads 128-bit value, Address _P does not need be 16-byte aligned
 	extern __m128i _mm_loadu_si128(__m128i const*_P);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=*p[63:0], r1=0x0, zeroing the upper 64 bits of the result
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=*p[63:0], r1=0x0, zeroing the upper 64 bits of the result
 	extern __m128i _mm_loadl_epi64(__m128i const*_P);
 
 	//Set Operations(Integer SSE2 Intrinsics)
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_Q0, r1=_Q1
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_Q0, r1=_Q1
 	extern __m128i _mm_set_epi64(__m64 _Q1, __m64 _Q0);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_I0, r1=_I1, r2=_I2, r3=_I3
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_I0, r1=_I1, r2=_I2, r3=_I3
 	extern __m128i _mm_set_epi32(int _I3, int _I2, int _I1, int _I0);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Ê¹ÓÃ8¸ö¾ßÌåµÄshortĞÍÊı¾İÀ´ÉèÖÃ¼Ä´æÆ÷´æ·ÅÊı¾İ,
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,ä½¿ç”¨8ä¸ªå…·ä½“çš„shortå‹æ•°æ®æ¥è®¾ç½®å¯„å­˜å™¨å­˜æ”¾æ•°æ®,
 	//r0=_W0, r1=_W1, ... r7=_W7
 	extern __m128i _mm_set_epi16(short _W7, short _W6, short _W5, short _W4, 
 									short _W3, short _W2, short _W1, short _W0);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_B0, r1=_B1, ... r15=_B15
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_B0, r1=_B1, ... r15=_B15
 	extern __m128i _mm_set_epi8(char _B15, char _B14, char _B13, char _B12, char _B11, 
 					char _B10, char _B9,char _B8, char _B7, char _B6, char _B5, char _B4, 
 					char _B3, char _B2, char _B1, char _B0);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_Q, r1=_Q
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_Q, r1=_Q
 	extern __m128i _mm_set1_epi64(__m64 _Q);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_I, r1=_I, r2=_I, r3=_I
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_I, r1=_I, r2=_I, r3=_I
 	extern __m128i _mm_set1_epi32(int _I);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_W, r1=_W, ... r7=_W
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_W, r1=_W, ... r7=_W
 	extern __m128i _mm_set1_epi16(short _W);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_B, r1=_B, ... r15=_B
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_B, r1=_B, ... r15=_B
 	extern __m128i _mm_set1_epi8(char _B);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r=_Q
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r=_Q
 	extern __m128i _mm_setl_epi64(__m128i _Q);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_Q0, r1=_Q1
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_Q0, r1=_Q1
 	extern __m128i _mm_setr_epi64(__m64 _Q0, __m64 _Q1);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_I0, r1=_I1, r2=_I2, r3=_I3
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_I0, r1=_I1, r2=_I2, r3=_I3
 	extern __m128i _mm_setr_epi32(int _I0, int _I1, int _I2, int _I3);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_W0, r1=_W1, ... r7=_W7
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_W0, r1=_W1, ... r7=_W7
 	extern __m128i _mm_setr_epi16(short _W0, short _W1, short _W2, short _W3, 
 									short _W4, short _W5, short _W6, short _W7);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_B15, r1=_B14, ... r15=_B0
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_B15, r1=_B14, ... r15=_B0
 	extern __m128i _mm_setr_epi8(char _B15, char _B14, char _B13, char _B12, char _B11, 
 		char _B10, char _B9, char _B8, char _B7, char _B6, char _B5, char _B4,  
 		char _B3, char _B2, char _B1, char _B0);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r=0x0
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r=0x0
 	extern __m128i _mm_setzero_si128(void);
 
 	//Store Operations(Integer SSE2 Intrinsics)
-	//·µ»ØÎª¿Õ£¬Ëü½«¼Ä´æÆ÷_BÖĞµÄÊı¾İ´æ´¢µ½_PÖ¸ÏòµÄµØÖ·ÖĞ£¬Êµ¼ÊÊ¹ÓÃÊ±£¬
-	//_PÒ»°ãÊÇÍ¨¹ıÀàĞÍ×ª»»µÃµ½µÄ, *_P = _B, Address _P must be 16-byte aligned
+	//è¿”å›ä¸ºç©º,å®ƒå°†å¯„å­˜å™¨_Bä¸­çš„æ•°æ®å­˜å‚¨åˆ°_PæŒ‡å‘çš„åœ°å€ä¸­,å®é™…ä½¿ç”¨æ—¶,
+	//_Pä¸€èˆ¬æ˜¯é€šè¿‡ç±»å‹è½¬æ¢å¾—åˆ°çš„, *_P = _B, Address _P must be 16-byte aligned
 	extern void _mm_store_si128(__m128i *_P, __m128i _B);
-	//·µ»ØÎª¿Õ£¬*_P=_B, Address _P does not need to be 16-byte aligned
+	//è¿”å›ä¸ºç©º,*_P=_B, Address _P does not need to be 16-byte aligned
 	extern void _mm_storeu_si128(__m128i *_P, __m128i _B);
-	//·µ»ØÎª¿Õ£¬*_P[63:0] =_Q0, lower 64 bits
+	//è¿”å›ä¸ºç©º,*_P[63:0] =_Q0, lower 64 bits
 	extern void _mm_storel_epi64(__m128i *_P, __m128i _Q);
-	//·µ»ØÎª¿Õ£¬if(_N0[7]) _P[0]=_D0, if(_N1[7]) _P[1]=_D1, ... if(_N15[7]) _P[15]=_D15, 
+	//è¿”å›ä¸ºç©º,if(_N0[7]) _P[0]=_D0, if(_N1[7]) _P[1]=_D1, ... if(_N15[7]) _P[15]=_D15, 
 	//The high bit of each byte in the selector _N determines whether the corresponding byte 
 	//in _D will be stored. Address _P does not need to be 16-byte aligned
 	extern void _mm_maskmoveu_si128(__m128i _D, __m128i _N, char *_P);
 
 	//Integer, moves
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_Q0, r1=0x0, zeroing the upper bits
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_Q0, r1=0x0, zeroing the upper bits
 	extern __m128i _mm_move_epi64(__m128i _Q);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬r0=_Q, r1=0x0, zeroing the upper bits
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,r0=_Q, r1=0x0, zeroing the upper bits
 	extern __m128i _mm_movpi64_epi64(__m64 _Q);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬r=_Q0
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,r=_Q0
 	extern __m64 _mm_movepi64_pi64(__m128i _Q);
 
 	//Cache Support for Steaming SIMD Extensions 2 Integer Operations
-	//·µ»ØÎª¿Õ£¬*_P=_A, Stores the data in _A to the address _P without polluting the caches.
+	//è¿”å›ä¸ºç©º,*_P=_A, Stores the data in _A to the address _P without polluting the caches.
 	//If the cache line containing address _P is already in the cache, the cache will be updated. 
 	//Address _P must be 16-byte aligned
 	extern void _mm_stream_si128(__m128i *_P, __m128i _A);
-	//·µ»ØÎª¿Õ£¬Cache line containing _P is flushed and invalidated from 
+	//è¿”å›ä¸ºç©º,Cache line containing _P is flushed and invalidated from 
 	//all caches in the coherency domain
 	extern void _mm_clflush(void const*_P);
-	//·µ»ØÎª¿Õ£¬Guarantees that every load instruction that precedes, in program order, the load 
+	//è¿”å›ä¸ºç©º,Guarantees that every load instruction that precedes, in program order, the load 
 	//fence instruction is globally visible before any load instruction 
 	//that follows the fence in program order
 	extern void _mm_lfence(void);
-	//·µ»ØÎª¿Õ£¬Guarantees that every memory access that precedes, in program order, 
+	//è¿”å›ä¸ºç©º,Guarantees that every memory access that precedes, in program order, 
 	//the memory fence instruction is globally visible before any memory instruction 
 	//that follows the fence in program order
 	extern void _mm_mfence(void);
-	//·µ»ØÎª¿Õ£¬*_P=_I, Stores the data in _I to the address _P without polluting the caches. 
+	//è¿”å›ä¸ºç©º,*_P=_I, Stores the data in _I to the address _P without polluting the caches. 
 	//If the cache line containing address _P is already in the cache, the cache will be updated
 	extern void _mm_stream_si32(int *_P, int _I);
-	//·µ»ØÎª¿Õ£¬The execution of the next instruction is delayed an implementation specific 
+	//è¿”å›ä¸ºç©º,The execution of the next instruction is delayed an implementation specific 
 	//amount of time. The instruction does not modify the architectural state. This intrinsic
 	//provides especially significant performance gain
 	extern void _mm_pause(void);
 
 	/*---Support for casting between various SP, DP, INT vector types. Note that these do no 
 		conversion of values, they just change the type----*/
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Applies a type cast to reinterpret two 64-bit floating 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Applies a type cast to reinterpret two 64-bit floating 
 	//point values passed in as a 128-bit parameter as packed 32-bit floating point values
 	extern __m128  _mm_castpd_ps(__m128d);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Applies a type cast to reinterpret two 64-bit
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,Applies a type cast to reinterpret two 64-bit
 	//floating point values passed in as a 128-bit parameter as packed 32-bit integers
 	extern __m128i _mm_castpd_si128(__m128d);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬Applies a type cast to reinterpret four 32-bit floating 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,Applies a type cast to reinterpret four 32-bit floating 
 	//point values passed in as a 128-bit parameter as packed 64-bit floating point values
 	extern __m128d _mm_castps_pd(__m128);
-	//·µ»ØÒ»¸ö__m128iµÄ¼Ä´æÆ÷£¬Applies a type cast to reinterpret four 32-bit floating 
+	//è¿”å›ä¸€ä¸ª__m128içš„å¯„å­˜å™¨,Applies a type cast to reinterpret four 32-bit floating 
 	//point values passed in as a 128-bit parameter as packed 32-bit integers
 	extern __m128i _mm_castps_si128(__m128);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Applies a type cast to reinterpret four 32-bit integers 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Applies a type cast to reinterpret four 32-bit integers 
 	//passed in as a 128-bit parameter as packed 32-bit floating point values
 	extern __m128  _mm_castsi128_ps(__m128i);
-	//·µ»ØÒ»¸ö__m128dµÄ¼Ä´æÆ÷£¬Applies a type cast to reinterpret four 32-bit 
+	//è¿”å›ä¸€ä¸ª__m128dçš„å¯„å­˜å™¨,Applies a type cast to reinterpret four 32-bit 
 	//integers passed in as a 128-bit parameter as packed 64-bit floating point values
 	extern __m128d _mm_castsi128_pd(__m128i);
 }

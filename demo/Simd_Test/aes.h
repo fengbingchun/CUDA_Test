@@ -1,4 +1,4 @@
-#include <mmintrin.h> //MMX  
+ï»¿#include <mmintrin.h> //MMX  
 #include <xmmintrin.h> //SSE(include mmintrin.h)  
 #include <emmintrin.h> //SSE2(include xmmintrin.h)  
 #include <pmmintrin.h> //SSE3(include emmintrin.h)  
@@ -80,6 +80,6 @@ void AESFUN()
 	*/
 	//The product calculated by multiplying 64 bits of v1 and 64 bits of v2.
 	// This instruction performs a multiplication of two 64-bit integers.
-	//The multiplication does not calculate a carry bit.Ïê¼û²Î¿¼ÎÄÏ×
+	//The multiplication does not calculate a carry bit.è¯¦è§å‚è€ƒæ–‡çŒ®
 	extern __m128i _mm_clmulepi64_si128(__m128i v1, __m128i v2, const int imm8);
 }

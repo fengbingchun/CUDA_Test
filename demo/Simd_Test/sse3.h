@@ -1,41 +1,41 @@
-#include <mmintrin.h> //MMX  
-#include <xmmintrin.h> //SSE(include mmintrin.h)  
-#include <emmintrin.h> //SSE2(include xmmintrin.h)  
-#include <pmmintrin.h> //SSE3(include emmintrin.h)  
-#include <tmmintrin.h>//SSSE3(include pmmintrin.h)  
-#include <smmintrin.h>//SSE4.1(include tmmintrin.h)  
-#include <nmmintrin.h>//SSE4.2(include smmintrin.h)  
-#include <wmmintrin.h>//AES(include nmmintrin.h)  
-#include <immintrin.h>//AVX(include wmmintrin.h)  
-#include <intrin.h>//(include immintrin.h) 
+ï»¿#include <mmintrin.h> //MMX
+#include <xmmintrin.h> //SSE(include mmintrin.h)
+#include <emmintrin.h> //SSE2(include xmmintrin.h)
+#include <pmmintrin.h> //SSE3(include emmintrin.h)
+#include <tmmintrin.h>//SSSE3(include pmmintrin.h)
+#include <smmintrin.h>//SSE4.1(include tmmintrin.h)
+#include <nmmintrin.h>//SSE4.2(include smmintrin.h)
+#include <wmmintrin.h>//AES(include nmmintrin.h)
+#include <immintrin.h>//AVX(include wmmintrin.h)
+#include <intrin.h>//(include immintrin.h)
 
 void SSE3FUN()
 {
 	/*New Single precision vector instructions*/
 	//a=(a0, a1, a2, a3), b=(b0, b1, b2, b3)
-	//Ôòr0=a0-b0, r1=a1+b1, r2=a2-b2, r3=a3+b3
+	//åˆ™r0=a0-b0, r1=a1+b1, r2=a2-b2, r3=a3+b3
 	extern __m128 _mm_addsub_ps(__m128 a, __m128 b);
 	//a=(a0, a1, a2, a3), b=(b0, b1, b2, b3)
-	//Ôòr0=a0+a1, r1=a2+a3, r2=b0+b1, r3=b2+b3
+	//åˆ™r0=a0+a1, r1=a2+a3, r2=b0+b1, r3=b2+b3
 	extern __m128 _mm_hadd_ps(__m128 a, __m128 b);
 	//a=(a0, a1, a2, a3), b=(b0, b1, b2, b3)
-	//Ôòr0=a0-a1, r1=a2-a3, r2=b0-b1, r3=b2-b3
+	//åˆ™r0=a0-a1, r1=a2-a3, r2=b0-b1, r3=b2-b3
 	extern __m128 _mm_hsub_ps(__m128 a, __m128 b);
-	//a=(a0, a1, a2, a3), Ôòr0=a1, r1=a1, r2=a3, r3=a3
+	//a=(a0, a1, a2, a3), åˆ™r0=a1, r1=a1, r2=a3, r3=a3
 	extern __m128 _mm_movehdup_ps(__m128 a);
-	//a=(a0, a1, a2, a3), Ôòr0=a0, r1=a0, r2=a2, r3=a2
+	//a=(a0, a1, a2, a3), åˆ™r0=a0, r1=a0, r2=a2, r3=a2
 	extern __m128 _mm_moveldup_ps(__m128 a);
 
 	/*New double precision vector instructions*/
-	//a=(a0, a1), b=(b0, b1), Ôòr0=a0-b0, r1=a1+b1
+	//a=(a0, a1), b=(b0, b1), åˆ™r0=a0-b0, r1=a1+b1
 	extern __m128d _mm_addsub_pd(__m128d a, __m128d b);
-	//a=(a0, a1), b=(b0, b1), Ôòr0=a0+a1, r1=b0+b1
+	//a=(a0, a1), b=(b0, b1), åˆ™r0=a0+a1, r1=b0+b1
 	extern __m128d _mm_hadd_pd(__m128d a, __m128d b);
-	//a=(a0, a1), b=(b0, b1), Ôòr0=a0-a1, r1=b0-b1
+	//a=(a0, a1), b=(b0, b1), åˆ™r0=a0-a1, r1=b0-b1
 	extern __m128d _mm_hsub_pd(__m128d a, __m128d b);
 	//r0=r1=dp[0]
 	extern __m128d _mm_loaddup_pd(double const * dp);
-	//a=(a0, a1),Ôòr0=r1=a0
+	//a=(a0, a1),åˆ™r0=r1=a0
 	extern __m128d _mm_movedup_pd(__m128d a);
 
 	/*New unaligned integer vector load instruction*/

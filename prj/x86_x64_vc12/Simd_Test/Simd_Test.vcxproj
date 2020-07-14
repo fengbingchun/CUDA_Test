@@ -108,6 +108,7 @@
       <AssemblerListingLocation>.\../../../obj/dbg/x64_vc12/Simd_Test/</AssemblerListingLocation>
       <ObjectFileName>.\../../../obj/dbg/x64_vc12/Simd_Test/</ObjectFileName>
       <ProgramDataBaseFileName>.\../../../obj/dbg/x64_vc12/Simd_Test/</ProgramDataBaseFileName>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,6 +153,7 @@
       <AssemblerListingLocation>.\../../../obj/rel/x64_vc12/Simd_Test/</AssemblerListingLocation>
       <ObjectFileName>.\../../../obj/rel/x64_vc12/Simd_Test/</ObjectFileName>
       <ProgramDataBaseFileName>.\../../../obj/rel/x64_vc12/Simd_Test/</ProgramDataBaseFileName>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -181,6 +183,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\demo\Simd_Test\funset.cpp" />
+    <ClCompile Include="..\..\..\demo\Simd_Test\funset_openmp.cpp" />
+    <ClCompile Include="..\..\..\demo\Simd_Test\funset_simd.cpp" />
     <ClCompile Include="..\..\..\demo\Simd_Test\Simd_Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

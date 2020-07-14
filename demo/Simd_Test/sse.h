@@ -1,474 +1,474 @@
-#include <mmintrin.h> //MMX  
-#include <xmmintrin.h> //SSE(include mmintrin.h)  
-#include <emmintrin.h> //SSE2(include xmmintrin.h)  
-#include <pmmintrin.h> //SSE3(include emmintrin.h)  
-#include <tmmintrin.h>//SSSE3(include pmmintrin.h)  
-#include <smmintrin.h>//SSE4.1(include tmmintrin.h)  
-#include <nmmintrin.h>//SSE4.2(include smmintrin.h)  
-#include <wmmintrin.h>//AES(include nmmintrin.h)  
-#include <immintrin.h>//AVX(include wmmintrin.h)  
-#include <intrin.h>//(include immintrin.h) 
+ï»¿#include <mmintrin.h> //MMX
+#include <xmmintrin.h> //SSE(include mmintrin.h)
+#include <emmintrin.h> //SSE2(include xmmintrin.h)
+#include <pmmintrin.h> //SSE3(include emmintrin.h)
+#include <tmmintrin.h>//SSSE3(include pmmintrin.h)
+#include <smmintrin.h>//SSE4.1(include tmmintrin.h)
+#include <nmmintrin.h>//SSE4.2(include smmintrin.h)
+#include <wmmintrin.h>//AES(include nmmintrin.h)
+#include <immintrin.h>//AVX(include wmmintrin.h)
+#include <intrin.h>//(include immintrin.h)
 
 void SSEFUN()
 {
 	/*----------Floating Point Intrinsics Using Streaming SIMD Extensions------------*/
-	//Arithmetic Operations(Floating Point ):add¡¢sub¡¢mul¡¢div¡¢sqrt¡¢rcp¡¢min¡¢max
-	//---------------------ËµÃ÷£º_ps½áÎ²µÄÖ¸Áî±íÊ¾¶Ô4¸öµ¥¾«¶È¸¡µãÊıÍ¬Ê±½øĞĞÔËËã£¬
-	//_ss½áÎ²µÄÖ¸Áî±íÊ¾½ö¶Ô4¸öµ¥¾«¶È¸¡µãÊı×îµÍÎ»µÄ¸¡µãÊı½øĞĞÔËËã---------------------
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_B×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà¼Ó£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(_A0+_B0, _A1, _A2, _A3)
+	//Arithmetic Operations(Floating Point ):addã€subã€mulã€divã€sqrtã€rcpã€minã€max
+	//---------------------è¯´æ˜ï¼š_psç»“å°¾çš„æŒ‡ä»¤è¡¨ç¤ºå¯¹4ä¸ªå•ç²¾åº¦æµ®ç‚¹æ•°åŒæ—¶è¿›è¡Œè¿ç®—,
+	//_ssç»“å°¾çš„æŒ‡ä»¤è¡¨ç¤ºä»…å¯¹4ä¸ªå•ç²¾åº¦æµ®ç‚¹æ•°æœ€ä½ä½çš„æµ®ç‚¹æ•°è¿›è¡Œè¿ç®—---------------------
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸åŠ ,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(_A0+_B0, _A1, _A2, _A3)
 	extern __m128 _mm_add_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà¼Ó£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=_A0+_B0, r1=_A1+_B1, r2=_A2+_B2, r3=_A3+_B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸åŠ ,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=_A0+_B0, r1=_A1+_B1, r2=_A2+_B2, r3=_A3+_B3
 	extern __m128 _mm_add_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_B×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà¼õ£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(_A0-_B0, _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸å‡,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(_A0-_B0, _A1, _A2, _A3)
 	extern __m128 _mm_sub_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà¼õ£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=_A0-_B0, r1=_A1-_B1, r2=_A2-_B2, r3=_A3-_B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸å‡,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=_A0-_B0, r1=_A1-_B1, r2=_A2-_B2, r3=_A3-_B3
 	extern __m128 _mm_sub_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_B×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà³Ë£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(_A0*_B0, _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸ä¹˜,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(_A0*_B0, _A1, _A2, _A3)
 	extern __m128 _mm_mul_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà³Ë£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=_A0*_B0, r1=_A1*_B1, r2=_A2*_B2, r3=_A3*_B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸ä¹˜,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=_A0*_B0, r1=_A1*_B1, r2=_A2*_B2, r3=_A3*_B3
 	extern __m128 _mm_mul_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_B×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà³ı£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(_A0/_B0, _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸é™¤,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(_A0/_B0, _A1, _A2, _A3)
 	extern __m128 _mm_div_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÏà³ı£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=_A0/_B0, r1=_A1/_B1, r2=_A2/_B2, r3=_A3/_B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°ç›¸é™¤,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=_A0/_B0, r1=_A1/_B1, r2=_A2/_B2, r3=_A3/_B3
 	extern __m128 _mm_div_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_A×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊı¿ªÆ½·½£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3)
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(sqrt(_A0), _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°å¼€å¹³æ–¹,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3)
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(sqrt(_A0), _A1, _A2, _A3)
 	extern __m128 _mm_sqrt_ss(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞ4¸ö32bitµ¥¾«¶È¸¡µãÊı¿ªÆ½·½£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3)£¬Ôò·µ»Ø¼Ä´æÆ÷Îª
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­4ä¸ª32bitå•ç²¾åº¦æµ®ç‚¹æ•°å¼€å¹³æ–¹,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3),åˆ™è¿”å›å¯„å­˜å™¨ä¸º
 	//r=(sqrt(_A0), sqrt(_A1), sqrt(_A2), sqrt(_A3))
 	extern __m128 _mm_sqrt_ps(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_A×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÈ¡µ¹Êı£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3)
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(recip(_A0), _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–å€’æ•°,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3)
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(recip(_A0), _A1, _A2, _A3)
 	extern __m128 _mm_rcp_ss(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞ4¸ö32bitµ¥¾«¶È¸¡µãÊıÈ¡µ¹Êı£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3)£¬Ôò·µ»Ø¼Ä´æÆ÷Îª
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­4ä¸ª32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–å€’æ•°,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3),åˆ™è¿”å›å¯„å­˜å™¨ä¸º
 	//r=(recip(_A0), recip(_A1), recip(_A2), recip(_A3))
 	extern __m128 _mm_rcp_ps(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_A×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÈ¡Æ½·½¸ùµÄµ¹Êı£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3)
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(recip(sqrt(_A0)), _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–å¹³æ–¹æ ¹çš„å€’æ•°,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3)
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(recip(sqrt(_A0)), _A1, _A2, _A3)
 	extern __m128 _mm_rsqrt_ss(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AÖĞ4¸ö32bitµ¥¾«¶È¸¡µãÊıÈ¡Æ½·½¸ùµÄµ¹Êı£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3)£¬Ôò·µ»Ø¼Ä´æÆ÷Îª
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aä¸­4ä¸ª32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–å¹³æ–¹æ ¹çš„å€’æ•°,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3),åˆ™è¿”å›å¯„å­˜å™¨ä¸º
 	//r=(recip(sqrt(_A0)), recip(sqrt(_A1)), recip(sqrt(_A2)), recip(sqrt(_A3)))
 	extern __m128 _mm_rsqrt_ps(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_B×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÈ¡×îĞ¡Öµ£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(min(_A0,_B0), _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–æœ€å°å€¼,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(min(_A0,_B0), _A1, _A2, _A3)
 	extern __m128 _mm_min_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÈ¡×îĞ¡Öµ£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=min(_A0,_B0), r1=min(_A1,_B1), r2=min(_A2,_B2), r3=min(_A3,_B3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–æœ€å°å€¼,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=min(_A0,_B0), r1=min(_A1,_B1), r2=min(_A2,_B2), r3=min(_A3,_B3)
 	extern __m128 _mm_min_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½ö½«¼Ä´æÆ÷_AºÍ¼Ä´æÆ÷_B×îµÍ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÈ¡×î´óÖµ£¬
-	//ÆäÓàÎ»ÖÃÈ¡¼Ä´æÆ÷_AÖĞµÄÊı¾İ,ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷Îªr=(max(_A0,_B0), _A1, _A2, _A3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,ä»…å°†å¯„å­˜å™¨_Aå’Œå¯„å­˜å™¨_Bæœ€ä½å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–æœ€å¤§å€¼,
+	//å…¶ä½™ä½ç½®å–å¯„å­˜å™¨_Aä¸­çš„æ•°æ®,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨ä¸ºr=(max(_A0,_B0), _A1, _A2, _A3)
 	extern __m128 _mm_max_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıÈ¡×î´óÖµ£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=max(_A0,_B0), r1=max(_A1,_B1), r2=max(_A2,_B2), r3=max(_A3,_B3)
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°å–æœ€å¤§å€¼,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=max(_A0,_B0), r1=max(_A1,_B1), r2=max(_A2,_B2), r3=max(_A3,_B3)
 	extern __m128 _mm_max_ps(__m128 _A, __m128 _B);
 
-	//Logical Operations(SSE)£ºand¡¢andnot¡¢or¡¢xor
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊı·Ö±ğ½øĞĞ°´Î»ÓëÔËËã£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=_A0 & _B0, r1=_A1 & _B1, r2=_A2 & _B2, r3=_A3 & _B3
+	//Logical Operations(SSE)ï¼šandã€andnotã€orã€xor
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°åˆ†åˆ«è¿›è¡ŒæŒ‰ä½ä¸è¿ç®—,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=_A0 & _B0, r1=_A1 & _B1, r2=_A2 & _B2, r3=_A3 & _B3
 	extern __m128 _mm_and_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_A¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊıµÄ·ÇºÍ¼Ä´æÆ÷_B¶ÔÓ¦Î»ÖÃµÄ32bit
-	//µ¥¾«¶È¸¡µãÊı·Ö±ğ½øĞĞ°´Î»ÓëÔËËã£¬ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=~_A0 & _B0, r1=~_A1 & _B1, r2=~_A2 & _B2, r3=~_A3 & _B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°çš„éå’Œå¯„å­˜å™¨_Bå¯¹åº”ä½ç½®çš„32bit
+	//å•ç²¾åº¦æµ®ç‚¹æ•°åˆ†åˆ«è¿›è¡ŒæŒ‰ä½ä¸è¿ç®—,ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=~_A0 & _B0, r1=~_A1 & _B1, r2=~_A2 & _B2, r3=~_A3 & _B3
 	extern __m128 _mm_andnot_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊı·Ö±ğ½øĞĞ°´Î»»òÔËËã£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=_A0 | _B0, r1=_A1 | _B1, r2=_A2 | _B2, r3=_A3 | _B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°åˆ†åˆ«è¿›è¡ŒæŒ‰ä½æˆ–è¿ç®—,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=_A0 | _B0, r1=_A1 | _B1, r2=_A2 | _B2, r3=_A3 | _B3
 	extern __m128 _mm_or_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬½«¼Ä´æÆ÷_AºÍ_BµÄ¶ÔÓ¦Î»ÖÃµÄ32bitµ¥¾«¶È¸¡µãÊı·Ö±ğ½øĞĞ°´Î»Òì»òÔËËã£¬
-	//ÀıÈç_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
-	//Ôò·µ»Ø¼Ä´æÆ÷r0=_A0 ^ _B0, r1=_A1 ^ _B1, r2=_A2 ^ _B2, r3=_A3 ^ _B3
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,å°†å¯„å­˜å™¨_Aå’Œ_Bçš„å¯¹åº”ä½ç½®çš„32bitå•ç²¾åº¦æµ®ç‚¹æ•°åˆ†åˆ«è¿›è¡ŒæŒ‰ä½å¼‚æˆ–è¿ç®—,
+	//ä¾‹å¦‚_A=(_A0,_A1,_A2,_A3), _B=(_B0,_B1,_B2,_B3),
+	//åˆ™è¿”å›å¯„å­˜å™¨r0=_A0 ^ _B0, r1=_A1 ^ _B1, r2=_A2 ^ _B2, r3=_A3 ^ _B3
 	extern __m128 _mm_xor_ps(__m128 _A, __m128 _B);
 
-	//Comparison Intrinsics(SSE):==¡¢<¡¢<=¡¢>¡¢>=¡¢!=¡¢²»Ğ¡ÓÚ¡¢²»Ğ¡ÓÚµÈÓÚ¡¢²»´óÓÚ¡¢²»´óÓÚµÈÓÚ
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for equality,
+	//Comparison Intrinsics(SSE):==ã€<ã€<=ã€>ã€>=ã€!=ã€ä¸å°äºã€ä¸å°äºç­‰äºã€ä¸å¤§äºã€ä¸å¤§äºç­‰äº
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for equality,
 	//r0=(_A0 == _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpeq_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for equality,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for equality,
 	//r0=(_A0 == _B0) ? 0xffffffff : 0x0, r1=(_A1 == _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 == _B2) ? 0xffffffff : 0x0, r3=(_A3 == _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpeq_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for less than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for less than,
 	//r0=(_A0 < _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmplt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for less than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for less than,
 	//r0=(_A0 < _B0) ? 0xffffffff : 0x0, r1=(_A1 < _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 < _B2) ? 0xffffffff : 0x0, r3=(_A3 < _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmplt_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for less than or equal,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for less than or equal,
 	//r0=(_A0 <= _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmple_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for less than or equal,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for less than or equal,
 	//r0=(_A0 <= _B0) ? 0xffffffff : 0x0, r1=(_A1 <= _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 <= _B2) ? 0xffffffff : 0x0, r3=(_A3 <= _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmple_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for greater than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for greater than,
 	//r0=(_A0 > _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpgt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for greater than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for greater than,
 	//r0=(_A0 > _B0) ? 0xffffffff : 0x0, r1=(_A1 > _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 > _B2) ? 0xffffffff : 0x0, r3=(_A3 > _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpgt_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for greater than or equal,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for greater than or equal,
 	//r0=(_A0 >= _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpge_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for greater than or equal,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for greater than or equal,
 	//r0=(_A0 >= _B0) ? 0xffffffff : 0x0, r1=(_A1 >= _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 >= _B2) ? 0xffffffff : 0x0, r3=(_A3 >= _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpge_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for inequality,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for inequality,
 	//r0=(_A0 != _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpneq_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for inequality,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for inequality,
 	//r0=(_A0 != _B0) ? 0xffffffff : 0x0, r1=(_A1 != _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 != _B2) ? 0xffffffff : 0x0, r3=(_A3 != _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpneq_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not less than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not less than,
 	//r0= !(_A0 < _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpnlt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not less than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not less than,
 	//r0=!(_A0 < _B0) ? 0xffffffff : 0x0, r1=!(_A1 < _B1) ? 0xffffffff : 0x0, 
 	//r2=!(_A2 < _B2) ? 0xffffffff : 0x0, r3=!(_A3 < _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpnlt_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not less than or equal
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not less than or equal
 	//r0= !(_A0 <= _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpnle_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not less than or equal
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not less than or equal
 	//r0=!(_A0 <= _B0) ? 0xffffffff : 0x0, r1=!(_A1 <= _B1) ? 0xffffffff : 0x0, 
 	//r2=!(_A2 <= _B2) ? 0xffffffff : 0x0, r3=!(_A3 <= _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpnle_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not greater than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not greater than,
 	//r0=!(_A0 > _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpngt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not greater than,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not greater than,
 	//r0=!(_A0 > _B0) ? 0xffffffff : 0x0, r1=!(_A1 > _B1) ? 0xffffffff : 0x0, 
 	//r2=!(_A2 > _B2) ? 0xffffffff : 0x0, r3=!(_A3 > _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpngt_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not greater than or equal,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not greater than or equal,
 	//r0=!(_A0 >= _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpnge_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for not greater than or equal,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for not greater than or equal,
 	//r0=!(_A0 >= _B0) ? 0xffffffff : 0x0, r1=!(_A1 >= _B1) ? 0xffffffff : 0x0, 
 	//r2=!(_A2 >= _B2) ? 0xffffffff : 0x0, r3=!(_A3 >= _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpnge_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for ordered,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for ordered,
 	//r0=(_A0 ord? _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cmpord_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for ordered,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for ordered,
 	//r0=(_A0 ord? _B0) ? 0xffffffff : 0x0, r1=(_A1 ord? _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 ord? _B2) ? 0xffffffff : 0x0, r3=(_A3 ord? _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpord_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for unordered,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for unordered,
 	//r0=(_A0 unord? _B0) ? 0xffffffff : 0x0, r1=_A1, r2=_A2, r3=_A3	
 	extern __m128 _mm_cmpunord_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Compares for unordered,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Compares for unordered,
 	//r0=(_A0 unord? _B0) ? 0xffffffff : 0x0, r1=(_A1 unord? _B1) ? 0xffffffff : 0x0, 
 	//r2=(_A2 unord? _B2) ? 0xffffffff : 0x0, r3=(_A3 unord? _B3) ? 0xffffffff : 0x0
 	extern __m128 _mm_cmpunord_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬Compares the lower single-precision, floating-point value of
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,Compares the lower single-precision, floating-point value of
 	//a and b for a equal to b,If a and b are equal, 1 is returned. Otherwise,
 	//0 is returned. If a or b is a NaN, 1 is returned
 	//r=(_A0 == _B0) ? 0x1 : 0x0
 	extern int _mm_comieq_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is less than b, 1 is returned. Otherwise, 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is less than b, 1 is returned. Otherwise, 
 	//0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 < _B0) ? 0x1 : 0x0
 	extern int _mm_comilt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is less than or equal to b, 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is less than or equal to b, 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 <= _B0) ? 0x1 : 0x0
 	extern int _mm_comile_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is greater than b, 1 is returned.
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is greater than b, 1 is returned.
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 > _B0) ? 0x1 : 0x0
 	extern int _mm_comigt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is greater than or equal to b, 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is greater than or equal to b, 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 >= _B0) ? 0x1 : 0x0
 	extern int _mm_comige_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a and b are not equal, 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a and b are not equal, 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 != _B0) ? 0x1 : 0x0
 	extern int _mm_comineq_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a and b are equal, 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a and b are equal, 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 == _B0) ? 0x1 : 0x0	
 	extern int _mm_ucomieq_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is less than b , 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is less than b , 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 < _B0) ? 0x1 : 0x0
 	extern int _mm_ucomilt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is less than or equal to b, 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is less than or equal to b, 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 <= _B0) ? 0x1 : 0x0
 	extern int _mm_ucomile_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is greater than b, 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is greater than b, 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 > _B0) ? 0x1 : 0x0
 	extern int _mm_ucomigt_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a is greater than or equal to b, 1 is returned.
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a is greater than or equal to b, 1 is returned.
 	//Otherwise, 0 is returned,r=(_A0 >= _B0) ? 0x1 : 0x0
 	extern int _mm_ucomige_ss(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö0»ò1µÄÕûÊı£¬If a and b are not equal, 1 is returned. 
+	//è¿”å›ä¸€ä¸ª0æˆ–1çš„æ•´æ•°,If a and b are not equal, 1 is returned. 
 	//Otherwise, 0 is returned. If a or b is a NaN, 1 is returned,
 	//r=(_A0 != _B0) ? 0x1 : 0x0
 	extern int _mm_ucomineq_ss(__m128 _A, __m128 _B);
 
 	//Conversion Operations(SSE)
-	//·µ»ØÒ»¸ö32bitµÄÕûÊı£¬Converts the lower single-precision, floating-point value
+	//è¿”å›ä¸€ä¸ª32bitçš„æ•´æ•°,Converts the lower single-precision, floating-point value
 	//of a to a 32-bit integer according to the current rounding mode, r=(int)_A0
 	extern int _mm_cvt_ss2si(__m128 _A);//=_mm_cvtss_si32
-	//·µ»ØÒ»¸ö__m64¼Ä´æÆ÷£¬Converts the two lower single-precision, floating-point 
+	//è¿”å›ä¸€ä¸ª__m64å¯„å­˜å™¨,Converts the two lower single-precision, floating-point 
 	//values of a to two 32-bit integers according to the current rounding mode, 
 	//returning the integers in packed form, r0=(int)_A0, r1=(int)_A1
 	extern __m64 _mm_cvt_ps2pi(__m128 _A);//=_mm_cvtps_pi32
-	//·µ»ØÒ»¸ö32bitµÄÕûÊı£¬Converts the lower single-precision, floating-point value
+	//è¿”å›ä¸€ä¸ª32bitçš„æ•´æ•°,Converts the lower single-precision, floating-point value
 	//of a to a 32-bit integer with truncation, r=(int)_A0
 	extern int _mm_cvtt_ss2si(__m128 _A);//=_mm_cvttss_si32
-	//·µ»ØÒ»¸ö__m64¼Ä´æÆ÷£¬Converts the two lower single-precision, floating-point 
+	//è¿”å›ä¸€ä¸ª__m64å¯„å­˜å™¨,Converts the two lower single-precision, floating-point 
 	//values of a to two 32-bit integer with truncation, returning the integers 
 	//in packed form, r0=(int)_A0, r1=(int)_A1
 	extern __m64 _mm_cvtt_ps2pi(__m128 _A);//=_mm_cvttps_pi32
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Converts the 32-bit integer value b to an single-precision,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Converts the 32-bit integer value b to an single-precision,
 	//floating-point value; the upper three single-precision, floating-point values are
 	//passed through from a, r0=(float)_B, r1=_A1, r2=_A2, r3=_A3
 	extern __m128 _mm_cvt_si2ss(__m128 _A, int _B);//=_mm_cvtsi32_ss 
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Converts the two 32-bit integer values in packed form in b
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Converts the two 32-bit integer values in packed form in b
 	//to two single-precision, floating-point values; the upper two single-precision, 
 	//floating-point values are passed through from a
 	//r0=(float)_B0, r1=(float)_B1, r2=_A2, r3=_A3
 	extern __m128 _mm_cvt_pi2ps(__m128 _A, __m64 _B);//=_mm_cvtpi32_ps
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Converts the four 16-bit signed integer values in a to 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Converts the four 16-bit signed integer values in a to 
 	//four single-precision, floating-point values
 	//r0=(float)_A0, r1=(float)_A1, r2=(float)_A2, r3=(float)_A3
 	__inline __m128 _mm_cvtpi16_ps(__m64 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Converts the four 16-bit unsigned integer values in a
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Converts the four 16-bit unsigned integer values in a
 	//to four single-precision, floating-point values
 	//r0=(float)_A0, r1=(float)_A1, r2=(float)_A2, r3=(float)_A3
 	__inline __m128 _mm_cvtpu16_ps(__m64 _A);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬Converts the four single-precision, floating-point values
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Converts the four single-precision, floating-point values
 	//in a to four signed 16-bit integer values
 	//r0=(short)_A0, r1=(short)_A1, r2=(short)_A2, r3=(short)_A3
 	__inline __m64 _mm_cvtps_pi16(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Converts the lower four 8-bit signed integer values in a 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Converts the lower four 8-bit signed integer values in a 
 	//to four single-precision, floating-point values
 	//r0=(float)_A0, r1=(float)_A1, r2=(float)_A2, r3=(float)_A3
 	__inline __m128 _mm_cvtpi8_ps(__m64 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Converts the lower four 8-bit unsigned integer values in a
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Converts the lower four 8-bit unsigned integer values in a
 	//to four single-precision, floating-point values
 	//r0=(float)_A0, r1=(float)_A1, r2=(float)_A2, r3=(float)_A3
 	__inline __m128 _mm_cvtpu8_ps(__m64 _A);
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷£¬Converts the four single-precision, floating-point values 
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Converts the four single-precision, floating-point values 
 	//in a to the lower four signed 8-bit integer values of the result
 	//r0=(char)_A0, r1=(char)_A1, r2=(char)_A2, r3=(char)_A3
 	__inline __m64 _mm_cvtps_pi8(__m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Converts the two 32-bit signed integer values in a and the
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Converts the two 32-bit signed integer values in a and the
 	//two 32-bit signed integer values in b to four single-precision, floating-point values
 	//r0=(float)_A0, r1=(float)_A1, r2=(float)_B0, r3=(float)_B1
 	__inline __m128 _mm_cvtpi32x2_ps(__m64 _A, __m64 _B);
-	//·µ»ØÒ»¸ö32bit¸¡µãÊı£¬Extracts the lower order floating point value from the parameter
+	//è¿”å›ä¸€ä¸ª32bitæµ®ç‚¹æ•°,Extracts the lower order floating point value from the parameter
 	//r=_A0
 	extern float _mm_cvtss_f32(__m128 _A);
 
 	//Miscellaneous Instructions That Use Streaming SIMD Extensions:
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Selects four specific single-precision, floating-point 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Selects four specific single-precision, floating-point 
 	//values from a and b, based on the mask i
 	extern __m128 _mm_shuffle_ps(__m128 _A, __m128 _B, unsigned int _Imm8);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Selects and interleaves the upper two single-precision,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Selects and interleaves the upper two single-precision,
 	//floating-point values from a and b
 	//r0=_A2, r1=_B2, r2=_A3, r3=_B3
 	extern __m128 _mm_unpackhi_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Selects and interleaves the lower two single-precision,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Selects and interleaves the lower two single-precision,
 	//floating-point values from a and b
 	//r0=_A0, r1=_B0, r2=_A1, r3=_B1
 	extern __m128 _mm_unpacklo_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Sets the upper two single-precision, floating-point 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Sets the upper two single-precision, floating-point 
 	//values with 64 bits of data loaded from the address p; the lower two values
 	//are passed through from a
 	//r0=_A0, r1=_A1, r2=*_P0, r3=*_P1
 	extern __m128 _mm_loadh_pi(__m128 _A, __m64 const* _P);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Moves the upper two single-precision, floating-point
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Moves the upper two single-precision, floating-point
 	//values of b to the lower two single-precision, floating-point values of the result
 	//r3=_A3, r2=_A2, r1=_B3, r0=_B2
 	extern __m128 _mm_movehl_ps(__m128 _A, __m128 _B);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Moves the lower two single-precision, floating-point 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Moves the lower two single-precision, floating-point 
 	//values of b to the upper two single-precision, floating-point values of the result
 	//r3=_B1, r2=_B0, r1=_A1, r0=_A0
 	extern __m128 _mm_movelh_ps(__m128 _A, __m128 _B);
-	//·µ»ØÎª¿Õ£¬Stores the upper two single-precision, floating-point values of a 
+	//è¿”å›ä¸ºç©º,Stores the upper two single-precision, floating-point values of a 
 	//to the address p, *_P0=_A2, *_P1=_A3
 	extern void _mm_storeh_pi(__m64 *_P, __m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Sets the lower two single-precision, floating-point
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Sets the lower two single-precision, floating-point
 	//values with 64 bits of data loaded from the address p; the upper two values
 	//are passed through from a
 	//r0=*_P0, r1=*_P1, r2=_A2, r3=_A3	
 	extern __m128 _mm_loadl_pi(__m128 _A, __m64 const* _P);
-	//·µ»ØÎª¿Õ£¬Stores the lower two single-precision, floating-point values of a
+	//è¿”å›ä¸ºç©º,Stores the lower two single-precision, floating-point values of a
 	//to the address p, *_P0=_A0, *_P1=_A1
 	extern void _mm_storel_pi(__m64 *_P, __m128 _A);
-	//·µ»ØÒ»¸öÕûÊı£¬Creates a 4-bit mask from the most significant bits of the
+	//è¿”å›ä¸€ä¸ªæ•´æ•°,Creates a 4-bit mask from the most significant bits of the
 	//four single-precision, floating-point values	
 	//r=sign(_A3)<<3 | sign(_A2)<<2 | sign(_A1)<<1 | sign(_A0)
 	extern int _mm_movemask_ps(__m128 _A);
-	//·µ»ØÒ»¸öÎŞ·ûºÅÕûÊı£¬Returns the contents of the control register
+	//è¿”å›ä¸€ä¸ªæ— ç¬¦å·æ•´æ•°,Returns the contents of the control register
 	extern unsigned int _mm_getcsr(void);
-	//·µ»ØÎª¿Õ£¬Sets the control register to the value specified
+	//è¿”å›ä¸ºç©º,Sets the control register to the value specified
 	extern void _mm_setcsr(unsigned int);
 
 	//Memory and Initialization Using Streaming SIMD Extensions
 	//Load Operations(SSE)
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Loads an single-precision, floating-point value into
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Loads an single-precision, floating-point value into
 	//the low word and clears the upper three words
 	//r0=*_P, r1=0.0, r2=0.0, r3=0.0
 	extern __m128 _mm_load_ss(float const* _P);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Loads a single single-precision, floating-point value,
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Loads a single single-precision, floating-point value,
 	//copying it into all four words
 	//r0=*_P0, r1=*_P1, r2=*_P2, r3=*_P3
 	extern __m128 _mm_load_ps1(float const* _P);//=_mm_load1_ps
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Loads four single-precision, floating-point values
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Loads four single-precision, floating-point values
 	//The address must be 16-byte aligned
 	//r0=_P[0], r1=_P[1], r2=_P[2], r3=_P[3]
 	extern __m128 _mm_load_ps(float const* _P);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Loads four single-precision, floating-point values 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Loads four single-precision, floating-point values 
 	//in reverse order, The address must be 16-byte aligned
 	//r0=_P[3], r1=_P[2], r2=_P[1], r3=_P[0]
 	extern __m128 _mm_loadr_ps(float const* _P);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Loads four single-precision, floating-point values
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Loads four single-precision, floating-point values
 	//The address does not need to be 16-byte aligned
 	//r0=_P[0], r1=_P[1], r2=_P[2], r3=_P[3]
 	extern __m128 _mm_loadu_ps(float const* _P);
 
 	//Set Operations(SSE)
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Sets the low word of an single-precision, 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Sets the low word of an single-precision, 
 	//floating-point value to w and clears the upper three words
 	//r0=_W, r1=r2=r3=0.0
 	extern __m128 _mm_set_ss(float _W);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Sets the four single-precision, floating-point values to w
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Sets the four single-precision, floating-point values to w
 	//r0=r1=r2=r3=_W
 	extern __m128 _mm_set_ps1(float _W);//=_mm_set1_ps
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Sets the four single-precision, floating-point values to 
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Sets the four single-precision, floating-point values to 
 	//the four inputs, r0=_D, r1=_C, r2=_B, r3=_A
 	extern __m128 _mm_set_ps(float _A, float _B, float _C, float _D);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Sets the four single-precision, floating-point values to
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Sets the four single-precision, floating-point values to
 	//the four inputs in reverse order, r0=_A, r1=_B, r2=_C, r3=_D
 	extern __m128 _mm_setr_ps(float _A, float _B, float _C, float _D);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Clears the four single-precision, floating-point values
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Clears the four single-precision, floating-point values
 	//r0=r1=r2=r3=0.0
 	extern __m128 _mm_setzero_ps(void);
 
 	//Store Operations(SSE)
-	//·µ»ØÎª¿Õ£¬Stores the lower single-precision, floating-point value£¬*_V=_A0
+	//è¿”å›ä¸ºç©º,Stores the lower single-precision, floating-point value,*_V=_A0
 	extern void _mm_store_ss(float *_V, __m128 _A);
-	//·µ»ØÎª¿Õ£¬Stores the lower single-precision, floating-point value across four words
+	//è¿”å›ä¸ºç©º,Stores the lower single-precision, floating-point value across four words
 	//_V[0]=_A0, _V[1]=_A0, _V[2]=_A0, _V[3]=_A0
 	extern void _mm_store_ps1(float *_V, __m128 _A);//=_mm_store1_ps
-	//·µ»ØÎª¿Õ£¬Stores four single-precision, floating-point values
+	//è¿”å›ä¸ºç©º,Stores four single-precision, floating-point values
 	//The address must be 16-byte aligned
 	//_V[0]=_A0, _V[1]=_A1, _V[2]=_A2, _V[3]=_A3
 	extern void _mm_store_ps(float *_V, __m128 _A);
-	//·µ»ØÎª¿Õ£¬Stores four single-precision, floating-point values in reverse order
+	//è¿”å›ä¸ºç©º,Stores four single-precision, floating-point values in reverse order
 	//The address must be 16-byte aligned,
 	//_V[0]=_A3, _V[1]=_A2, _V[2]=_A1, _V[3]=_A0
 	extern void _mm_storer_ps(float *_V, __m128 _A);
-	//·µ»ØÎª¿Õ£¬Stores four single-precision, floating-point values,
+	//è¿”å›ä¸ºç©º,Stores four single-precision, floating-point values,
 	//The address does not need to be 16-byte aligned
 	//_V[0]=_A0, _V[1]=_A1, _V[2]=_A2, _V[3]=_A3
 	extern void _mm_storeu_ps(float *_V, __m128 _A);
-	//·µ»ØÒ»¸ö__m128µÄ¼Ä´æÆ÷£¬Sets the low word to the single-precision, floating-point
+	//è¿”å›ä¸€ä¸ª__m128çš„å¯„å­˜å™¨,Sets the low word to the single-precision, floating-point
 	//value of b,The upper 3 single-precision, floating-point values are passed through 
 	//from a, r0=_B0, r1=_A1, r2=_A2, r3=_A3		
 	extern __m128 _mm_move_ss(__m128 _A, __m128 _B);
 
 	//Integer Intrinsics Using Streaming SIMD Extensions
-	//·µ»ØÒ»¸ö16bitÕûÊı£¬Extracts one of the four words of a£¬
+	//è¿”å›ä¸€ä¸ª16bitæ•´æ•°,Extracts one of the four words of a,
 	//The selector n must be an immediate,
 	//r=(_Imm == 0) ? _A0 : ((_Imm==1) ? _A1 : ((_Imm==2) ? _A2 : _A3))
 	extern int _m_pextrw(__m64 _A, int _Imm);//=_mm_extract_pi16
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Inserts word d into one of four words of a,
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Inserts word d into one of four words of a,
 	//The selector n must be an immediate
 	//r0=(_Imm==0)? _D : _A0, r1=(_Imm==1)? _D : _A1,
 	//r2=(_Imm==2)? _D : _A2, r3=(_Imm==3)? _D : _A3
 	extern __m64 _m_pinsrw(__m64 _A, int _D, int _Imm);//=_mm_insert_pi16
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Computes the element-wise maximum of the words in a and b,
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Computes the element-wise maximum of the words in a and b,
 	//r0=max(_A0, _B0), r1=max(_A1, _B1), r2=max(_A2, _B2), r3=max(_A3, _B3)
 	extern __m64 _m_pmaxsw(__m64 _A, __m64 _B);//=_mm_max_pi16
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Computes the element-wise maximum of the unsigned bytes in
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Computes the element-wise maximum of the unsigned bytes in
 	//a and b, r0=max(_A0, _B0), r1=max(_A1, _B1), ... r7=max(_A7, _B7)
 	extern __m64 _m_pmaxub(__m64 _A, __m64 _B);//=_mm_max_pu8
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Computes the element-wise minimum of the words in a and b
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Computes the element-wise minimum of the words in a and b
 	//r0=min(_A0, _B0), r1=min(_A1, _B1), r2=min(_A2, _B2), r3=min(_A3, _B3)
 	extern __m64 _m_pminsw(__m64 _A, __m64 _B);//=_mm_min_pi16
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Computes the element-wise minimum of the unsigned bytes
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Computes the element-wise minimum of the unsigned bytes
 	//in a and b, r0=min(_A0, _B0), r1=min(_A1, _B1), ... r7=min(_A7, _B7)
 	extern __m64 _m_pminub(__m64 _A, __m64 _B);//=_mm_min_pu8
-	//·µ»ØÒ»¸öÕûÊı£¬Creates an 8-bit mask from the most significant bits of the
+	//è¿”å›ä¸€ä¸ªæ•´æ•°,Creates an 8-bit mask from the most significant bits of the
 	//bytes in a, r=sign(_A7)<<7 | sign(_A6)<<6 | ... | sign(_A0)
 	extern int _m_pmovmskb(__m64 _A);//=_mm_movemask_pi8
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Multiplies the unsigned words in a and b, returning the
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Multiplies the unsigned words in a and b, returning the
 	//upper 16 bits of the 32-bit intermediate results,
 	//r0=hiword(_A0, _B0), r1=hiword(_A1, _B1), r2=hiword(_A2, _B2), r3=hiword(_A3, _B3)
 	extern __m64 _m_pmulhuw(__m64 _A, __m64 _B);//=_mm_mulhi_pu16
-	//·µ»ØÎª¿Õ£¬Conditionally stores byte elements of d to address p,The high bit of 
+	//è¿”å›ä¸ºç©º,Conditionally stores byte elements of d to address p,The high bit of 
 	//each byte in the selector _B determines whether the corresponding byte in _A 
 	//will be stored, if (sign(_B0)) _P[0]=_A0, if (sign(_B1)) _P[1]=_A1, ...
 	//if (sign(_B7)) _P[7]=_A7
 	extern void _m_maskmovq(__m64 _A, __m64 _B, char * _P);//=_mm_maskmove_si64
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Computes the (rounded) averages of the unsigned bytes 
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Computes the (rounded) averages of the unsigned bytes 
 	//in a and b, t=(unsigned short)_A0 + (unsigned short)_B0, r0=(t>>1) | (t & 0x01),
 	//..., t=(unsigned short)_A7 + (unsigned short)_B7, r7=(t>>1) | (t & 0x01)	
 	extern __m64 _m_pavgb(__m64 _A, __m64 _B);//=_mm_avg_pu8
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Computes the (rounded) averages of the unsigned words
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Computes the (rounded) averages of the unsigned words
 	//in a and b, t=(unsigned short)_A0 + (unsigned short)_B0, r0=(t>>1) | (t & 0x01),
 	//..., t=(unsigned short)_A4 + (unsigned short)_B4, r7=(t>>1) | (t & 0x01)
 	extern __m64 _m_pavgw(__m64 _A, __m64 _B);//=_mm_avg_pu16
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Computes the sum of the absolute differences of the unsigned
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Computes the sum of the absolute differences of the unsigned
 	//bytes in a and b, returning the value in the lower word
 	//The upper three words are cleared
 	//r0=abs(_A0-_B0) + ... + abs(_A7-_B7), r1=r2=r3=0
 	extern __m64 _m_psadbw(__m64, __m64);//=_mm_sad_pu8
-	//·µ»ØÒ»¸ö__m64µÄ¼Ä´æÆ÷,Returns a combination of the four words of a.
+	//è¿”å›ä¸€ä¸ª__m64çš„å¯„å­˜å™¨,Returns a combination of the four words of a.
 	//The selector _Imm must be an immediate
 	//r0=word(_Imm & 0x03) of _A, r1=word((_Imm>>2) & 0x03) of _A, 
 	//r2=word((_Imm>>4) & 0x03) of _A, r1=word((_Imm>>6) & 0x03) of _A, 
 	extern __m64 _m_pshufw(__m64 _A, int _Imm);//=_mm_shuffle_pi16
 
 	//Streaming SIMD Extensions that Support the Cache
-	//·µ»ØÎª¿Õ£¬Loads one cache line of data from address p to a location closer
+	//è¿”å›ä¸ºç©º,Loads one cache line of data from address p to a location closer
 	//to the processor, The value _Sel specifies the type of prefetch operation
 	extern void _mm_prefetch(char const*_A, int _Sel);
-	//·µ»ØÎª¿Õ£¬Stores the data in a to the address p without polluting the caches
+	//è¿”å›ä¸ºç©º,Stores the data in a to the address p without polluting the caches
 	//This intrinsic requires you to empty the multimedia state for the MMX register
 	extern void _mm_stream_pi(__m64 * _P, __m64 _A);
-	//·µ»ØÎª¿Õ£¬Stores the data in a to the address p without polluting the caches,
+	//è¿”å›ä¸ºç©º,Stores the data in a to the address p without polluting the caches,
 	//The address must be 16-byte aligned
 	extern void _mm_stream_ps(float *, __m128 _A);
-	//·µ»ØÎª¿Õ£¬Guarantees that every preceding store is globally visible 
+	//è¿”å›ä¸ºç©º,Guarantees that every preceding store is globally visible 
 	//before any subsequent store
 	extern void _mm_sfence(void);
 

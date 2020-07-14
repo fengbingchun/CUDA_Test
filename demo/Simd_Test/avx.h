@@ -1,13 +1,13 @@
-#include <mmintrin.h> //MMX  
-#include <xmmintrin.h> //SSE(include mmintrin.h)  
-#include <emmintrin.h> //SSE2(include xmmintrin.h)  
-#include <pmmintrin.h> //SSE3(include emmintrin.h)  
-#include <tmmintrin.h>//SSSE3(include pmmintrin.h)  
-#include <smmintrin.h>//SSE4.1(include tmmintrin.h)  
-#include <nmmintrin.h>//SSE4.2(include smmintrin.h)  
-#include <wmmintrin.h>//AES(include nmmintrin.h)  
-#include <immintrin.h>//AVX(include wmmintrin.h)  
-#include <intrin.h>//(include immintrin.h) 
+ï»¿#include <mmintrin.h> //MMX
+#include <xmmintrin.h> //SSE(include mmintrin.h)
+#include <emmintrin.h> //SSE2(include xmmintrin.h)
+#include <pmmintrin.h> //SSE3(include emmintrin.h)
+#include <tmmintrin.h>//SSSE3(include pmmintrin.h)
+#include <smmintrin.h>//SSE4.1(include tmmintrin.h)
+#include <nmmintrin.h>//SSE4.2(include smmintrin.h)
+#include <wmmintrin.h>//AES(include nmmintrin.h)
+#include <immintrin.h>//AVX(include wmmintrin.h)
+#include <intrin.h>//(include immintrin.h)
 
 void AVXFUN()
 {
@@ -20,7 +20,7 @@ void AVXFUN()
 	* destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=m10+m20, r1=m11+m21, r2=m12+m22, r3=m13+m23
+	//åˆ™r0=m10+m20, r1=m11+m21, r2=m12+m22, r3=m13+m23
 	extern __m256d __cdecl _mm256_add_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -32,7 +32,7 @@ void AVXFUN()
 	* destination
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr0=m10+m20, r1=m11+m21, ..., r7=m17+m27
+	//åˆ™r0=m10+m20, r1=m11+m21, ..., r7=m17+m27
 	extern __m256 __cdecl _mm256_add_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -47,7 +47,7 @@ void AVXFUN()
 	* result into the even-numbered values of the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=m10-m20, r1=m11+m21, r2=m12-m22, r3=m13-m23
+	//åˆ™r0=m10-m20, r1=m11+m21, r2=m12-m22, r3=m13-m23
 	extern __m256d __cdecl _mm256_addsub_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -62,7 +62,7 @@ void AVXFUN()
 	* result into the even-numbered values of the destination
 	*/
 	//m1=(m10, m11, m12, m13, ..., m17), m2=(m20, m21, m22, m23, ..., m27)
-	//Ôòr0=m10-m20, r1=m11+m21, ... , r6=m16-m26, r7=m17+m27
+	//åˆ™r0=m10-m20, r1=m11+m21, ... , r6=m16-m26, r7=m17+m27
 	extern __m256 __cdecl _mm256_addsub_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -73,7 +73,7 @@ void AVXFUN()
 	* source operand, and stores the result in the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=(m10 & m20), r1=(m11 & m21), r2=(m12 & m22), r3=(m13 & m23)
+	//åˆ™r0=(m10 & m20), r1=(m11 & m21), r2=(m12 & m22), r3=(m13 & m23)
 	extern __m256d __cdecl _mm256_and_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -84,7 +84,7 @@ void AVXFUN()
 	* source operand, and stores the result in the destination
 	*/
 	//m1=(m10, m11, m12, m13, ..., m17), m2=(m20, m21, m22, m23, ..., m27)
-	//Ôòr0=(m10 & m20), r1=(m11 & m21), ..., r6=(m16 & m26), r7=(m17 & m27)
+	//åˆ™r0=(m10 & m20), r1=(m11 & m21), ..., r6=(m16 & m26), r7=(m17 & m27)
 	extern __m256 __cdecl _mm256_and_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -95,7 +95,7 @@ void AVXFUN()
 	* operand, and stores the result in the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=(~m10) & m20, r1=(~m11) & m21, r2=(~m12) & m22, r3=(~m13) & m23
+	//åˆ™r0=(~m10) & m20, r1=(~m11) & m21, r2=(~m12) & m22, r3=(~m13) & m23
 	extern __m256d __cdecl _mm256_andnot_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -106,7 +106,7 @@ void AVXFUN()
 	* operand, and stores the result in the destination
 	*/
 	//m1=(m10, m11, m12, m13, ..., m17), m2=(m20, m21, m22, m23, ..., m27)
-	//Ôòr0=(~m10) & m20, r1=(~m11) & m21), ..., r6=(~m16) & m26, r7=(~m17) & m27
+	//åˆ™r0=(~m10) & m20, r1=(~m11) & m21), ..., r6=(~m16) & m26, r7=(~m17) & m27
 	extern __m256 __cdecl _mm256_andnot_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -122,7 +122,7 @@ void AVXFUN()
 	* source operand is copied
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23), mask=[b3 b2 b1 b0]
-	//Èç¹ûbn=1,Ôòrn=m2n£¬Èç¹ûbn=0, Ôòrn=m1n, ÆäÖĞnÎª0,1,2,3
+	//å¦‚æœbn=1,åˆ™rn=m2n,å¦‚æœbn=0, åˆ™rn=m1n, å…¶ä¸­nä¸º0,1,2,3
 	extern __m256d __cdecl _mm256_blend_pd(__m256d m1, __m256d m2, const int mask);
 
 	/*
@@ -137,8 +137,8 @@ void AVXFUN()
 	* value in the second source operand is copied, else the value in the first
 	* source operand is copied
 	*/
-	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)£¬mask=[b7 b6...b1 b0]
-	//Èç¹ûbn=1,Ôòrn=m2n£¬Èç¹ûbn=0, Ôòrn=m1n, ÆäÖĞnÎª0,1,2,3,4,5,6,7
+	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27),mask=[b7 b6...b1 b0]
+	//å¦‚æœbn=1,åˆ™rn=m2n,å¦‚æœbn=0, åˆ™rn=m1n, å…¶ä¸­nä¸º0,1,2,3,4,5,6,7
 	extern __m256 __cdecl _mm256_blend_ps(__m256 m1, __m256 m2, const int mask);
 
 	/*
@@ -169,7 +169,7 @@ void AVXFUN()
 	* floating-point values in the second source operand
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=m10/m20, r1=m11/m21, r2=m12/m22, r3=m13/m23
+	//åˆ™r0=m10/m20, r1=m11/m21, r2=m12/m22, r3=m13/m23
 	extern __m256d __cdecl _mm256_div_pd(__m256d m1, __m256d m2);
 
 	/* 
@@ -180,7 +180,7 @@ void AVXFUN()
 	* single-precision floating-point values in the second source operand
 	*/
 	//m1=(m10, m11, m12, m13, ..., m17), m2=(m20, m21, m22, m23, ..., m27)
-	//Ôòr0=m10/m20, r1=m11/m21, ..., r6=m16/m26, r7=m17/m27
+	//åˆ™r0=m10/m20, r1=m11/m21, ..., r6=m16/m26, r7=m17/m27
 	extern __m256 __cdecl _mm256_div_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -197,9 +197,9 @@ void AVXFUN()
 	* The process is replicated for the high elements of the destination.
 	*/
 	//m1=(m10, m11, m12, m13, ..., m17), m2=(m20, m21, m22, m23, ..., m27)
-	//mask=[b7 b6 ... b0], maskµÄµÍËÄÎ»¾ö¶¨½á¹ûÖµÊÇ0£¬»¹ÊÇm1ºÍm2ÏàÓ¦Î»Ïà³ËºóÔÙÇóºÍ
-	//Èôb0b1b2b3Îª0001£¬Ôòr0=r1=r2=0,m4=m5=m6=0,´ËÊ±Èç¹ûb4b5b6b7Îª1001£¬
-	//Ôòr3=m10*m20+m13*m23, r7=m14*m24+m17*m27,ÆäËüÒÀ´ÎÀàÍÆ
+	//mask=[b7 b6 ... b0], maskçš„ä½å››ä½å†³å®šç»“æœå€¼æ˜¯0,è¿˜æ˜¯m1å’Œm2ç›¸åº”ä½ç›¸ä¹˜åå†æ±‚å’Œ
+	//è‹¥b0b1b2b3ä¸º0001,åˆ™r0=r1=r2=0,m4=m5=m6=0,æ­¤æ—¶å¦‚æœb4b5b6b7ä¸º1001,
+	//åˆ™r3=m10*m20+m13*m23, r7=m14*m24+m17*m27,å…¶å®ƒä¾æ¬¡ç±»æ¨
 	extern __m256 __cdecl _mm256_dp_ps(__m256 m1, __m256 m2, const int mask);
 
 	/*
@@ -210,7 +210,7 @@ void AVXFUN()
 	* the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=m10+m11, r1=m20+m21, r2=m12+m13, r3=m22+m23
+	//åˆ™r0=m10+m11, r1=m20+m21, r2=m12+m13, r3=m22+m23
 	extern __m256d __cdecl _mm256_hadd_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -221,7 +221,7 @@ void AVXFUN()
 	* the destination
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr0=m10+m11, r1=m12+m13, r2=m20+m21, r3=m22+m23, 
+	//åˆ™r0=m10+m11, r1=m12+m13, r2=m20+m21, r3=m22+m23,
 	//r4=m14+m15, r5=m16+m17, r6=m24+m25, r7=m26+m27
 	extern __m256 __cdecl _mm256_hadd_ps(__m256 m1, __m256 m2);
 
@@ -233,7 +233,7 @@ void AVXFUN()
 	* in the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=m10-m11, r1=m20-m21, r2=m12-m13, r3=m22-m23
+	//åˆ™r0=m10-m11, r1=m20-m21, r2=m12-m13, r3=m22-m23
 	extern __m256d __cdecl _mm256_hsub_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -244,7 +244,7 @@ void AVXFUN()
 	* in the destination.
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr0=m10-m11, r1=m12-m13, r2=m20-m21, r3=m22-m23, 
+	//åˆ™r0=m10-m11, r1=m12-m13, r2=m20-m21, r3=m22-m23,
 	//r4=m14-m15, r5=m16-m17, r6=m24-m25, r7=m26-m27
 	extern __m256 __cdecl _mm256_hsub_ps(__m256 m1, __m256 m2);
 
@@ -256,7 +256,7 @@ void AVXFUN()
 	* returns the maximum value for each pair of values to the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=max(m10,m20), r1=max(m11,m21), r2=max(m12,m22), r3=max(m13,m23)
+	//åˆ™r0=max(m10,m20), r1=max(m11,m21), r2=max(m12,m22), r3=max(m13,m23)
 	extern __m256d __cdecl _mm256_max_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -267,7 +267,7 @@ void AVXFUN()
 	* returns the maximum value for each pair of values to the destination
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr0=max(m10,m20), r1=max(m11,m21), ..., r6=max(m16,m26), r7=max(m17,m27) 
+	//åˆ™r0=max(m10,m20), r1=max(m11,m21), ..., r6=max(m16,m26), r7=max(m17,m27)
 	extern __m256 __cdecl _mm256_max_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -278,7 +278,7 @@ void AVXFUN()
 	* returns the minimum value for each pair of values to the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=min(m10,m20), r1=min(m11,m21), r2=min(m12,m22), r3=min(m13,m23)
+	//åˆ™r0=min(m10,m20), r1=min(m11,m21), r2=min(m12,m22), r3=min(m13,m23)
 	extern __m256d __cdecl _mm256_min_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -289,7 +289,7 @@ void AVXFUN()
 	* returns the minimum value for each pair of values to the destination
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr0=min(m10,m20), r1=min(m11,m21), ..., r6=min(m16,m26), r7=min(m17,m27) 
+	//åˆ™r0=min(m10,m20), r1=min(m11,m21), ..., r6=min(m16,m26), r7=min(m17,m27)
 	extern __m256 __cdecl _mm256_min_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -301,7 +301,7 @@ void AVXFUN()
 	* destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=m10*m20, r1=m11*m21, r2=m12*m22, r3=m13*m23
+	//åˆ™r0=m10*m20, r1=m11*m21, r2=m12*m22, r3=m13*m23
 	extern __m256d __cdecl _mm256_mul_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -313,7 +313,7 @@ void AVXFUN()
 	* the destination
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr0=m10*m20, r1=m11*m21, ..., r6=m16*m26, r7=m17*m27 
+	//åˆ™r0=m10*m20, r1=m11*m21, ..., r6=m16*m26, r7=m17*m27
 	extern __m256 __cdecl _mm256_mul_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -323,7 +323,7 @@ void AVXFUN()
 	* floating-point values from the first source operand and the second
 	* source operand, and stores the result in the destination
 	*/
-	//×¢Òâ£ºÓĞÊ±µÃµ½µÄ½á¹û²¢²»ÊÇm1ºÍm2°´Î»»òµÄ½á¹û?
+	//æ³¨æ„ï¼šæœ‰æ—¶å¾—åˆ°çš„ç»“æœå¹¶ä¸æ˜¯m1å’Œm2æŒ‰ä½æˆ–çš„ç»“æœ?
 	extern __m256d __cdecl _mm256_or_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -333,7 +333,7 @@ void AVXFUN()
 	* floating-point values from the first source operand and the second
 	* source operand, and stores the result in the destination
 	*/
-	//×¢Òâ£ºÓĞÊ±µÃµ½µÄ½á¹û²¢²»ÊÇm1ºÍm2°´Î»»òµÄ½á¹û?
+	//æ³¨æ„ï¼šæœ‰æ—¶å¾—åˆ°çš„ç»“æœå¹¶ä¸æ˜¯m1å’Œm2æŒ‰ä½æˆ–çš„ç»“æœ?
 	extern __m256 __cdecl _mm256_or_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -369,7 +369,7 @@ void AVXFUN()
 	* stores the packed double-precision floating-point results in the destination
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr0=m10-m20, r1=m11-m21, r2=m12-m22, r3=m13-m23
+	//åˆ™r0=m10-m20, r1=m11-m21, r2=m12-m22, r3=m13-m23
 	extern __m256d __cdecl _mm256_sub_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -381,7 +381,7 @@ void AVXFUN()
 	* the destination
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr0=m10-m20, r1=m11-m21, ..., r6=m16-m26, r7=m17-m27 
+	//åˆ™r0=m10-m20, r1=m11-m21, ..., r6=m16-m26, r7=m17-m27
 	extern __m256 __cdecl _mm256_sub_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -391,7 +391,7 @@ void AVXFUN()
 	* floating-point values from the first source operand and the second
 	* source operand, and stores the result in the destination
 	*/
-	//×¢Òâ£ºÓĞÊ±µÃµ½µÄ½á¹û²¢²»ÊÇm1ºÍm2°´Î»Òì»òµÄ½á¹û?
+	//æ³¨æ„ï¼šæœ‰æ—¶å¾—åˆ°çš„ç»“æœå¹¶ä¸æ˜¯m1å’Œm2æŒ‰ä½å¼‚æˆ–çš„ç»“æœ?
 	extern __m256d __cdecl _mm256_xor_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -401,7 +401,7 @@ void AVXFUN()
 	* floating-point values from the first source operand and the second
 	* source operand, and stores the result in the destination
 	*/
-	//×¢Òâ£ºÓĞÊ±µÃµ½µÄ½á¹û²¢²»ÊÇm1ºÍm2°´Î»Òì»òµÄ½á¹û?
+	//æ³¨æ„ï¼šæœ‰æ—¶å¾—åˆ°çš„ç»“æœå¹¶ä¸æ˜¯m1å’Œm2æŒ‰ä½å¼‚æˆ–çš„ç»“æœ?
 	extern __m256 __cdecl _mm256_xor_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -469,7 +469,7 @@ void AVXFUN()
 	* Converts four packed signed doubleword integers in the source operand to
 	* four packed double-precision floating-point values in the destination
 	*/
-	//´Ó__int32ÀàĞÍ×ª»»µ½doubleÀàĞÍ
+	//ä»__int32ç±»å‹è½¬æ¢åˆ°doubleç±»å‹
 	extern __m256d __cdecl _mm256_cvtepi32_pd(__m128i m1);
 
 	/*
@@ -479,7 +479,7 @@ void AVXFUN()
 	* Converts eight packed signed doubleword integers in the source operand to
 	* eight packed double-precision floating-point values in the destination
 	*/
-	//´Ó__int32ÀàĞÍ×ª»»µ½floatÀàĞÍ
+	//ä»__int32ç±»å‹è½¬æ¢åˆ°floatç±»å‹
 	extern __m256  __cdecl _mm256_cvtepi32_ps(__m256i m1);
 
 	/*
@@ -490,7 +490,7 @@ void AVXFUN()
 	* operand to four packed single-precision floating-point values in the
 	* destination
 	*/
-	//´ÓdoubleÀàĞÍ×ª»»µ½floatÀàĞÍ
+	//ä»doubleç±»å‹è½¬æ¢åˆ°floatç±»å‹
 	extern __m128  __cdecl _mm256_cvtpd_ps(__m256d m1);
 
 	/*
@@ -500,7 +500,7 @@ void AVXFUN()
 	* Converts eight packed single-precision floating-point values in the source
 	* operand to eight signed doubleword integers in the destination
 	*/
-	//´ÓfloatÀàĞÍ×ª»»µ½__int32ÀàĞÍ
+	//ä»floatç±»å‹è½¬æ¢åˆ°__int32ç±»å‹
 	extern __m256i __cdecl _mm256_cvtps_epi32(__m256 m1);
 
 	/*
@@ -511,7 +511,7 @@ void AVXFUN()
 	* operand to four packed double-precision floating-point values in the
 	* destination
 	*/
-	//´ÓfloatÀàĞÍ×ª»»µ½doubleÀàĞÍ
+	//ä»floatç±»å‹è½¬æ¢åˆ°doubleç±»å‹
 	extern __m256d __cdecl _mm256_cvtps_pd(__m128 m1);
 
 	/*
@@ -525,7 +525,7 @@ void AVXFUN()
 	* integer, the floating-point invalid exception is raised, and if this
 	* exception is masked, the indefinite integer value (80000000H) is returned
 	*/
-	//´ÓdoubleÀàĞÍ×ª»»µ½__int32ÀàĞÍ£¬truncated
+	//ä»doubleç±»å‹è½¬æ¢åˆ°__int32ç±»å‹,truncated
 	extern __m128i __cdecl _mm256_cvttpd_epi32(__m256d m1);
 
 	/*
@@ -535,7 +535,7 @@ void AVXFUN()
 	* Converts four packed double-precision floating-point values in the source
 	* operand to four packed signed doubleword integers in the destination
 	*/
-	//´ÓdoubleÀàĞÍ×ª»»µ½__int32ÀàĞÍ
+	//ä»doubleç±»å‹è½¬æ¢åˆ°__int32ç±»å‹
 	extern __m128i __cdecl _mm256_cvtpd_epi32(__m256d m1);
 
 	/*
@@ -549,7 +549,7 @@ void AVXFUN()
 	* integer, the floating-point invalid exception is raised, and if this
 	* exception is masked, the indefinite integer value (80000000H) is returned
 	*/
-	//´ÓfloatÀàĞÍ×ª»»µ½__int32ÀàĞÍ,truncated
+	//ä»floatç±»å‹è½¬æ¢åˆ°__int32ç±»å‹,truncated
 	extern __m256i __cdecl _mm256_cvttps_epi32(__m256 m1);
 
 	/*
@@ -558,9 +558,9 @@ void AVXFUN()
 	* Extracts 128-bits of packed floating-point values from the source operand
 	* at an 128-bit offset from imm8[0] into the destination
 	*/
-	//offset:a constant integer value that represents the 128-bit offset from 
+	//offset:a constant integer value that represents the 128-bit offset from
 	//where extraction must start
-	//´Ó256Î»ÖĞÌáÈ¡128Î»£¬offset¾ö¶¨ÌáÈ¡µÄÆğÊ¼Î»ÖÃ
+	//ä»256ä½ä¸­æå–128ä½,offsetå†³å®šæå–çš„èµ·å§‹ä½ç½®
 	extern __m128  __cdecl _mm256_extractf128_ps(__m256 m1, const int offset);
 	extern __m128d __cdecl _mm256_extractf128_pd(__m256d m1, const int offset);
 	extern __m128i __cdecl _mm256_extractf128_si256(__m256i m1, const int offset);
@@ -588,9 +588,9 @@ void AVXFUN()
 	* using 8-bit control fields in the low bytes of corresponding elements the
 	* shuffle control and store results in the destination
 	*/
-	//control:a vector with 2-bit control fields, one for each corresponding element 
+	//control:a vector with 2-bit control fields, one for each corresponding element
 	//of the source vector, for the 256-bit m1 source vector this control vector
-	//contains eight 2-bit control fields,for the 128-bit m1 source vector this 
+	//contains eight 2-bit control fields,for the 128-bit m1 source vector this
 	//control vector contains four 2-bit control fields
 	extern __m256  __cdecl _mm256_permutevar_ps(__m256 m1, __m256i control);
 	extern __m128  __cdecl _mm_permutevar_ps(__m128 a, __m128i control);
@@ -604,7 +604,7 @@ void AVXFUN()
 	* in the destination
 	*/
 	//control:an integer specified as an 8-bit immediate;for the 256-bit m1 vector
-	//this integer contains four 2-bit control fields in the low 8 bits of 
+	//this integer contains four 2-bit control fields in the low 8 bits of
 	//the immediate, for the 128-bit m1 vector this integer contains two 2-bit
 	//control fields in the low 4 bits of the immediate
 	extern __m256  __cdecl _mm256_permute_ps(__m256 m1, int control);
@@ -619,8 +619,8 @@ void AVXFUN()
 	* and store results in the destination
 	*/
 	//control:a vector with 1-bit control fields, one for each corresponding element
-	//of the source vector, for the 256-bit m1 source vector this control vector 
-	//contains four 1-bit control fields in the low 4 bits of the immediate, for the 
+	//of the source vector, for the 256-bit m1 source vector this control vector
+	//contains four 1-bit control fields in the low 4 bits of the immediate, for the
 	//128-bit m1 source vector this control vector contains two 1-bit control fields
 	//in the low 2 bits of the immediate
 	extern __m256d __cdecl _mm256_permutevar_pd(__m256d m1, __m256i control);
@@ -635,7 +635,7 @@ void AVXFUN()
 	* and store results in the destination
 	*/
 	//control:an integer specified as an 8-bit immediate; for the 256-bit m1 vector
-	//this integer contains four 1-bit control fields in the low 4 bits of the 
+	//this integer contains four 1-bit control fields in the low 4 bits of the
 	//immediate, for the 128-bit m1 vector this integer contains two 1-bit
 	//control fields in the low 2 bits of the immediate
 	extern __m256d __cdecl _mm256_permute_pd(__m256d m1, int control);
@@ -648,7 +648,7 @@ void AVXFUN()
 	* operand and second source operand using bits in the 8-bit immediate and
 	* store results in the destination
 	*/
-	//control:an immediate byte that specifies two 2-bit control fields and two 
+	//control:an immediate byte that specifies two 2-bit control fields and two
 	//additional bits which specify zeroing behavior
 	extern __m256  __cdecl _mm256_permute2f128_ps(__m256 m1, __m256 m2, int control);
 	extern __m256d __cdecl _mm256_permute2f128_pd(__m256d m1, __m256d m2, int control);
@@ -662,7 +662,7 @@ void AVXFUN()
 	* elements of the destination
 	*/
 	//*a:pointer to a memory location that can hold constant 256-bit or
-	//128-bit float32 values, Ôòr0=r1=...=rn=a[0]
+	//128-bit float32 values, åˆ™r0=r1=...=rn=a[0]
 	extern __m256  __cdecl _mm256_broadcast_ss(float const *a);
 	extern __m128  __cdecl _mm_broadcast_ss(float const *a);
 
@@ -672,7 +672,7 @@ void AVXFUN()
 	* Load floating point values from the source operand and broadcast to all
 	* elements of the destination
 	*/
-	//Ôòr0=r1=r2=r3=a[0]
+	//åˆ™r0=r1=r2=r3=a[0]
 	extern __m256d __cdecl _mm256_broadcast_sd(double const *a);
 
 	/*
@@ -681,7 +681,7 @@ void AVXFUN()
 	* Load floating point values from the source operand and broadcast to all
 	* elements of the destination
 	*/
-	//Èô*aÎªa[0],a[1],Ôòr0=r2=a[0], r1=r3=a[1]
+	//è‹¥*aä¸ºa[0],a[1],åˆ™r0=r2=a[0], r1=r3=a[1]
 	extern __m256  __cdecl _mm256_broadcast_ps(__m128 const *a);
 	extern __m256d __cdecl _mm256_broadcast_pd(__m128d const *a);
 
@@ -730,7 +730,7 @@ void AVXFUN()
 	* Moves 256 bits of packed double-precision floating-point values from the
 	* source operand to the destination
 	*/
-	//The address a does not need to be 32-byte aligned  
+	//The address a does not need to be 32-byte aligned
 	extern __m256d __cdecl _mm256_loadu_pd(double const *a);
 	extern void    __cdecl _mm256_storeu_pd(double *a, __m256d b);
 
@@ -741,7 +741,7 @@ void AVXFUN()
 	* Moves 256 bits of packed single-precision floating-point values from the
 	* source operand to the destination
 	*/
-	//The address a does not need to be 32-byte aligned  
+	//The address a does not need to be 32-byte aligned
 	extern __m256  __cdecl _mm256_loadu_ps(float const *a);
 	extern void    __cdecl _mm256_storeu_ps(float *a, __m256 b);
 
@@ -752,7 +752,7 @@ void AVXFUN()
 	* Moves 256 bits of packed integer values from the source operand to the
 	* destination
 	*/
-	//The address a does not need to be 32-byte aligned  
+	//The address a does not need to be 32-byte aligned
 	extern __m256i __cdecl _mm256_load_si256(__m256i const *a);
 	extern void    __cdecl _mm256_store_si256(__m256i *a, __m256i b);
 
@@ -763,9 +763,9 @@ void AVXFUN()
 	* Moves 256 bits of packed integer values from the source operand to the
 	* destination
 	*/
-	//The address a does not need to be 32-byte aligned  
+	//The address a does not need to be 32-byte aligned
 	extern __m256i __cdecl _mm256_loadu_si256(__m256i const *a);
-	extern void    __cdecl _mm256_storeu_si256(__m256i *a, __m256i b); 
+	extern void    __cdecl _mm256_storeu_si256(__m256i *a, __m256i b);
 
 	/*
 	* Conditional SIMD Packed Loads and Stores
@@ -792,7 +792,7 @@ void AVXFUN()
 	extern __m256d __cdecl _mm256_maskload_pd(double const *a, __m256i mask);
 	extern void    __cdecl _mm256_maskstore_pd(double *a, __m256i mask, __m256d b);
 	extern __m128d __cdecl _mm_maskload_pd(double const *a, __m128i mask);
-	extern void    __cdecl _mm_maskstore_pd(double *a, __m128i mask, __m128d b); 
+	extern void    __cdecl _mm_maskstore_pd(double *a, __m128i mask, __m128d b);
 
 	/*
 	* Conditional SIMD Packed Loads and Stores
@@ -812,14 +812,14 @@ void AVXFUN()
 	* memory location using a mask in first source operand (second operand).
 	* Stores are atomic.
 	*/
-	//The mask is calculated from the most significant bit of each dword of the mask 
-	//register. If any of the bits of the mask is set to zero, the corresponding 
+	//The mask is calculated from the most significant bit of each dword of the mask
+	//register. If any of the bits of the mask is set to zero, the corresponding
 	//value from the memory location is not loaded, and the corresponding field of
 	//the destination vector is set to zero.
 	extern __m256  __cdecl _mm256_maskload_ps(float const *a, __m256i mask);
-	extern void    __cdecl _mm256_maskstore_ps(float *a, __m256i mask, __m256 b); 
+	extern void    __cdecl _mm256_maskstore_ps(float *a, __m256i mask, __m256 b);
 	extern __m128  __cdecl _mm_maskload_ps(float const *a, __m128i mask);
-	extern void    __cdecl _mm_maskstore_ps(float *a, __m128i mask, __m128 b); 
+	extern void    __cdecl _mm_maskstore_ps(float *a, __m128i mask, __m128 b);
 
 	/*
 	* Replicate Single-Precision Floating-Point Values
@@ -827,7 +827,7 @@ void AVXFUN()
 	* Duplicates odd-indexed single-precision floating-point values from the
 	* source operand
 	*/
-	//a=(a0, a1, a2, a3, a4, a5, a6, a7);Ôòr=(a1, a1, a3, a3, a5, a5, a7, a7)
+	//a=(a0, a1, a2, a3, a4, a5, a6, a7);åˆ™r=(a1, a1, a3, a3, a5, a5, a7, a7)
 	extern __m256  __cdecl _mm256_movehdup_ps(__m256 a);
 
 	/*
@@ -836,7 +836,7 @@ void AVXFUN()
 	* Duplicates even-indexed single-precision floating-point values from the
 	* source operand
 	*/
-	//a=(a0, a1, a2, a3, a4, a5, a6, a7);Ôòr=(a0, a0, a2, a2, a4, a4, a6, a6)
+	//a=(a0, a1, a2, a3, a4, a5, a6, a7);åˆ™r=(a0, a0, a2, a2, a4, a4, a6, a6)
 	extern __m256  __cdecl _mm256_moveldup_ps(__m256 a);
 
 	/*
@@ -845,7 +845,7 @@ void AVXFUN()
 	* Duplicates even-indexed double-precision floating-point values from the
 	* source operand
 	*/
-	//a=(a0, a1, a2, a3), Ôòr=(a0, a0, a2, a2)
+	//a=(a0, a1, a2, a3), åˆ™r=(a0, a0, a2, a2)
 	extern __m256d __cdecl _mm256_movedup_pd(__m256d a);
 
 	/*
@@ -896,7 +896,7 @@ void AVXFUN()
 	* stores the packed single-precision floating-point results in the destination
 	*/
 	//a=(a0, a1, a2, ..., a6, a7);
-	//Ôòr=(1/a0, 1/a1, ..., 1/a6, 1/a7), Çóµ¹Êı
+	//åˆ™r=(1/a0, 1/a1, ..., 1/a6, 1/a7), æ±‚å€’æ•°
 	extern __m256  __cdecl _mm256_rcp_ps(__m256 a);
 
 	/*
@@ -909,7 +909,7 @@ void AVXFUN()
 	* in the destination
 	*/
 	//a=(a0, a1, a2, ..., a6, a7);
-	//Ôòr=(1/sqrt(a0), 1/sqrt(a1), ..., 1/sqrt(a6), 1/sqrt(a7)), ÏÈ¿ª·½ÔÙÇóµ¹Êı
+	//åˆ™r=(1/sqrt(a0), 1/sqrt(a1), ..., 1/sqrt(a6), 1/sqrt(a7)), å…ˆå¼€æ–¹å†æ±‚å€’æ•°
 	extern __m256  __cdecl _mm256_rsqrt_ps(__m256 a);
 
 	/*
@@ -919,7 +919,7 @@ void AVXFUN()
 	* double-precision floating-point values in the source operand and stores
 	* the packed double-precision floating-point results in the destination
 	*/
-	//a=(a0, a1, a2, a3, a4);Ôòr=(sqrt(a0),sqrt(a1), sqrt(a2), sqrt(a3)), Çó¿ª·½
+	//a=(a0, a1, a2, a3, a4);åˆ™r=(sqrt(a0),sqrt(a1), sqrt(a2), sqrt(a3)), æ±‚å¼€æ–¹
 	extern __m256d __cdecl _mm256_sqrt_pd(__m256d a);
 
 	/*
@@ -929,7 +929,7 @@ void AVXFUN()
 	* single-precision floating-point values in the source operand stores the
 	* packed double-precision floating-point results in the destination
 	*/
-	//a=(a0, a1, a2, ..., a3, a4);Ôòr=(sqrt(a0),sqrt(a1), ..., sqrt(a2), sqrt(a3)), Çó¿ª·½
+	//a=(a0, a1, a2, ..., a3, a4);åˆ™r=(sqrt(a0),sqrt(a1), ..., sqrt(a2), sqrt(a3)), æ±‚å¼€æ–¹
 	extern __m256  __cdecl _mm256_sqrt_ps(__m256 a);
 
 	/*
@@ -944,8 +944,8 @@ void AVXFUN()
 	* converted to a QNaN.
 	*/
 	//a=(22.8, -11.3, -33.8, 4.3),
-	//ÈôiRoundMode=0x0A, Ôòr=(23, -11, -33, 5)
-	//ÈôiRoundMode=0x09, Ôòr=(22, -12, -34, 4)
+	//è‹¥iRoundMode=0x0A, åˆ™r=(23, -11, -33, 5)
+	//è‹¥iRoundMode=0x09, åˆ™r=(22, -12, -34, 4)
 	extern __m256d __cdecl _mm256_round_pd(__m256d a, int iRoundMode);
 #define _mm256_ceil_pd(val)   _mm256_round_pd((val), 0x0A);
 #define _mm256_floor_pd(val)  _mm256_round_pd((val), 0x09);
@@ -961,7 +961,7 @@ void AVXFUN()
 	* immediate operand. If any source operand is an SNaN then it will be
 	* converted to a QNaN.
 	*/
-	//ÓÃ·¨Óë_mm256_round_pdÏàÍ¬
+	//ç”¨æ³•ä¸_mm256_round_pdç›¸åŒ
 	extern __m256  __cdecl _mm256_round_ps(__m256 a, int iRoundMode);
 #define _mm256_ceil_ps(val)   _mm256_round_ps((val), 0x0A);
 #define _mm256_floor_ps(val)  _mm256_round_ps((val), 0x09);
@@ -973,7 +973,7 @@ void AVXFUN()
 	* values from the first source operand and the second source operand.
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr=(m11, m21, m13, m23)
+	//åˆ™r=(m11, m21, m13, m23)
 	extern __m256d __cdecl _mm256_unpackhi_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -983,8 +983,8 @@ void AVXFUN()
 	* values from the first source operand and the second source operand
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr=(m12, m22, m13, m23, m16, m26, m17, m27)
-	extern __m256  __cdecl _mm256_unpackhi_ps(__m256 m1, __m256 m2); 
+	//åˆ™r=(m12, m22, m13, m23, m16, m26, m17, m27)
+	extern __m256  __cdecl _mm256_unpackhi_ps(__m256 m1, __m256 m2);
 
 	/*
 	* Unpack and Interleave Low Packed Double-Precision Floating-Point Values
@@ -993,7 +993,7 @@ void AVXFUN()
 	* values from the first source operand and the second source operand
 	*/
 	//m1=(m10, m11, m12, m13), m2=(m20, m21, m22, m23)
-	//Ôòr=(m10, m20, m12, m22)
+	//åˆ™r=(m10, m20, m12, m22)
 	extern __m256d __cdecl _mm256_unpacklo_pd(__m256d m1, __m256d m2);
 
 	/*
@@ -1003,7 +1003,7 @@ void AVXFUN()
 	* values from the first source operand and the second source operand
 	*/
 	//m1=(m10, m11, ..., m17), m2=(m20, m21, ..., m27)
-	//Ôòr=(m10, m20, m11, m21, m14, m24, m15, m25)
+	//åˆ™r=(m10, m20, m11, m21, m14, m24, m15, m25)
 	extern __m256  __cdecl _mm256_unpacklo_ps(__m256 m1, __m256 m2);
 
 	/*
@@ -1075,7 +1075,7 @@ void AVXFUN()
 	/*
 	* Return 256-bit vector with all elements set to 0
 	*/
-	//Ôòr0=r1=...=rn=0
+	//åˆ™r0=r1=...=rn=0
 	extern __m256d __cdecl _mm256_setzero_pd(void);
 	extern __m256  __cdecl _mm256_setzero_ps(void);
 	extern __m256i __cdecl _mm256_setzero_si256(void);
@@ -1083,7 +1083,7 @@ void AVXFUN()
 	/*
 	* Return 256-bit vector intialized to specified arguments
 	*/
-	//Ôòr = (d, c, b, a)
+	//åˆ™r = (d, c, b, a)
 	extern __m256d __cdecl _mm256_set_pd(double a, double b, double c, double d);
 	extern __m256  __cdecl _mm256_set_ps(float, float, float, float, float, float, float, float);
 	extern __m256i __cdecl _mm256_set_epi8(char, char, char, char, char, char, char, char,
@@ -1095,7 +1095,7 @@ void AVXFUN()
 	extern __m256i __cdecl _mm256_set_epi32(int, int, int, int, int, int, int, int);
 	extern __m256i __cdecl _mm256_set_epi64x(long long, long long, long long, long long);
 
-	//Ôòr = (a, b, c, d)
+	//åˆ™r = (a, b, c, d)
 	extern __m256d __cdecl _mm256_setr_pd(double a, double b, double c, double d);
 	extern __m256  __cdecl _mm256_setr_ps(float, float, float, float, float, float, float, float);
 	extern __m256i __cdecl _mm256_setr_epi8(char, char, char, char, char, char, char, char,
@@ -1110,7 +1110,7 @@ void AVXFUN()
 	/*
 	* Return 256-bit vector with all elements intialized to specified scalar
 	*/
-	//Ôòr0 =  ... = rn = a
+	//åˆ™r0 =  ... = rn = a
 	extern __m256d __cdecl _mm256_set1_pd(double a);
 	extern __m256  __cdecl _mm256_set1_ps(float);
 	extern __m256i __cdecl _mm256_set1_epi8(char);
@@ -1124,7 +1124,7 @@ void AVXFUN()
 	* the low 128 bits of the 256-bit result contain source parameter value; the
 	* upper 128 bits of the result are undefined
 	*/
-	//ÀàĞÍ×ª»»
+	//ç±»å‹è½¬æ¢
 	extern __m256  __cdecl _mm256_castpd_ps(__m256d a);
 	extern __m256d __cdecl _mm256_castps_pd(__m256 a);
 	extern __m256i __cdecl _mm256_castps_si256(__m256 a);

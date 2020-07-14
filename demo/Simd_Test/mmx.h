@@ -1,19 +1,19 @@
-#include <mmintrin.h> //MMX  
-#include <xmmintrin.h> //SSE(include mmintrin.h)  
-#include <emmintrin.h> //SSE2(include xmmintrin.h)  
-#include <pmmintrin.h> //SSE3(include emmintrin.h)  
-#include <tmmintrin.h>//SSSE3(include pmmintrin.h)  
-#include <smmintrin.h>//SSE4.1(include tmmintrin.h)  
-#include <nmmintrin.h>//SSE4.2(include smmintrin.h)  
-#include <wmmintrin.h>//AES(include nmmintrin.h)  
-#include <immintrin.h>//AVX(include wmmintrin.h)  
-#include <intrin.h>//(include immintrin.h) 
+ï»¿#include <mmintrin.h> //MMX
+#include <xmmintrin.h> //SSE(include mmintrin.h)
+#include <emmintrin.h> //SSE2(include xmmintrin.h)
+#include <pmmintrin.h> //SSE3(include emmintrin.h)
+#include <tmmintrin.h>//SSSE3(include pmmintrin.h)
+#include <smmintrin.h>//SSE4.1(include tmmintrin.h)
+#include <nmmintrin.h>//SSE4.2(include smmintrin.h)
+#include <wmmintrin.h>//AES(include nmmintrin.h)
+#include <immintrin.h>//AVX(include wmmintrin.h)
+#include <intrin.h>//(include immintrin.h)
 
 void MMXFUN()
 {
 	/* General support intrinsics */
-	//Empties the multimedia state,Çå³ıMMX¼Ä´æÆ÷ÖĞµÄÄÚÈİ£¬¼´³õÊ¼»¯(ÒÔ±ÜÃâºÍ¸¡µãÊı
-	//²Ù×÷·¢Éú³åÍ»)£¬ÏêÏ¸ËµÃ÷¼û²Î¿¼ÎÄÏ×1
+	//Empties the multimedia state,æ¸…é™¤MMXå¯„å­˜å™¨ä¸­çš„å†…å®¹,å³åˆå§‹åŒ–(ä»¥é¿å…å’Œæµ®ç‚¹æ•°
+	//æ“ä½œå‘ç”Ÿå†²çª),è¯¦ç»†è¯´æ˜è§å‚è€ƒæ–‡çŒ®1
 	void  _m_empty(void);//_mm_empty
 	//Converts the integer object _I to a 64-bit __m64 object, r0=_I, r1=0
 	__m64 _m_from_int(int _I);//_mm_cvtsi32_si64
@@ -33,21 +33,21 @@ void MMXFUN()
 	__m64 _m_packuswb(__m64 _MM1, __m64 _MM2);//_mm_packs_pu16
 	//_MM1=(_MM10, _MM11, _MM12, _MM13, _MM14, _MM15, _MM16, _MM17),
 	//_MM2=(_MM20, _MM21, _MM22, _MM23, _MM24, _MM25, _MM26, _MM27),
-	//Ôòr=(_MM14, _MM24, _MM15, _MM25, _MM16, _MM26, _MM17, _MM27)
+	//åˆ™r=(_MM14, _MM24, _MM15, _MM25, _MM16, _MM26, _MM17, _MM27)
 	__m64 _m_punpckhbw(__m64 _MM1, __m64 _MM2);//_mm_unpackhi_pi8 
-	//_MM1=(_MM10, _MM11, _MM12, _MM13),_MM10ÎªµÍÎ»£¬_MM2=(_MM20, _MM21, _MM22, _MM23),
-	//Ôòr=(_MM12, _MM22, _MM13, _MM23)
+	//_MM1=(_MM10, _MM11, _MM12, _MM13),_MM10ä¸ºä½ä½,_MM2=(_MM20, _MM21, _MM22, _MM23),
+	//åˆ™r=(_MM12, _MM22, _MM13, _MM23)
 	__m64 _m_punpckhwd(__m64 _MM1, __m64 _MM2);//_mm_unpackhi_pi16
-	//MM1=(_MM10, _MM11),_MM10ÎªµÍÎ»£¬_MM2=(_MM20, _MM21),Ôòr=(_MM11, _MM21)
+	//MM1=(_MM10, _MM11),_MM10ä¸ºä½ä½,_MM2=(_MM20, _MM21),åˆ™r=(_MM11, _MM21)
 	__m64 _m_punpckhdq(__m64 _MM1, __m64 _MM2);//_mm_unpackhi_pi32
 	//_MM1=(_MM10, _MM11, _MM12, _MM13, _MM14, _MM15, _MM16, _MM17),
 	//_MM2=(_MM20, _MM21, _MM22, _MM23, _MM24, _MM25, _MM26, _MM27),
-	//Ôòr=(_MM10, _MM20, _MM11, _MM21, _MM12, _MM22, _MM13, _MM23)
+	//åˆ™r=(_MM10, _MM20, _MM11, _MM21, _MM12, _MM22, _MM13, _MM23)
 	__m64 _m_punpcklbw(__m64 _MM1, __m64 _MM2);//_mm_unpacklo_pi8
-	//_MM1=(_MM10, _MM11, _MM12, _MM13),_MM10ÎªµÍÎ»£¬_MM2=(_MM20, _MM21, _MM22, _MM23),
-	//Ôòr=(_MM10, _MM20, _MM11, _MM21)
+	//_MM1=(_MM10, _MM11, _MM12, _MM13),_MM10ä¸ºä½ä½,_MM2=(_MM20, _MM21, _MM22, _MM23),
+	//åˆ™r=(_MM10, _MM20, _MM11, _MM21)
 	__m64 _m_punpcklwd(__m64 _MM1, __m64 _MM2);//_mm_unpacklo_pi16
-	//MM1=(_MM10, _MM11),_MM10ÎªµÍÎ»£¬_MM2=(_MM20, _MM21),Ôòr=(_MM10, _MM20)
+	//MM1=(_MM10, _MM11),_MM10ä¸ºä½ä½,_MM2=(_MM20, _MM21),åˆ™r=(_MM10, _MM20)
 	__m64 _m_punpckldq(__m64 _MM1, __m64 _MM2);//mm_unpacklo_pi32
 
 	/* Packed arithmetic intrinsics */
@@ -63,10 +63,10 @@ void MMXFUN()
 	//Adds the four signed 16-bit values in _MM1 to the four signed 16-bit values in _MM2
 	//and saturates
 	__m64 _m_paddsw(__m64 _MM1, __m64 _MM2);//_mm_adds_pi16
-	//Adds the eight unsigned 8-bit values in _MM1 to the eight unsigned 8-bit values 
+	//Adds the eight unsigned 8-bit values in _MM1 to the eight unsigned 8-bit values
 	//in _MM2 and saturates
 	__m64 _m_paddusb(__m64 _MM1, __m64 _MM2);//_mm_adds_pu8
-	//Add the four unsigned 16-bit values in _MM1 to the four unsigned 16-bit values 
+	//Add the four unsigned 16-bit values in _MM1 to the four unsigned 16-bit values
 	//in _MM2 and saturates
 	__m64 _m_paddusw(__m64 _MM1, __m64 _MM2);//_mm_adds_pu16
 	//Subtracts the eight 8-bit values in _MM2 from the eight 8-bit values in _MM1
@@ -99,13 +99,13 @@ void MMXFUN()
 	__m64 _m_pmullw(__m64 _MM1, __m64 _MM2);//_mm_mullo_pi16
 
 	/* Shift intrinsics */
-	//Shifts four 16-bit values in _M left the amount specified by _Count 
-	//while shifting in zeros,×óÒÆ_CountÎ»£¬ÒÆ³öÎ»²¹0
+	//Shifts four 16-bit values in _M left the amount specified by _Count
+	//while shifting in zeros,å·¦ç§»_Countä½,ç§»å‡ºä½è¡¥0
 	__m64 _m_psllw(__m64 _M, __m64 _Count);//_mm_sll_pi16
-	//Shifts four 16-bit values in _M left the amount specified by _Ccount while 
-	//shifting in zeros,×óÒÆ_CountÎ»£¬ÒÆ³öÎ»²¹0,_CountĞèÊÇÒ»¸öÁ¢¼´Êı
-	//»ã±àÓïÑÔÖĞµÄÁ¢¼´ÊıÏàµ±ÓÚ¸ß¼¶ÓïÑÔÖĞµÄ³£Á¿(³£Êı)£¬ËüÊÇÖ±½Ó³öÏÖÔÚÖ¸ÁîÖĞµÄÊı£¬
-	//²»ÓÃ´æ´¢ÔÚ¼Ä´æÆ÷»ò´æ´¢Æ÷ÖĞµÄÊı
+	//Shifts four 16-bit values in _M left the amount specified by _Ccount while
+	//shifting in zeros,å·¦ç§»_Countä½,ç§»å‡ºä½è¡¥0,_Countéœ€æ˜¯ä¸€ä¸ªç«‹å³æ•°
+	//æ±‡ç¼–è¯­è¨€ä¸­çš„ç«‹å³æ•°ç›¸å½“äºé«˜çº§è¯­è¨€ä¸­çš„å¸¸é‡(å¸¸æ•°),å®ƒæ˜¯ç›´æ¥å‡ºç°åœ¨æŒ‡ä»¤ä¸­çš„æ•°,
+	//ä¸ç”¨å­˜å‚¨åœ¨å¯„å­˜å™¨æˆ–å­˜å‚¨å™¨ä¸­çš„æ•°
 	__m64 _m_psllwi(__m64 _M, int _Count);//_mm_slli_pi16 
 	//Shifts two 32-bit values in _M left the amount specified by _Count
 	//while shifting in zeros
@@ -153,7 +153,7 @@ void MMXFUN()
 	/* Logical intrinsics */
 	//Performs a bitwise AND of the 64-bit value in _MM1 with the 64-bit value in _MM2
 	__m64 _m_pand(__m64 _MM1, __m64 _MM2);//_mm_and_si64
-	//Performs a logical NOT on the 64-bit value in _MM1 and use the result in a 
+	//Performs a logical NOT on the 64-bit value in _MM1 and use the result in a
 	//bitwise AND with the 64-bit value in _MM2
 	__m64 _m_pandn(__m64 _MM1, __m64 _MM2);//_mm_andnot_si64
 	//Performs a bitwise OR of the 64-bit value in _MM1 with the 64-bit value in _MM2
@@ -162,19 +162,19 @@ void MMXFUN()
 	__m64 _m_pxor(__m64 _MM1, __m64 _MM2);//_mm_xor_si64
 
 	/* Comparison intrinsics */
-	//If the respective 8-bit values in _MM1 are equal to the respective 
-	//8-bit values in _MM2, sets the respective 8-bit resulting values to 
+	//If the respective 8-bit values in _MM1 are equal to the respective
+	//8-bit values in _MM2, sets the respective 8-bit resulting values to
 	//all ones; otherwise, sets them to all zeros
 	__m64 _m_pcmpeqb(__m64 _MM1, __m64 _MM2);//_mm_cmpeq_pi8
-	//If the respective 16-bit values in _MM1 are equal to the respective 
-	//16-bit values in _MM2, sets the respective 16-bit resulting values 
+	//If the respective 16-bit values in _MM1 are equal to the respective
+	//16-bit values in _MM2, sets the respective 16-bit resulting values
 	//to all ones; otherwise, sets them to all zeros
 	__m64 _m_pcmpeqw(__m64 _MM1, __m64 _MM2);//_mm_cmpeq_pi16
-	//If the respective 32-bit values in _MM1 are equal to the respective 
+	//If the respective 32-bit values in _MM1 are equal to the respective
 	//32-bit values in _MM2, sets the respective 32-bit resulting values
 	//to all ones; otherwise, sets them to all zeros
-	__m64 _m_pcmpeqd(__m64 _MM1, __m64 _MM2);//_mm_cmpeq_pi32 
-	//If the respective 8-bit values in _MM1 are greater than the respective 
+	__m64 _m_pcmpeqd(__m64 _MM1, __m64 _MM2);//_mm_cmpeq_pi32
+	//If the respective 8-bit values in _MM1 are greater than the respective
 	//8-bit values in _MM2, sets the respective 8-bit resulting values to all ones;
 	//otherwise, sets them to all zeros
 	__m64 _m_pcmpgtb(__m64 _MM1, __m64 _MM2);//_mm_cmpgt_pi8

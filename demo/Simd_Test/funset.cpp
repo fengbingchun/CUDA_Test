@@ -6,7 +6,11 @@
 
 int test_bgra2gray()
 {
+#ifdef _MSC_VER
 	std::string strImageName = "E:/GitCode/CUDA_Test/test_data/images/lena.png";
+#else
+	std::string strImageName = "test_data/images/lena.png";
+#endif
 	int iImageWidth = 10000;
 	int iImageHeight = 10000;
 
@@ -46,6 +50,5 @@ int test_bgra2gray()
 	}
 
 	std::cout << "the different count: " << iDiffCount << std::endl;
-
 	return 0;
 }

@@ -1,13 +1,13 @@
-#include <mmintrin.h> //MMX  
-#include <xmmintrin.h> //SSE(include mmintrin.h)  
-#include <emmintrin.h> //SSE2(include xmmintrin.h)  
-#include <pmmintrin.h> //SSE3(include emmintrin.h)  
-#include <tmmintrin.h>//SSSE3(include pmmintrin.h)  
-#include <smmintrin.h>//SSE4.1(include tmmintrin.h)  
-#include <nmmintrin.h>//SSE4.2(include smmintrin.h)  
-#include <wmmintrin.h>//AES(include nmmintrin.h)  
-#include <immintrin.h>//AVX(include wmmintrin.h)  
-#include <intrin.h>//(include immintrin.h) 
+ï»¿#include <mmintrin.h> //MMX
+#include <xmmintrin.h> //SSE(include mmintrin.h)
+#include <emmintrin.h> //SSE2(include xmmintrin.h)
+#include <pmmintrin.h> //SSE3(include emmintrin.h)
+#include <tmmintrin.h>//SSSE3(include pmmintrin.h)
+#include <smmintrin.h>//SSE4.1(include tmmintrin.h)
+#include <nmmintrin.h>//SSE4.2(include smmintrin.h)
+#include <wmmintrin.h>//AES(include nmmintrin.h)
+#include <immintrin.h>//AVX(include wmmintrin.h)
+#include <intrin.h>//(include immintrin.h)
 
 void SSE41FUN()
 {
@@ -16,35 +16,35 @@ void SSE41FUN()
 	//v1=(v10, v11, ..., v17), v2=(v20, v21, ..., v27)
 	//mask:If the corresponding flag bit is 0, the value is selected from parameter v1.
 	//Otherwise the value is from parameter v2.
-	//Ôòr0=(mask0 == 0) ? v10 : v20,...,r7= (mask7 == 0) ? v17 : v27
+	//åˆ™r0=(mask0 == 0) ? v10 : v20,...,r7= (mask7 == 0) ? v17 : v27
 	extern __m128i _mm_blend_epi16 (__m128i v1, __m128i v2, const int mask);
 	//v1=(v10, v11, ..., v115), v2=(v20, v21, ..., v215), mask=(mask1, ..., mask15)
-	//Ôòr0=(mask0 & 0x80) ? v20 : v10, ..., r15=(mask15 & 0x80) ? v215 : v115
+	//åˆ™r0=(mask0 & 0x80) ? v20 : v10, ..., r15=(mask15 & 0x80) ? v215 : v115
 	extern __m128i _mm_blendv_epi8 (__m128i v1, __m128i v2, __m128i mask);
 
 	/*Float single precision blend instructions - select data
 	from 2 sources using constant/variable mask */
 	//v1=(v10, v11, v12, v13), v2=(v20, v21, v22, v23)
-	//Ôòr0=(mask0 == 0) ? v10 : v20,..., r3= (mask3 == 0) ? v13 : v23
+	//åˆ™r0=(mask0 == 0) ? v10 : v20,..., r3= (mask3 == 0) ? v13 : v23
 	extern __m128  _mm_blend_ps (__m128  v1, __m128  v2, const int mask);
 	//v1=(v10, v11, v12, v13), v2=(v20, v21, v22, v23)
-	//Ôòr0= (v30 & 0x80000000) ? v20 : v10,...,r3= (v33 & 0x80000000) ? v23 : v13
+	//åˆ™r0= (v30 & 0x80000000) ? v20 : v10,...,r3= (v33 & 0x80000000) ? v23 : v13
 	extern __m128  _mm_blendv_ps(__m128  v1, __m128  v2, __m128 v3);
 
 	/*Float double precision blend instructions - select data
 	from 2 sources using constant/variable mask*/
 	//v1=(v10, v11), v2=(v20, v21)
-	//Ôòr0 = (mask0 == 0) ? v10 : v20, r1 = (mask1 == 0) ? v11 : v21
+	//åˆ™r0 = (mask0 == 0) ? v10 : v20, r1 = (mask1 == 0) ? v11 : v21
 	extern __m128d _mm_blend_pd (__m128d v1, __m128d v2, const int mask);
 	//v1=(v10, v11), v2=(v20, v21)
-	//Ôòr0 = (v30 & 0x8000000000000000) ? v20 : v10,
+	//åˆ™r0 = (v30 & 0x8000000000000000) ? v20 : v10,
 	//r1 = (v31 & 0x8000000000000000) ? v21 : v11
 	extern __m128d _mm_blendv_pd(__m128d v1, __m128d v2, __m128d v3);
 
 	/*Dot product instructions with mask-defined summing and zeroing
 	of result's parts*/
 	//val1=(val10, ..., val13), val2=(val20,...,val23)
-	/*Ôòtmp0 := (mask4 == 1) ? (val10 * val20) : +0.0
+	/*åˆ™tmp0 := (mask4 == 1) ? (val10 * val20) : +0.0
 		tmp1 := (mask5 == 1) ? (val11 * val21) : +0.0
 		tmp2 := (mask6 == 1) ? (val12 * val22) : +0.0
 		tmp3 := (mask7 == 1) ? (val13 * val23) : +0.0
@@ -55,7 +55,7 @@ void SSE41FUN()
 		r3 := (mask3 == 1) ? tmp4 : +0.0 */
 	extern __m128  _mm_dp_ps(__m128  val1, __m128  val2, const int mask);
 	//val1=(val10, val11), val2=(val20, val21)
-	/*Ôòtmp0 := (mask4 == 1) ? (val10 * val20) : +0.0
+	/*åˆ™tmp0 := (mask4 == 1) ? (val10 * val20) : +0.0
 		tmp1 := (mask5 == 1) ? (val11 * val21) : +0.0
 		tmp2 := tmp0 + tmp1
 		r0 := (mask0 == 1) ? tmp2 : +0.0
@@ -65,47 +65,47 @@ void SSE41FUN()
 	/*Packed integer 64-bit comparison, zeroing or filling with ones
 	corresponding parts of result */
 	//val1=(val10, val11), val2=(val20, val21)
-	//Ôòr0 = (val10 == val20) ? 0xffffffffffffffff : 0,
+	//åˆ™r0 = (val10 == val20) ? 0xffffffffffffffff : 0,
 	//r1 = (val11 == val21) ? 0xffffffffffffffff : 0
 	extern __m128i _mm_cmpeq_epi64(__m128i val1, __m128i val2);
 
 	/* Min/max packed integer instructions*/
 	//val1=(val10,...,val115), val2=(val20,...,val215)
-	//Ôòr0 = (val10 < val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 < val20) ? val10 : val20, ...,
 	//r15 = (val115 < val215) ? val115 : val215
 	extern __m128i _mm_min_epi8 (__m128i val1, __m128i val2);
 	//val1=(val10,...,val115), val2=(val20,...,val215)
-	//Ôòr0 = (val10 > val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 > val20) ? val10 : val20, ...,
 	//r15 = (val115 > val215) ? val115 : val215
 	extern __m128i _mm_max_epi8 (__m128i val1, __m128i val2);
 	//val1=(val10,...,val17), val2=(val20,...,val27), eight 16-bit unsigned integers
-	//Ôòr0 = (val10 < val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 < val20) ? val10 : val20, ...,
 	//r7 = (val17 < val27) ? val17 : val27
 	extern __m128i _mm_min_epu16(__m128i val1, __m128i val2);
 	//val1=(val10,...,val17), val2=(val20,...,val27),eight 16-bit unsigned integers
-	//Ôòr0 = (val10 > val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 > val20) ? val10 : val20, ...,
 	//r7 = (val17 > val27) ? val17 : val27
 	extern __m128i _mm_max_epu16(__m128i val1, __m128i val2);
 	//val1=(val10,...,val13), val2=(val20,...,val23)
-	//Ôòr0 = (val10 < val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 < val20) ? val10 : val20, ...,
 	//r3 = (val13 < val23) ? val13 : val23
 	extern __m128i _mm_min_epi32(__m128i val1, __m128i val2);
 	//val1=(val10,...,val13), val2=(val20,...,val23)
-	//Ôòr0 = (val10 > val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 > val20) ? val10 : val20, ...,
 	//r3 = (val13 > val23) ? val13 : val23
 	extern __m128i _mm_max_epi32(__m128i val1, __m128i val2);
 	//val1=(val10,...,val13), val2=(val20,...,val23), four 32-bit unsigned integers
-	//Ôòr0 = (val10 < val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 < val20) ? val10 : val20, ...,
 	//r3 = (val13 < val23) ? val13 : val23
 	extern __m128i _mm_min_epu32(__m128i val1, __m128i val2);
 	//val1=(val10,...,val13), val2=(val20,...,val23), four 32-bit unsigned integers
-	//Ôòr0 = (val10 > val20) ? val10 : val20, ...,
+	//åˆ™r0 = (val10 > val20) ? val10 : val20, ...,
 	//r3 = (val13 > val23) ? val13 : val23
 	extern __m128i _mm_max_epu32(__m128i val1, __m128i val2);
 
 	/*Packed integer 32-bit multiplication with truncation
 	of upper halves of results*/
-	//a=(a0,...,a3), b=(b0,...,b3), Ôòr0=a0 * b0, ..., r3=a3 * b3
+	//a=(a0,...,a3), b=(b0,...,b3), åˆ™r0=a0 * b0, ..., r3=a3 * b3
 	//Only the lower 32-bits of each product are saved
 	extern __m128i _mm_mullo_epi32(__m128i a, __m128i b);
 
@@ -118,19 +118,19 @@ void SSE41FUN()
 
 	/*Packed integer 128-bit bitwise comparison.
 	return 1 if (val 'and' mask) == 0*/
-	//Ôòr = (mask & val) == 0, Generates a return value of 0 or 1
+	//åˆ™r = (mask & val) == 0, Generates a return value of 0 or 1
 	extern int _mm_testz_si128(__m128i mask, __m128i val);
 
 	/*Packed integer 128-bit bitwise comparison.
 	return 1 if (val 'and_not' mask) == 0 */
-	//Ôòr=1 if all the bits set in val are set in mask; otherwise 0
+	//åˆ™r=1 if all the bits set in val are set in mask; otherwise 0
 	//Generates a return value of 0 or 1
 	extern int _mm_testc_si128(__m128i mask, __m128i val);
 
 	/*Packed integer 128-bit bitwise comparison
 	ZF = ((val 'and' mask) == 0)  CF = ((val 'and_not' mask) == 0)
 	return 1 if both ZF and CF are 0 */
-	//Ôò ZF := (mask & s2) == 0£¬CF := (~mask & s2) == 0, r = ~ZF & ~CF
+	//åˆ™ ZF := (mask & s2) == 0,CF := (~mask & s2) == 0, r = ~ZF & ~CF
 	//Generates a return value of 0 or 1
 	extern int _mm_testnzc_si128(__m128i mask, __m128i s2);
 
@@ -158,33 +158,33 @@ void SSE41FUN()
 	/*Extract binary representation of single precision float from
 	packed single precision array element selected by index */
 	//src=(src0, src1, src2, src3)
-	//Ôòr = (ndx == 0) ? src0 : ((ndx == 1) ? src1 : ((ndx == 2) ? src2 : src3))
+	//åˆ™r = (ndx == 0) ? src0 : ((ndx == 1) ? src1 : ((ndx == 2) ? src2 : src3))
 	//Only the least significant two bits of ndx are used
 	extern int _mm_extract_ps(__m128 src, const int ndx);
 
 	/*Insert integer into packed integer array element
 	selected by index */
-	//Ôòr0=(ndx == 0) ? s : dst0, ..., r15=(ndx == 15) ? s : dst15
+	//åˆ™r0=(ndx == 0) ? s : dst0, ..., r15=(ndx == 15) ? s : dst15
 	//Only the lowest 8 bits of s are used, 
 	//Only the least significant 4 bits of ndx are used
 	extern __m128i _mm_insert_epi8 (__m128i dst, int s, const int ndx);
-	//Ôòr0=(ndx == 0) ? s : dst0, ..., r3=(ndx == 3) ? s : dst3
+	//åˆ™r0=(ndx == 0) ? s : dst0, ..., r3=(ndx == 3) ? s : dst3
 	//Only the least significant 2 bits of ndx are interpreted
 	extern __m128i _mm_insert_epi32(__m128i dst, int s, const int ndx);
-	//Ôòr0=(ndx == 0) ? s : dst0, r1=(ndx == 1) ? s : dst1
+	//åˆ™r0=(ndx == 0) ? s : dst0, r1=(ndx == 1) ? s : dst1
 	//Only the least significant bit of ndx is interpreted
 	extern __m128i _mm_insert_epi64(__m128i dst, __int64 s, const int ndx);
 
 	/*Extract integer from packed integer array element
 	selected by index */
-	//Ôòr=(ndx == 0) ? src0 : ((ndx == 1) ? src1 : ...((ndx == 14) ? src14 : src15))
+	//åˆ™r=(ndx == 0) ? src0 : ((ndx == 1) ? src1 : ...((ndx == 14) ? src14 : src15))
 	//Only the least significant four bits of ndx are used
-	//×¢Òâ£ºThe result is the unsigned equivalent of the appropriate 8-bits in parameter src
+	//æ³¨æ„ï¼šThe result is the unsigned equivalent of the appropriate 8-bits in parameter src
 	extern int _mm_extract_epi8 (__m128i src, const int ndx);
-	//Ôòr=(ndx == 0) ? src0 : ((ndx == 1) ? src1 : ((ndx == 2) ? src2 : src3))
+	//åˆ™r=(ndx == 0) ? src0 : ((ndx == 1) ? src1 : ((ndx == 2) ? src2 : src3))
 	//Only the least significant two bits of ndx are used.
 	extern int _mm_extract_epi32(__m128i src, const int ndx);
-	//Ôòr = (ndx == 0) ? src0 : src1
+	//åˆ™r = (ndx == 0) ? src0 : src1
 	//Only the least significant bit of parameter ndx is used
 	extern __int64 _mm_extract_epi64(__m128i src, const int ndx);
 
@@ -196,17 +196,17 @@ void SSE41FUN()
 	extern __m128i _mm_minpos_epu16(__m128i shortValues);
 
 	/* Packed/single float double precision rounding */
-	//Ôòr0=RND(val0), r1=RND(val1),Ïê¼û²Î¿¼ÎÄÏ×1
+	//åˆ™r0=RND(val0), r1=RND(val1),è¯¦è§å‚è€ƒæ–‡çŒ®1
 	extern __m128d _mm_round_pd(__m128d val, int iRoundMode);
-	//Ôòr0=RND(val0), r1=dst1, Ïê¼û²Î¿¼ÎÄÏ×1
+	//åˆ™r0=RND(val0), r1=dst1, è¯¦è§å‚è€ƒæ–‡çŒ®1
 	// The lowest 64 bits are the result of the rounding function on val.
 	//The higher order 64 bits are copied directly from input parameter dst
 	extern __m128d _mm_round_sd(__m128d dst, __m128d val, int iRoundMode);
 
 	/*Packed/single float single precision rounding */
-	//Ôòr0=RND(val0), r1=RND(val1), r2=RND(val2), r3=RND(val3),Ïê¼û²Î¿¼ÎÄÏ×1
+	//åˆ™r0=RND(val0), r1=RND(val1), r2=RND(val2), r3=RND(val3),è¯¦è§å‚è€ƒæ–‡çŒ®1
 	extern __m128  _mm_round_ps(__m128  val, int iRoundMode);
-	//Ôòr0=RND(val0), r1=dst1, r2=dst2, r3=dst3, 	
+	//åˆ™r0=RND(val0), r1=dst1, r2=dst2, r3=dst3, 	
 	//The lowest 32 bits are the result of the rounding function on val.
 	//The higher order 96 bits are copied directly from input parameter dst
 	extern __m128  _mm_round_ss(__m128 dst, __m128  val, int iRoundMode);
@@ -214,7 +214,7 @@ void SSE41FUN()
 	/*Packed integer sign-extension */
 	//byteValues: A 128-bit parameter that contains four signed 8-bit integers
 	//in the lower 32 bits, byteValues=(a0, a1, ..., a15)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := (a0 < 0) ? 0xff : 0
 		r2 := (a0 < 0) ? 0xff : 0
 		r3 := (a0 < 0) ? 0xff : 0
@@ -236,7 +236,7 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepi8_epi32 (__m128i byteValues);
 	//shortValues: A 128-bit parameter that contains four signed 16-bit integers
 	//in the lower 64 bits, shortValues=(a0, a1, ..., a7)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := (a0 < 0) ? 0xffff : 0
 
 		r2 := a1
@@ -250,7 +250,7 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepi16_epi32(__m128i shortValues);
 	//byteValues: A 128-bit parameter that contains two signed 8-bit integers
 	//in the lower 16 bits, byteValues=(a0, a1, ... , a15)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := (a0 < 0) ? 0xff : 0
 		r2 := (a0 < 0) ? 0xff : 0
 		r3 := (a0 < 0) ? 0xff : 0
@@ -270,14 +270,14 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepi8_epi64 (__m128i byteValues); 
 	//intValues: A 128-bit parameter that contains two signed 32-bit 
 	//integers in the lower 64 bits, intValues=(a0, a1, a2, a3)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := (a0 < 0) ? 0xffffffff : 0
 		r2 := a1
 		r3 := (a1 < 0) ? 0xffffffff : 0*/
 	extern __m128i _mm_cvtepi32_epi64(__m128i intValues);
 	//shortValues:A 128-bit parameter that contains two signed 16-bit integers
 	//in the lower 32 bits, shortValues=(a0, a1, ..., a7)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := (a0 < 0) ? 0xffff : 0
 		r2 := (a0 < 0) ? 0xffff : 0
 		r3 := (a0 < 0) ? 0xffff : 0
@@ -289,7 +289,7 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepi16_epi64(__m128i shortValues);
 	//byteValues:A 128-bit parameter that contains eight signed 8-bit integers 
 	//in the lower 64 bits, byteValues=(a0, a1, ..., a15)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := (a0 < 0) ? 0xff : 0
 		r2 := a1
 		r3 := (a1 < 0) ? 0xff : 0
@@ -301,7 +301,7 @@ void SSE41FUN()
 	/*Packed integer zero-extension*/
 	//byteValues:A 128-bit parameter that contains four unsigned 8-bit integers
 	//in the lower 32 bits, byteValues=(a0, a1, ... , a15)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := 0
 		r2 := 0
 		r3 := 0
@@ -323,7 +323,7 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepu8_epi32 (__m128i byteValues);
 	//shortValues:A 128-bit parameter that contains four unsigned 16-bit integers
 	//in the lower 64 bits, shortValues=(a0, a1, ... , a7)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := 0
 
 		r2 := a1
@@ -337,7 +337,7 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepu16_epi32(__m128i shortValues);
 	//shortValues:A 128-bit parameter that contains two unsigned 8-bit integers
 	//in the lower 16 bits, shortValues=(a0, a1, ..., a15)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := 0
 		r2 := 0
 		r3 := 0
@@ -357,14 +357,14 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepu8_epi64 (__m128i shortValues);
 	//intValues:A 128-bit parameter that contains two unsigned 32-bit integers
 	//in the lower 64 bits, intValues=(a0, a1, a2, a3)
-	/*Ôòr0 = a0
+	/*åˆ™r0 = a0
 		r1 = 0
 		r2 = a1
 		r3 = 0*/
 	extern __m128i _mm_cvtepu32_epi64(__m128i intValues);
 	//shortValues:A 128-bit parameter that contains two unsigned 16-bit integers
 	//in the lower 32 bits, shortValues=(a0, a1, ... , a7)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := 0
 		r2 := 0
 		r3 := 0
@@ -376,7 +376,7 @@ void SSE41FUN()
 	extern __m128i _mm_cvtepu16_epi64(__m128i shortValues);
 	//byteValues:A 128-bit parameter that contains eight unsigned 8-bit integers 
 	//in the lower 64 bits, byteValues=(a0, a1, ... , a15)
-	/*Ôòr0 := a0
+	/*åˆ™r0 := a0
 		r1 := 0
 		r2 := a1
 		r3 := 0
@@ -388,7 +388,7 @@ void SSE41FUN()
 	/*Pack 8 double words from 2 operands into 8 words of result
 	with unsigned saturation */
 	//val1=(val10,...,vall3), val2=(val20, ..., val23)
-	/*Ôòr0 := (val10 < 0) ? 0 : ((val10 > 0xffff) ? 0xffff : val10)
+	/*åˆ™r0 := (val10 < 0) ? 0 : ((val10 > 0xffff) ? 0xffff : val10)
 		r1 := (val11 < 0) ? 0 : ((val11 > 0xffff) ? 0xffff : val11)
 		r2 := (val12 < 0) ? 0 : ((val12 > 0xffff) ? 0xffff : val12)
 		r3 := (val13 < 0) ? 0 : ((val13 > 0xffff) ? 0xffff : val13)
@@ -403,7 +403,7 @@ void SSE41FUN()
 	determined by mask */
 	//s1, s2: sixteen 8-bit unsigned integers
 	// msk0, msk1, and msk2 are the three least significant bits of parameter msk
-	/*Ôòi = msk2 * 4
+	/*åˆ™i = msk2 * 4
 		j = msk0-1 * 4
 		for (k = 0; k < 8; k = k + 1) {
 		t0 = abs(s1[i + k + 0] - s2[j + 0])
@@ -418,6 +418,6 @@ void SSE41FUN()
 	* Load double quadword using non-temporal aligned hint
 	*/
 	//This instruction loads data from a specified address.The memory source must be 
-	//16-byte aligned because the return value consists of sixteen bytes.Ôòr=*v1
+	//16-byte aligned because the return value consists of sixteen bytes.åˆ™r=*v1
 	extern __m128i _mm_stream_load_si128(__m128i* v1);
 }
