@@ -3,6 +3,8 @@
 - CUDA 8.0'usage(each test code gives the implementation of C ++ and CUDA, respectively, and gives the calculation time for each method)
 - TensorRT's usage
 - Simd's usage [Simd GitHub](https://github.com/ermig1979/Simd)
+- OpenMP's usage
+- SIMD's usage
 
 **CUDA 8.0 test code:**
 - simple
@@ -39,6 +41,7 @@
 - Linux: 
 	- CUDA supports cmake build(file position: prj/linux_cuda_cmake)
 	- TensorRT support cmake build(file position: prj/linux_tensorrt_cmake)
+	- Simd_Test support cmake build(file position: prl/linux_simd_cmake)
 
 **Screenshot:**  
 ![](https://github.com/fengbingchun/CUDA_Test/blob/master/prj/x86_x64_vc12/Screenshot.png)

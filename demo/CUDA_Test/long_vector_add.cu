@@ -1,4 +1,4 @@
-#include "funset.hpp"
+﻿#include "funset.hpp"
 #include <iostream>
 #include <cuda_runtime.h> // For the CUDA runtime routines (prefixed with "cuda_")
 #include <device_launch_parameters.h>

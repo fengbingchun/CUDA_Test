@@ -1,4 +1,4 @@
-#include "funset.hpp"
+﻿#include "funset.hpp"
 #include <iostream>
 #include <chrono>
 #include <cuda_runtime.h>
