@@ -13,3 +13,4 @@ prj/linux_cuda_cmake/build/
 prj/linux_cuda_cmake/test_data
 prj/linux_simd_cmake/build/
 prj/linux_simd_cmake/test_data
+prj/x86_x64_vc12/.vs

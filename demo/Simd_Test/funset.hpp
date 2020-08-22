@@ -19,6 +19,7 @@ public:
 int test_bgra2gray();
 
 // SIMD
+int test_simd_1();
 
 // OpenMP
 int test_openmp_api();

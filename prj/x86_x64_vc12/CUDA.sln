@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CUDA_Test", "CUDA_Test\CUDA_Test.vcxproj", "{428385DE-E202-460C-9F04-C761840608F5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simd", "Simd\Simd.vcxproj", "{3F1FACB7-6706-46F8-9A3D-FE739EAA8E16}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simd_Test", "Simd_Test\Simd_Test.vcxproj", "{465D86D3-0FF2-4699-8E3F-58BE1448AA69}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssemblyLanguage_Test", "AssemblyLanguage_Test\AssemblyLanguage_Test.vcxproj", "{A51AA1D0-DE16-4215-9FF9-40D898B7A6FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,8 @@ Global
 		{3F1FACB7-6706-46F8-9A3D-FE739EAA8E16}.Release|x64.ActiveCfg = Release|x64
 		{465D86D3-0FF2-4699-8E3F-58BE1448AA69}.Debug|x64.ActiveCfg = Debug|x64
 		{465D86D3-0FF2-4699-8E3F-58BE1448AA69}.Release|x64.ActiveCfg = Release|x64
+		{A51AA1D0-DE16-4215-9FF9-40D898B7A6FF}.Debug|x64.ActiveCfg = Debug|x64
+		{A51AA1D0-DE16-4215-9FF9-40D898B7A6FF}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

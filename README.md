@@ -5,6 +5,7 @@
 - Simd's usage [Simd GitHub](https://github.com/ermig1979/Simd)
 - OpenMP's usage
 - SIMD's usage
+- Assembly Language's usage(MASM, NASM)
 
 **CUDA 8.0 test code:**
 - simple
@@ -38,10 +39,11 @@
 
 **The project support platform:**
 - windows10 64 bits: It can be directly build with VS2013 in windows10 64bits(Except TensorRT).
-- Linux: 
+- Linux:
 	- CUDA supports cmake build(file position: prj/linux_cuda_cmake)
 	- TensorRT support cmake build(file position: prj/linux_tensorrt_cmake)
-	- Simd_Test support cmake build(file position: prl/linux_simd_cmake)
+	- Simd_Test support cmake build(file position: prj/linux_simd_cmake)
+	- AssemblyLanguage_Test support cmake build(file position: prj/linux_assembly_language_cmake)
 
 **Screenshot:**  
 ![](https://github.com/fengbingchun/CUDA_Test/blob/master/prj/x86_x64_vc12/Screenshot.png)

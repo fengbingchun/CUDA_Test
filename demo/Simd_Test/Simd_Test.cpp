@@ -3,7 +3,7 @@
 
 int main()
 {
-	int ret = test_openmp_variable_reduction();
+	int ret = test_simd_1();
 
 	if (ret == 0) fprintf(stdout, "========== test success ==========\n");
 	else fprintf(stderr, "########## test fail ##########\n");
