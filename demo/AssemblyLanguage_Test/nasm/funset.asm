@@ -1,43 +1,35 @@
-; from: https://github.com/brianrhall/Assembly/blob/master/Chapter_3/Program%203.2/x86_64/Program_3.2_NASM.asm
+; from: https://github.com/brianrhall/Assembly/blob/master/Chapter_8/Program%208.1_x87_FPU/NASM/Program_8.1_NASM_64.asm
 
-; Program 3.2
-; Working Example - NASM (64-bit)
-; Copyright (c) 2019 Hall & Slonka
+extern _printFloat
+extern _printDouble
 
-SECTION .data                     ; Section for variable definitions
+section .data
+value: dd 1.2
 
-decimalLiteral:   DB 31           ; Variable storing 31
-hexLiteral:       DD 0Fh          ; Variable storing F (15 in decimal)
-charLiteral:      DB 'A'          ; Variable storing 65 in decimal
+section .bss
+r_value: resd 1		; Reserve 4 bytes for holding a 32-bit float
+f_result: resd 1
+d_result: resq 1	; Reserve 8 bytes for holding a 64-bit float
 
-; Variable containing a string that has a line break and is null-terminated
-stringLiteral:    DB "This is a string that",0ah
-                  DB "has a line break in it.",0
+section .text
+global asmMain
+asmMain:
+	push rbp
+	mov rbp, rsp
 
-; Variable that calculates the value of an expression to determine the
-; length, in bytes, of the variable "stringLiteral" by subtracting the
-; starting memory address of the variable from the current memory address
-lenString:        EQU ($ - stringLiteral)
+	finit				; initialize FPU
+	fldpi				; load PI on FPU stack
+	fld DWORD [rel value]		; load single precision value on FPU stack
+	fadd ST0, ST1			; ST1 = PI, ST0 = 1.2
+	fist DWORD [rel r_value]	; copies ST0, rounds to nearest, stores in memory, r_value = 4
 
-SECTION .bss                      ; Section for uninitialized variables
-unInitVariable:   RESD 1          ; 4-byte uninitialized variable
+	fstp DWORD [rel f_result]	; float store single precision (32 bits) from top of FPU stack
+	movss xmm0, DWORD [rel f_result]
+	call _printFloat
 
-SECTION .text                     ; Section for instructions
-global _main                      ; Make the label "_main"
-                                  ; available to the linker as an
-                                  ; entry point for the program
-_main:                            ; Label for program entry
+	fstp QWORD [d_result]		; float store double precision (64 bits) from top of FPU stack
+	movsd xmm0, QWORD [rel d_result]
+	call _printDouble
 
-	; Label and instruction on
-	; the same line below
-	partOne: mov eax, 10              ; Assign 10 to the eax register
-	add eax, [rel hexLiteral]         ; Add the value in hexLiteral to
-	                                  ; the contents of the eax register
-		                          ; and store the result in eax
-
-	partTwo:                          ; Label on its own line
-	inc eax                           ; Increment the value in eax
-
-mov rax, 60                       ; Set the system call for exit
-xor rdi, rdi                      ; Set the return value in rdi (0)
-syscall                           ; Issue the kernel interrupt
+	pop rbp
+	ret

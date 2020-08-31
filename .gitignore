@@ -8,6 +8,7 @@
 *.jpg
 prj/linux_tensorrt_cmake/build/
 prj/linux_cuda_cmake/build/
+prj/linux_assembly_language_cmake/build/
 .vscode/
 /test_data/
 prj/linux_cuda_cmake/test_data

@@ -1,42 +1,37 @@
-; from: https://github.com/brianrhall/Assembly/blob/master/Chapter_3/Program%203.2/x86_64/Program_3.2_MASM.asm
+; from: https://github.com/brianrhall/Assembly/blob/master/Chapter_8/Program%208.1_x87_FPU/MASM/Program_8.1_MASM_64.asm
+extrn ExitProcess : proc
 
-; Program 3.2
-; Working Example - MASM (64-bit)
-; Copyright (c) 2019 Hall & Slonka
+_printFloat  PROTO C
+_printDouble PROTO C
 
-extrn ExitProcess: proc    ; Prototype for ExitProcess method
+.data
+value    REAL4 1.2
+r_value  REAL4 ?	; Reserve 4 bytes for holding a 32-bit float
+f_result REAL4 ?
+d_result REAL8 ?	; Reserve 8 bytes for holding a 64-bit float
 
+.code
+asmMain PROC
+	push rbp
+	sub rsp, 20h
+	lea rbp, [rsp + 20h]
 
-.data                               ; Section for variable definitions
+	finit			; initialize FPU
+	fldpi			; load PI on FPU stack
+	fld value		; load single precision value on FPU stack
+	fadd ST(0), ST(1)	; ST(1) = PI, ST(0) = 1.2
+	fist r_value		; copies ST(0), rounds to nearest, stores in memory, r_value = 4
 
-decimalLiteral    BYTE 31           ; Variable storing 31
-hexLiteral        DWORD 0Fh         ; Variable storing F (15 in decimal)
-charLiteral       BYTE 'A'          ; Variable storing 65 in decimal
-unInitVariable    DWORD ?           ; 4-byte uninitialized variable
+	fstp f_result		; float store single precision (32 bits) from top of FPU stack
+	movss xmm0, f_result
+	call _printFloat
 
-; Variable containing a string that has a line break and is null-terminated
-stringLiteral     BYTE "This is a string that",0dh,0ah
-                  BYTE "has a line break in it.",0
+	fstp d_result		; float store double precision (64 bits) from top of FPU stack
+	movsd xmm0, d_result
+	call _printDouble
 
-; Variable that calculates the value of an expression to determine the
-; length, in bytes, of the variable "stringLiteral" by subtracting the
-; starting memory address of the variable from the current memory address
-lenString         EQU ($ - stringLiteral)
-
-.code                             ; Section for instructions\
-_main PROC                        ; Start of "_main" procedure
-	; Label and instruction on
-	; the same line below
-	partOne: mov eax, 10              ; Assign 10 to the eax register
-	add eax, hexLiteral               ; Add the value in hexLiteral to
-									  ; the contents of the eax register
-									  ; and store the result in eax
-
-	partTwo:                          ; Label on its own line
-	inc eax                           ; Increment the value in eax
-
-	xor rcx, rcx			          ; Set the return value in rcx (0)
-	call ExitProcess                  ; Call the ExitProcess method
-_main ENDP                        ; End of "_main" procedure
-
-END                               ; End assembling
+	lea rsp, [rbp]
+	pop rbp
+	ret
+asmMain ENDP
+END

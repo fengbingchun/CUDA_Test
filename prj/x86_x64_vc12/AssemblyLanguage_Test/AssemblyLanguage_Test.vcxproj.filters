@@ -15,18 +15,29 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\masm\AssemblyLanguage_Test.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="..\..\..\demo\AssemblyLanguage_Test\masm\funset.asm">
-      <Filter>源文件</Filter>
-    </MASM>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\demo\AssemblyLanguage_Test\funset.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\demo\AssemblyLanguage_Test\common.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\demo\AssemblyLanguage_Test\masm\funset.asm">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\..\..\demo\AssemblyLanguage_Test\masm\funset.obj">
+      <Filter>源文件</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\AssemblyLanguage_Test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\funset2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
