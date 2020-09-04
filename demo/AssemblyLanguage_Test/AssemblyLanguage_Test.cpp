@@ -3,7 +3,7 @@
 
 int main()
 {
-	int ret = test_asmMain();
+	int ret = test_macro_usage();
 	if (ret == 0) fprintf(stdout, "========== test success ==========\n");
 	else fprintf(stderr, "########## test fail ##########\n");
 

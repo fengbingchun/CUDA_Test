@@ -26,9 +26,15 @@
     <None Include="..\..\..\demo\AssemblyLanguage_Test\masm\funset.asm">
       <Filter>源文件</Filter>
     </None>
+    <None Include="..\..\..\demo\AssemblyLanguage_Test\masm\macro.asm">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Object Include="..\..\..\demo\AssemblyLanguage_Test\masm\funset.obj">
+      <Filter>源文件</Filter>
+    </Object>
+    <Object Include="..\..\..\demo\AssemblyLanguage_Test\masm\macro.obj">
       <Filter>源文件</Filter>
     </Object>
   </ItemGroup>
@@ -37,6 +43,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\funset2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\masm\inline.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

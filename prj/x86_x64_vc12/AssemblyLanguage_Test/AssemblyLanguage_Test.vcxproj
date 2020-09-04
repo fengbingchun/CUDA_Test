@@ -105,6 +105,7 @@
     <None Include="..\..\..\demo\AssemblyLanguage_Test\masm\funset.asm">
       <FileType>Document</FileType>
     </None>
+    <None Include="..\..\..\demo\AssemblyLanguage_Test\masm\macro.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\demo\AssemblyLanguage_Test\common.hpp" />
@@ -112,10 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <Object Include="..\..\..\demo\AssemblyLanguage_Test\masm\funset.obj" />
+    <Object Include="..\..\..\demo\AssemblyLanguage_Test\masm\macro.obj" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\AssemblyLanguage_Test.cpp" />
     <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\funset2.cpp" />
+    <ClCompile Include="..\..\..\demo\AssemblyLanguage_Test\masm\inline.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
