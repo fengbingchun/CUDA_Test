@@ -15,135 +15,135 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\demo\CUDA_Test\funset.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\demo\CUDA_Test\common.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\CUDA_Test.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\funset.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\vector_add.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\matrix_mul.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\long_vector_add.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\dot_product.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\julia.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\ripple.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\green_ball.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\ray_tracking.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\heat_conduction.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\calculate_histogram.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\streams.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\layer_channel_normalize.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\layer_reverse.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\layer_prior_vbox.cpp">
+    <ClCompile Include="..\..\..\demo\CUDA_Test\bgr2bgr565.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\demo\CUDA_Test\bgr2gray.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\calculate_histogram.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\demo\CUDA_Test\common.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\demo\CUDA_Test\bgr2bgr565.cpp">
+    <ClCompile Include="..\..\..\demo\CUDA_Test\CUDA_Test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\dot_product.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\funset.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\green_ball.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\heat_conduction.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\demo\CUDA_Test\histogram_equalization.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\julia.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\demo\CUDA_Test\laplacian.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\layer_channel_normalize.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\layer_prior_vbox.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\layer_reverse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\long_vector_add.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\matrix_mul.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\ray_tracking.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\ripple.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\streams.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\demo\CUDA_Test\vector_add.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\vector_add.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\matrix_mul.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\long_vector_add.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\dot_product.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\julia.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\ripple.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\green_ball.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\ray_tracking.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\heat_conduction.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\calculate_histogram.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\streams.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\device_info.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\layer_channel_normalize.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\layer_reverse.cu">
-      <Filter>源文件</Filter>
-    </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\layer_prior_vbox.cu">
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\bgr2bgr565.cu">
       <Filter>源文件</Filter>
     </CudaCompile>
     <CudaCompile Include="..\..\..\demo\CUDA_Test\bgr2gray.cu">
       <Filter>源文件</Filter>
     </CudaCompile>
-    <CudaCompile Include="..\..\..\demo\CUDA_Test\bgr2bgr565.cu">
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\calculate_histogram.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\device_info.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\dot_product.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\green_ball.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\heat_conduction.cu">
       <Filter>源文件</Filter>
     </CudaCompile>
     <CudaCompile Include="..\..\..\demo\CUDA_Test\histogram_equalization.cu">
       <Filter>源文件</Filter>
     </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\julia.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
     <CudaCompile Include="..\..\..\demo\CUDA_Test\laplacian.cu">
       <Filter>源文件</Filter>
     </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\layer_channel_normalize.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\layer_prior_vbox.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\layer_reverse.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\long_vector_add.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\matrix_mul.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\ray_tracking.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\ripple.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\streams.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\demo\CUDA_Test\vector_add.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\demo\CUDA_Test\common.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\demo\CUDA_Test\funset.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

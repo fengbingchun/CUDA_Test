@@ -1,13 +1,13 @@
 # CUDA_Test
 **The main role of the project:**
-- CUDA 8.0'usage(each test code gives the implementation of C ++ and CUDA, respectively, and gives the calculation time for each method)
+- CUDA 10.0'usage(each test code gives the implementation of C ++ and CUDA, respectively, and gives the calculation time for each method)
 - TensorRT's usage
 - Simd's usage [Simd GitHub](https://github.com/ermig1979/Simd)
 - OpenMP's usage
 - SIMD's usage
 - Assembly Language's usage(MASM, NASM)
 
-**CUDA 8.0 test code:**
+**CUDA 10.0 test code:**
 - simple
 	- vector add: C = A + B
 	- matrix multiplication: C = A * B
