@@ -13,7 +13,7 @@ int test_image_process_laplacian()
 #ifdef __linux__
 	cv::Mat src = cv::imread("test_data/images/lena.png", 0);
 #else
-	cv::Mat src = cv::imread("E:/GitCode/CUDA_Test/test_data/images/lena.png", 0);
+	cv::Mat src = cv::imread("../../../test_data/images/lena.png", 0);
 #endif
 	if (!src.data || src.channels() != 1) {
 		fprintf(stderr, "read image fail\n");
@@ -36,7 +36,7 @@ int test_image_process_laplacian()
 #ifdef __linux__
 	cv::imwrite("test_data/images/laplacian.png", dst);
 #else
-	cv::imwrite("E:/GitCode/CUDA_Test/test_data/images/laplacian.png", dst);
+	cv::imwrite("../../../test_data/images/laplacian.png", dst);
 #endif
 
 	CHECK(compare_result(data1.get(), dst.data, width*height) == 0);
@@ -45,7 +45,7 @@ int test_image_process_laplacian()
 #ifdef __linux__
 	save_image(src, dst, width, height / 2, "test_data/images/laplacian_result.png");
 #else
-	save_image(src, dst, width, height / 2, "E:/GitCode/CUDA_Test/test_data/images/laplacian_result.png");
+	save_image(src, dst, width, height / 2, "../../../test_data/images/laplacian_result.png");
 #endif
 
 	return 0;
@@ -57,7 +57,7 @@ int test_image_process_histogram_equalization()
 #ifdef __linux__
 	const std::string image_name{ "test_data/images/lena.png" };
 #else
-	const std::string image_name{ "E:/GitCode/CUDA_Test/test_data/images/lena.png" };
+	const std::string image_name{ "../../../test_data/images/lena.png" };
 #endif
 	cv::Mat mat = cv::imread(image_name, 0);
 	CHECK(mat.data);
@@ -78,7 +78,7 @@ int test_image_process_histogram_equalization()
 #ifdef __linux__
 	cv::imwrite("test_data/images/histogram_equalization.png", dst);
 #else
-	cv::imwrite("E:/GitCode/CUDA_Test/test_data/images/histogram_equalization.png", dst);
+	cv::imwrite("../../../test_data/images/histogram_equalization.png", dst);
 #endif
 
 	CHECK(compare_result(data1.get(), dst.data, width*height) == 0);
@@ -87,7 +87,7 @@ int test_image_process_histogram_equalization()
 #ifdef __linux__
 	save_image(mat, dst, width, height/2, "test_data/images/histogram_equalization_result.png");
 #else
-	save_image(mat, dst, width, height/2, "E:/GitCode/CUDA_Test/test_data/images/histogram_equalization_result.png");
+	save_image(mat, dst, width, height/2, "../../../test_data/images/histogram_equalization_result.png");
 #endif
 
 	return 0;
@@ -99,7 +99,7 @@ int test_image_process_bgr2bgr565()
 #ifdef __linux__
 	const std::string image_name{ "test_data/images/lena.png" };
 #else
-	const std::string image_name{ "E:/GitCode/CUDA_Test/test_data/images/lena.png" };
+	const std::string image_name{ "../../../test_data/images/lena.png" };
 #endif
 	cv::Mat mat = cv::imread(image_name, 1);
 	CHECK(mat.data);
@@ -130,7 +130,7 @@ int test_image_process_bgr2gray()
 #ifdef __linux__
 	const std::string image_name{ "test_data/images/lena.png" };
 #else
-	const std::string image_name{ "E:/GitCode/CUDA_Test/test_data/images/lena.png" };
+	const std::string image_name{ "../../../test_data/images/lena.png" };
 #endif
 	cv::Mat mat = cv::imread(image_name);
 	CHECK(mat.data);
@@ -148,13 +148,13 @@ int test_image_process_bgr2gray()
 #ifdef __linux__
 	cv::imwrite("test_data/images/bgr2gray_cpu.png", dst);
 #else
-	cv::imwrite("E:/GitCode/CUDA_Test/test_data/images/bgr2gray_cpu.png", dst);
+	cv::imwrite("../../../test_data/images/bgr2gray_cpu.png", dst);
 #endif
 	cv::Mat dst2(height, width, CV_8UC1, data2.get());
 #ifdef __linux__
 	cv::imwrite("test_data/images/bgr2gray_gpu.png", dst2);
 #else
-	cv::imwrite("E:/GitCode/CUDA_Test/test_data/images/bgr2gray_gpu.png", dst2);
+	cv::imwrite("../../../test_data/images/bgr2gray_gpu.png", dst2);
 #endif
 	fprintf(stdout, "image bgr to gray: cpu run time: %f ms, gpu run time: %f ms\n", elapsed_time1, elapsed_time2);
 
@@ -197,12 +197,12 @@ int test_layer_reverse()
 #ifdef __linux__
 	std::string image_name{ "test_data/images/lena.png" };
 #else
-	std::string image_name{ "E:/GitCode/CUDA_Test/test_data/images/lena.png" };
+	std::string image_name{ "../../../test_data/images/lena.png" };
 #endif
 	cv::Mat matSrc = cv::imread(image_name);
 	CHECK(matSrc.data);
 
-	cv::cvtColor(matSrc, matSrc, CV_BGR2GRAY);
+	cv::cvtColor(matSrc, matSrc, cv::COLOR_BGR2GRAY);
 	const int width{ 1511 }, height{ 1473 };
 	const auto length = width * height;
 	cv::resize(matSrc, matSrc, cv::Size(width, height));
@@ -229,7 +229,7 @@ int test_layer_reverse()
 #ifdef __linux__
 	save_image(matSrc, matDst, 400, 200, "test_data/images/image_reverse.png");
 #else
-	save_image(matSrc, matDst, 400, 200, "E:/GitCode/CUDA_Test/test_data/images/image_reverse.png");
+	save_image(matSrc, matDst, 400, 200, "../../../test_data/images/image_reverse.png");
 #endif
 
 	fprintf(stderr, "test layer reverse: cpu run time: %f ms, gpu run time: %f ms\n", elapsed_time1, elapsed_time2);
@@ -243,7 +243,7 @@ int test_layer_channel_normalize()
 #ifdef __linux__
 	std::string image_name{ "test_data/images/lena.png" };
 #else
-	std::string image_name{ "E:/GitCode/CUDA_Test/test_data/images/lena.png" };
+	std::string image_name{ "../../../test_data/images/lena.png" };
 #endif
 	cv::Mat matSrc = cv::imread(image_name);
 	if (!matSrc.data) {
@@ -292,13 +292,13 @@ int test_layer_channel_normalize()
 #ifdef __linux__
 	cv::imwrite("test_data/images/image_normalize.png", dst3);
 #else
-	cv::imwrite("E:/GitCode/CUDA_Test/test_data/images/image_normalize.png", dst3);
+	cv::imwrite("../../../test_data/images/image_normalize.png", dst3);
 #endif
 	//cv::resize(matSrc, matSrc, cv::Size(width, height));
 #ifdef __linux__
 	//cv::imwrite("test_data/images/image_src.png", matSrc);
 #else
-	//cv::imwrite("E:/GitCode/CUDA_Test/test_data/images/image_src.png", matSrc);
+	//cv::imwrite("../../../test_data/images/image_src.png", matSrc);
 #endif
 
 	fprintf(stderr, "test layer channel normalize: cpu run time: %f ms, gpu run time: %f ms\n", elapsed_time1, elapsed_time2);
@@ -507,7 +507,7 @@ int test_heat_conduction()
 #ifdef __linux__
 	std::string save_image_name{ "test_data/heat_conduction.jpg" };
 #else
-	std::string save_image_name{ "E:/GitCode/CUDA_Test/heat_conduction.jpg" };
+	std::string save_image_name{ "../../../heat_conduction.jpg" };
 #endif
 	cv::resize(mat2, mat2, cv::Size(width / 2, height / 2), 0.f, 0.f, 2);
 	cv::imwrite(save_image_name, mat2);
@@ -558,7 +558,7 @@ int test_ray_tracking()
 #ifdef __linux__
 	const std::string save_image_name{ "test_data/ray_tracking.jpg" };
 #else
-	const std::string save_image_name{ "E:/GitCode/CUDA_Test/ray_tracking.jpg" };
+	const std::string save_image_name{ "../../../ray_tracking.jpg" };
 #endif
 	cv::imwrite(save_image_name, mat2);
 
@@ -599,7 +599,7 @@ int test_green_ball()
 #ifdef __linux__
 	const std::string save_image_name{ "test_data/gree_ball.jpg" };
 #else
-	const std::string save_image_name{ "E:/GitCode/CUDA_Test/gree_ball.jpg" };
+	const std::string save_image_name{ "../../../gree_ball.jpg" };
 #endif
 	cv::imwrite(save_image_name, mat2);
 
@@ -641,7 +641,7 @@ int test_ripple()
 #ifdef __linux__
 	const std::string save_image_name{ "test_data/ripple.jpg" };
 #else
-	const std::string save_image_name{ "E:/GitCode/CUDA_Test/ripple.jpg" };
+	const std::string save_image_name{ "../../../ripple.jpg" };
 #endif
 	cv::imwrite(save_image_name, mat2);
 
@@ -683,7 +683,7 @@ int test_julia()
 #ifdef __linux__
 	const std::string save_image_name{ "test_data/julia.jpg" };
 #else
-	const std::string save_image_name{ "E:/GitCode/CUDA_Test/julia.jpg" };
+	const std::string save_image_name{ "../../../julia.jpg" };
 #endif
 	cv::imwrite(save_image_name, mat2);
 

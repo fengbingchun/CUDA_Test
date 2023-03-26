@@ -7,7 +7,7 @@
 int test_bgra2gray()
 {
 #ifdef _MSC_VER
-	std::string strImageName = "E:/GitCode/CUDA_Test/test_data/images/lena.png";
+	std::string strImageName = "../../../test_data/images/lena.png";
 #else
 	std::string strImageName = "test_data/images/lena.png";
 #endif

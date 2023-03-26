@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simd", "Simd\Simd.vcxproj", "{3F1FACB7-6706-46F8-9A3D-FE739EAA8E16}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Simd_Test", "Simd_Test\Simd_Test.vcxproj", "{465D86D3-0FF2-4699-8E3F-58BE1448AA69}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3F1FACB7-6706-46F8-9A3D-FE739EAA8E16} = {3F1FACB7-6706-46F8-9A3D-FE739EAA8E16}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssemblyLanguage_Test", "AssemblyLanguage_Test\AssemblyLanguage_Test.vcxproj", "{A51AA1D0-DE16-4215-9FF9-40D898B7A6FF}"
 EndProject
@@ -29,5 +32,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {135621EF-42B4-46D3-BBBE-82E931385C4B}
 	EndGlobalSection
 EndGlobal
