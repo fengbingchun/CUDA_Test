@@ -6,6 +6,7 @@
 - OpenMP's usage
 - SIMD's usage
 - Assembly Language's usage(MASM, NASM)
+- Eigen's usage
 
 **CUDA test code(Note: depend on opencv):**
 - simple
@@ -29,6 +30,18 @@
 	- gray image histogram equalization(only C++ implementation)
 	- gray image edge detection: Laplacian(only C++ implementation)
 
+**Eigen test code:**
+- transpose
+- determinant
+- inverse matrix
+- norm
+- eigenvalues/eigenvectors
+- SVD(Singular Value Decomposition)
+- pseudoinverse
+- trace
+- mean, variance, standard deviation
+- covariance matrix
+
 **TensorRT 2.1.2 test code(only support linux):**
 - MNIST
 - MNIST API(use api produce network)
@@ -44,6 +57,7 @@
 	- TensorRT support cmake build(file position: prj/linux_tensorrt_cmake)
 	- Simd_Test support cmake build(file position: prj/linux_simd_cmake)
 	- AssemblyLanguage_Test support cmake build(file position: prj/linux_assembly_language_cmake)
+	- Eigen_Test support cmake build(file position: prj/linux_eigen_cmake)
 
 **Screenshot:**  
 ![](https://github.com/fengbingchun/CUDA_Test/blob/master/prj/x86_x64_vc12/Screenshot.png)

@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssemblyLanguage_Test", "As
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CUDA_Test", "CUDA_Test\CUDA_Test.vcxproj", "{0273E328-0E95-46DB-9DF9-136E1F9C4D69}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Eigen_Test", "Eigen_Test\Eigen_Test.vcxproj", "{F983083C-70BA-4B93-A763-5A20CDAA598A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -29,6 +31,10 @@ Global
 		{0273E328-0E95-46DB-9DF9-136E1F9C4D69}.Debug|x64.ActiveCfg = Debug|x64
 		{0273E328-0E95-46DB-9DF9-136E1F9C4D69}.Release|x64.ActiveCfg = Release|x64
 		{0273E328-0E95-46DB-9DF9-136E1F9C4D69}.Release|x64.Build.0 = Release|x64
+		{F983083C-70BA-4B93-A763-5A20CDAA598A}.Debug|x64.ActiveCfg = Debug|x64
+		{F983083C-70BA-4B93-A763-5A20CDAA598A}.Debug|x64.Build.0 = Debug|x64
+		{F983083C-70BA-4B93-A763-5A20CDAA598A}.Release|x64.ActiveCfg = Release|x64
+		{F983083C-70BA-4B93-A763-5A20CDAA598A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
