@@ -5,7 +5,30 @@
 #include <string>
 #include <opencv2/opencv.hpp>
 #include <Eigen/Dense>
+#include <Eigen/Geometry>
 #include "common.hpp"
+
+int test_quaternion()
+{
+	// Blog: https://blog.csdn.net/fengbingchun/article/details/130790531
+	Eigen::Matrix3d matrix3d;
+	matrix3d << 2.044289726145588e-004, -0.2587487517264626, -0.9659446369688031,
+		-0.9993063898830017, -3.602307923217642e-002, 9.438056030485108e-003,
+		-3.723838540803551e-002, 0.9652727185840433, -0.2585766451355823;
+
+	// 1. rotate matrix to quaternion(Hamilton)
+	Eigen::Quaterniond q;
+	q = matrix3d;
+	std::cout.precision(16);
+	std::cout << "w:" << q.w() << ", x:" << q.x() << ", y:" << q.y() << ", z:" << q.z() << "\n";
+
+	// 2. quaternion(Hamilton) to rotate matrix
+	Eigen::Quaterniond q2(q.w(), q.x(), q.y(), q.z());
+	Eigen::Matrix3d R = q2.toRotationMatrix();
+	std::cout << "R:\n" << R << "\n";
+
+	return 0;
+}
 
 int test_calcCovarMatrix()
 {
